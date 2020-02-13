@@ -3,6 +3,7 @@
         <div id="nav">
             <router-link to="/">Home</router-link> |
             <router-link to="/about">About</router-link>
+            <h3>ung</h3>
         </div>
         <button id="refresh-button" v-if="updateExists" @click="refreshApp"><i class="fa fa-refresh"></i> Click to update!</button>
         <div v-show="showMessage" id="notification">
@@ -33,7 +34,7 @@
             },
             showRefreshUI(e) {
                 this.registration = e.detail
-                this.updateExists = true  
+                this.updateExists = true
             },
             refreshApp() {
                 this.updateExists = false
@@ -43,12 +44,12 @@
             },
         },
         created() {
-            // --- 
+            // ---
             // Custom code to let user update the app
             // when a new service worker is available
-            // --- 
+            // ---
             document.addEventListener('swUpdated', this.showRefreshUI, {once: true})
-                                       
+
             navigator.serviceWorker.addEventListener('controllerchange', () => {
                 if (this.refreshing) return
                 this.refreshing = true
