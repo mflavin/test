@@ -109,7 +109,7 @@ if (workbox) {
   // workbox.precaching.precacheAndRoute([]);
 
   workbox.routing.registerRoute(
-    /^index.html,
+    /^index.html/,
     new workbox.strategies.NetworkFirst({
       cacheName: 'homepage',
       plugins: [
