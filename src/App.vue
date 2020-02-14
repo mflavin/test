@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/nunu">Nunu</router-link>
-      <h1>HeadAche</h1>
+      <h3>head aching</h3>
     </div>
     <router-view/>
   </div>
