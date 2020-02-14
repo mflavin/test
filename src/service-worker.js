@@ -90,27 +90,16 @@
 // })
 
 
+
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.5.0/workbox-sw.js');
 if (workbox) {
   console.log(`Yay! Workbox is loaded 🎉`);
-
-  // adjust log level for displaying workbox logs
-  workbox.core.setLogLevel(workbox.core.LOG_LEVELS.debug)
-
-  // apply precaching. In the built version, the precacheManifest will
-  // be imported using importScripts (as is workbox itself) and we can
-  // precache this. This is all we need for precaching
-  workbox.precaching.precacheAndRoute(self.__precacheManifest);
-
-  // Make sure to return a specific response for all navigation requests.
-  // Since we have a SPA here, this should be index.html always.
-  // https://stackoverflow.com/questions/49963982/vue-router-history-mode-with-pwa-in-offline-mode
-  workbox.routing.registerNavigationRoute('/index.html')
 
   // workbox.precaching.precacheAndRoute([]);
 
   workbox.routing.registerRoute(
     /^test((?=([^a-z 0-9]))([^\s])*|)*/,
-    new workbox.strategies.NetworkFirst({
+    workbox.strategies.NetworkFirst({
       cacheName: 'subDomain',
       plugins: [
         new workbox.expiration.Plugin({
@@ -123,7 +112,7 @@ if (workbox) {
 
   workbox.routing.registerRoute(
     /^http?.:\/\/mflavin\.github\.io\/test((?=([^a-z 0-9]))([^\s])*|)*/,
-    new workbox.strategies.NetworkFirst({
+    workbox.strategies.NetworkFirst({
       cacheName: 'fullURL',
       plugins: [
         new workbox.expiration.Plugin({
