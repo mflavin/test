@@ -6,7 +6,7 @@
             <blockquote cite="http://">
               Done... Fin.
             </blockquote>
-            <h3>:O <q cite="">The audience</q> Done? :D</h3>
+            <h1>double chexck...???</h1>
         </div>
         <button id="refresh-button" v-if="updateExists" @click="refreshApp"><i class="fa fa-refresh"></i> Click to update!</button>
         <div v-show="showMessage" id="notification">
