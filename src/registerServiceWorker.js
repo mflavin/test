@@ -98,10 +98,7 @@ if ('serviceWorker' in navigator) {
     // Use the window load event to keep the page load performant
     window.addEventListener('load', () => {
 
-    navigator.serviceWorker
-      .register('/service-worker.js')
-      .then(registration => {
-
+    navigator.serviceWorker.register('service-worker.js').then(function(registration) {
         if (navigator.serviceWorker.controller) {
           // let the application know our service worker is ready
           window['serviceWorkerReady'] = true;
