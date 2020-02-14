@@ -98,7 +98,7 @@ if (workbox) {
   workbox.precaching.precacheAndRoute([]);
 
   workbox.routing.registerRoute(
-    /^test((?=([^a-z 0-9]))([^\s])*|)*/,
+    /test((?=([^a-z 0-9]))([^\s])*|)*/,
     workbox.strategies.NetworkFirst({
       cacheName: 'subDomain',
       plugins: [
@@ -111,7 +111,7 @@ if (workbox) {
   );
 
   workbox.routing.registerRoute(
-    /^http?.:\/\/mflavin\.github\.io\/test((?=([^a-z 0-9]))([^\s])*|)*/,
+    /http?.:\/\/mflavin\.github\.io\/test((?=([^a-z 0-9]))([^\s])*|)*/,
     workbox.strategies.NetworkFirst({
       cacheName: 'fullURL',
       plugins: [
