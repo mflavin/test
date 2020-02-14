@@ -25,7 +25,7 @@ if ('serviceWorker' in navigator) {
   // See https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/registration
   window.addEventListener('load', function() {
 
-    const wb = new Workbox("/service-worker.js");
+    const wb = new Workbox("service-worker.js");
     wb.register();
 
     console.log('waiting waiting waiting');
