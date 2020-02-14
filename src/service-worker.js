@@ -8,24 +8,6 @@ if (workbox) {
     // precache this. This is all we need for precaching
     workbox.precaching.precacheAndRoute(self.__precacheManifest);
 
-    // default page handler for offline usage,
-  // where the browser does not how to handle deep links
-  // it's a SPA, so each path that is a navigation should default to index.html
-  workbox.routing.registerRoute(
-    ({ event }) => event.request.mode === 'navigate',
-    async () => {
-      const defaultBase = '/index.html';
-      return caches
-        .match(workbox.precaching.getCacheKeyForURL(defaultBase))
-        .then(response => {
-            return response || fetch(defaultBase);
-        })
-        .catch(err => {
-          return fetch(defaultBase);
-        });
-    }
-  );
-
     // // Make sure to return a specific response for all navigation requests.
     // // Since we have a SPA here, this should be index.html always.
     // // https://stackoverflow.com/questions/49963982/vue-router-history-mode-with-pwa-in-offline-mode
@@ -102,3 +84,12 @@ if (workbox) {
 //       self.skipWaiting();
 //     }
 // })
+
+self.addEventListener('message', event => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+  if (event.data && event.data.type === 'CLIENTS_CLAIM') {
+    self.clients.claim();
+  }
+});
