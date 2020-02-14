@@ -59,8 +59,6 @@ import axios from 'axios';
             })
         },
         mounted () {
-          console.log(this);
-          console.log(axois);
           axios
             .get('https://api.exchangeratesapi.io/latest')
             .then(response => console.log("Response, ", response))
