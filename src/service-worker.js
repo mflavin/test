@@ -4,7 +4,7 @@ if (workbox) {
     workbox.core.setLogLevel(workbox.core.LOG_LEVELS.debug)
 
     // apply precaching. In the built version, the precacheManifest will
-    // be imported using importScripts (as is workbox itself) and we can 
+    // be imported using importScripts (as is workbox itself) and we can
     // precache this. This is all we need for precaching
     workbox.precaching.precacheAndRoute(self.__precacheManifest);
 
@@ -44,6 +44,20 @@ if (workbox) {
         new workbox.strategies.StaleWhileRevalidate({
             cacheName: 'fontawesome',
         })
+    );
+
+
+    // Example Data...
+    workbox.routing.registerRoute(
+      /https:\/\/api\.exchangeratesapi\.io\/latest/,
+      new workbox.strategies.NetworkFirst({
+        cacheName: "currencies",
+        plugins: [
+          new workbox.expiration.Plugin({
+            maxAgeSeconds: 10 * 60 // 10 minutes
+          })
+
+      })
     );
 }
 
