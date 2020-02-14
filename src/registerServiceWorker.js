@@ -17,26 +17,31 @@
 /* eslint-env browser */
 'use strict';
 
+import { Workbox } from "workbox-window";
+
 if ('serviceWorker' in navigator) {
   // Delay registration until after the page has loaded, to ensure that our
   // precaching requests don't degrade the first visit experience.
   // See https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/registration
   window.addEventListener('load', function() {
-    // // When the user asks to refresh the UI, we'll need to reload the window
-    // navigator.serviceWorker.addEventListener('message', (event) => {
-    //   if (!event.data) {
-    //     return;
-    //   }
-    //
-    //   switch (event.data) {
-    //     case 'reload-window':
-    //       window.location.reload();
-    //       break;
-    //     default:
-    //       // NOOP
-    //       break;
-    //   }
-    // });
+
+    const wb = new Workbox("/service-worker.js");
+    wb.register();
+
+    console.log('waiting waiting waiting');
+    wb.addEventListener("waiting", event => {
+      // Set up a listener that will reload the page as soon as the previously waiting service worker has taken control.
+      console.log('controlling controlling controlling');
+      wb.addEventListener("controlling", event => {
+          window.location.reload();
+      });
+
+      // Send a message telling the service worker to skip waiting.
+      // This will trigger the `controlling` event handler above.
+      console.log('SKIP_WAITING SKIP_WAITING SKIP_WAITING');
+      wb.messageSW({ type: "SKIP_WAITING" });
+  });
+
     // Your service-worker.js *must* be located at the top-level directory relative to your site.
     // It won't be able to control pages unless it's located at the same level or higher than them.
     // *Don't* register service worker file in, e.g., a scripts/ sub-directory!
