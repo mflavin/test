@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/nunu">Nunu</router-link>
-      <h3>Bob</h3>
+      <h3>tetings wkbx 3.5</h3>
     </div>
     <router-view/>
   </div>
