@@ -5,6 +5,7 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/nunu">Nunu</router-link>
       <h3>Clients in Active func</h3>
+      <p>Still in active, just trying out new text</p>
     </div>
     <router-view/>
   </div>
