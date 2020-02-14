@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/nunu">Nunu</router-link>
-      <h3>Work Box, mre like not work box</h3>
+      <span>RELOAD WINDOW</span>
     </div>
     <router-view/>
   </div>
