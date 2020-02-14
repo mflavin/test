@@ -6,6 +6,7 @@
       <router-link to="/nunu">Nunu</router-link>
       <h3>Clients in Active func</h3>
       <p>Still in active, just trying out new text</p>
+      <label for="">One more for good measure</label>
     </div>
     <router-view/>
   </div>
