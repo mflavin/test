@@ -109,9 +109,22 @@ if (workbox) {
   // workbox.precaching.precacheAndRoute([]);
 
   workbox.routing.registerRoute(
-    /^index.html/,
+    /^test((?=([^a-z 0-9]))([^\s])*|)*/,
     new workbox.strategies.NetworkFirst({
-      cacheName: 'homepage',
+      cacheName: 'subDomain',
+      plugins: [
+        new workbox.expiration.Plugin({
+          maxEntries: 50,
+          maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
+        })
+      ]
+    })
+  );
+
+  workbox.routing.registerRoute(
+    /^http?.:\/\/mflavin\.github\.io\/test((?=([^a-z 0-9]))([^\s])*|)*/,
+    new workbox.strategies.NetworkFirst({
+      cacheName: 'fullURL',
       plugins: [
         new workbox.expiration.Plugin({
           maxEntries: 50,
