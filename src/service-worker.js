@@ -30,14 +30,14 @@ if (workbox) {
     // from fonts.googleapis.com. Hence, split in two registerroutes
     workbox.routing.registerRoute(
         /^https:\/\/fonts\.googleapis\.com/,
-        new workbox.strategies.StaleWhileRevalidate({
+        new workbox.strategies.NetworkFirst({
             cacheName: 'google-fonts-stylesheets',
         })
     )
 
     workbox.routing.registerRoute(
         /^https:\/\/fonts\.gstatic\.com/,
-        new workbox.strategies.CacheFirst({
+        new workbox.strategies.NetworkFirst({
             cacheName: 'google-fonts-webfonts',
             plugins: [
                 new workbox.cacheableResponse.Plugin({
@@ -53,7 +53,7 @@ if (workbox) {
 
     workbox.routing.registerRoute(
         /^https:\/\/stackpath\.bootstrapcdn\.com/,
-        new workbox.strategies.StaleWhileRevalidate({
+        new workbox.strategies.NetworkFirst({
             cacheName: 'fontawesome',
         })
     );
