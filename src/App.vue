@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/nunu">Nunu</router-link>
-      <span>RELOAD WINDOW</span>
+      <p>Please be done and working :|||||:::::|||</p>
     </div>
     <router-view/>
   </div>
