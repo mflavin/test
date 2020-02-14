@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/nunu">Nunu</router-link>
-      <h3>Cahnge part 2 test simalr code</h3>
+      <h1>mokee e$$</h1>
     </div>
     <router-view/>
   </div>
