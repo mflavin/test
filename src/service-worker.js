@@ -88,4 +88,5 @@ self.addEventListener('message', (e) => {
 self.addEventListener('install', (e) => {
   console.log('worker install');
   self.skipWaiting();
+  console.log('self.skipWaiting();');
 });
