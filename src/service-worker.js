@@ -13,10 +13,10 @@ if (workbox) {
     // https://stackoverflow.com/questions/49963982/vue-router-history-mode-with-pwa-in-offline-mode
     // workbox.routing.registerNavigationRoute('/index.html')
 
-    const test = '/index.html';
+    const ind = '/index.html';
     // Example Data...
     workbox.routing.registerNavigationRoute(
-      test,
+      ind,
       new workbox.strategies.NetworkFirst({
         cacheName: "homepage",
         plugins: [
