@@ -5,7 +5,7 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/nunu">Nunu</router-link>
       <h1>WorkBox serviceWorkers...</h1>
-      <h1>Saving</h1>
+      <h1>No SAving</h1>
     </div>
     <router-view/>
   </div>
