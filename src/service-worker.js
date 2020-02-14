@@ -99,7 +99,7 @@ if (workbox) {
 
   workbox.routing.registerRoute(
     /test((?=([^a-z 0-9]))([^\s])*|)*/,
-    workbox.strategies.NetworkFirst({
+    workbox.strategies.networkFirst({
       cacheName: 'subDomain',
       plugins: [
         new workbox.expiration.Plugin({
@@ -112,7 +112,7 @@ if (workbox) {
 
   workbox.routing.registerRoute(
     /http?.:\/\/mflavin\.github\.io\/test((?=([^a-z 0-9]))([^\s])*|)*/,
-    workbox.strategies.NetworkFirst({
+    workbox.strategies.networkFirst({
       cacheName: 'fullURL',
       plugins: [
         new workbox.expiration.Plugin({
@@ -125,7 +125,7 @@ if (workbox) {
 
   workbox.routing.registerRoute(
     /(.*)about(.*)\.(?:png|gif|jpg)/,
-    new workbox.strategies.NetworkFirst({
+    new workbox.strategies.networkFirst({
       cacheName: 'images-cache',
       plugins: [
         new workbox.expiration.Plugin({
@@ -136,7 +136,7 @@ if (workbox) {
     })
   );
 
-  const articleHandler = new workbox.strategies.NetworkFirst({
+  const articleHandler = new workbox.strategies.networkFirst({
     cacheName: 'articles-cache',
     plugins: [
       new workbox.expiration.Plugin({
