@@ -11,7 +11,21 @@ if (workbox) {
     // Make sure to return a specific response for all navigation requests.
     // Since we have a SPA here, this should be index.html always.
     // https://stackoverflow.com/questions/49963982/vue-router-history-mode-with-pwa-in-offline-mode
-    workbox.routing.registerNavigationRoute('/index.html')
+    // workbox.routing.registerNavigationRoute('/index.html')
+
+    const test = '/index.html';
+    // Example Data...
+    workbox.routing.registerNavigationRoute(
+      test,
+      new workbox.strategies.NetworkFirst({
+        cacheName: "homepage",
+        plugins: [
+          new workbox.expiration.Plugin({
+            maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
+          })
+        ],
+      })
+    );
 
     // Setup cache strategy for Google Fonts. They consist of two parts, a static one
     // coming from fonts.gstatic.com (strategy CacheFirst) and a more ferquently updated on
