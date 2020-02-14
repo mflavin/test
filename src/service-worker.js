@@ -79,10 +79,8 @@ if (workbox) {
 self.addEventListener('message', (e) => {
   console.log('e.data: ', e.data);
   console.log('e.data.type: ', e.data.type);
-    if (!e.data) {
-        return;
-    }
     if (e.data.type === 'skipWaiting') {
-        self.skipWaiting();
+      console.log('skipping...');
+      self.skipWaiting();
     }
 })
