@@ -93,8 +93,8 @@ self.addEventListener('activate', event => {
    });
 });
 
-self.addEventListener('install', (e) => {
-  console.log('worker install');
-  self.skipWaiting();
-  console.log('self.skipWaiting();');
-});
+// self.addEventListener('install', (e) => {
+//   console.log('worker install');
+//   self.skipWaiting();
+//   console.log('self.skipWaiting();');
+// });
