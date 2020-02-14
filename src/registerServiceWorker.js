@@ -22,6 +22,24 @@ if ('serviceWorker' in navigator) {
   // precaching requests don't degrade the first visit experience.
   // See https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/registration
   window.addEventListener('load', function() {
+
+    navigator.serviceWorker.addEventListener('message', (event) => {
+      if (!event.data) {
+        return;
+      }
+
+      switch (event.data) {
+        case 'reload-window':
+          console.log('reload-window');
+          console.log('reload-window');
+          window.location.reload(true);
+          break;
+        default:
+          // NOOP
+          break;
+      }
+    });
+
     // Your service-worker.js *must* be located at the top-level directory relative to your site.
     // It won't be able to control pages unless it's located at the same level or higher than them.
     // *Don't* register service worker file in, e.g., a scripts/ sub-directory!
