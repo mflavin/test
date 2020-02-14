@@ -25,21 +25,13 @@ if ('serviceWorker' in navigator) {
   // See https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/registration
   window.addEventListener('load', function() {
 
-    /*
     const wb = new Workbox("service-worker.js");
     wb.register();
 
-    // Set up a listener that will reload the page as soon as the previously waiting service worker has taken control.
-    console.log('controlling controlling controlling');
-    wb.addEventListener("controlling", event => {
-        window.location.reload();
+    // Fires when the registered service worker has installed but is waiting to activate.
+    wb.addEventListener("waiting", event => {
+        document.dispatchEvent(new CustomEvent('swUpdated', {detail: registration}))
     });
-
-    // Send a message telling the service worker to skip waiting.
-    // This will trigger the `controlling` event handler above.
-    console.log('SKIP_WAITING SKIP_WAITING SKIP_WAITING');
-    wb.messageSW({ type: "skipWaiting" });
-    */
 
     // Your service-worker.js *must* be located at the top-level directory relative to your site.
     // It won't be able to control pages unless it's located at the same level or higher than them.

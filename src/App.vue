@@ -41,7 +41,8 @@ import axios from 'axios';
                 this.updateExists = false
                 if (!this.registration || !this.registration.waiting) return
                 // send message to SW to skip the waiting and activate the new SW
-                this.registration.waiting.postMessage('skipWaiting')
+                console.log('HOW REFRESHING!!!');
+                this.registration.waiting.postMessage({ type: 'skipWaiting' });
             },
         },
         created() {
