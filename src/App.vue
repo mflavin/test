@@ -4,9 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/nunu">Nunu</router-link>
-      <p>
-        <abbr title="">ABC</abbr>
-      </p>
+      <h3>nunu nu nu</h3>
     </div>
     <router-view/>
   </div>
