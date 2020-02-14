@@ -4,7 +4,7 @@
             <router-link to="/">Home</router-link> |
             <router-link to="/about">About</router-link>
             <h1>Monka TOS</h1>
-            <h6>No More Monka S</h6>
+            MONKA GIGA
         </div>
         <button id="refresh-button" v-if="updateExists" @click="refreshApp"><i class="fa fa-refresh"></i> Click to update!</button>
         <div v-show="showMessage" id="notification">
