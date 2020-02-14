@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/nunu">Nunu</router-link>
-      <h2>No install/active SW</h2>
+      <p>Content now available offline, so will this update?</p>
     </div>
     <router-view/>
   </div>
