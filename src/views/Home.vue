@@ -37,11 +37,11 @@ export default {
             subscription: null,
             message: null,
             // images: [
-            //     require('../assets/leonie-mortirolo.png'), 
-            //     require('../assets/pim-mortirolo.png'), 
-            //     require('../assets/mortirolo.png'), 
+            //     require('../assets/leonie-mortirolo.png'),
+            //     require('../assets/pim-mortirolo.png'),
+            //     require('../assets/mortirolo.png'),
             //     require('../assets/logo.png'),
-            // ],            
+            // ],
         }
     },
     methods: {
@@ -57,7 +57,7 @@ export default {
                         if (result === 'granted') {
                             this.createSubscription()
                             .then(sub => {
-                                console.log('subscription created on the client', sub);
+                                // console.log('subscription created on the client', sub);
                                 this.subscription = sub
 
                                 // get new (or existing user) from backend
@@ -65,7 +65,7 @@ export default {
                             })
                             .then(({data}) => {
                                 const { user } = data
-                                console.log('user created on the server', user);
+                                // console.log('user created on the server', user);
                                 localStorage.setItem('username', user.name)
 
                                 // store new subscription on the server
@@ -80,12 +80,12 @@ export default {
                                 this.notificationsEnabled = true
                             })
                         } else {
-                            console.log('User did not granted permission')
+                            // console.log('User did not granted permission')
                         }
                     })
                 } else {
                     // Destroy subscription
-                    console.log('Disable subscription');
+                    // console.log('Disable subscription');
                     if (this.subscription !== null) {
                         // destroy on the server
                         return axios.post(`${process.env.VUE_APP_API_PATH}/subscription/delete`, {
@@ -104,7 +104,7 @@ export default {
             }
         },
         createSubscription() {
-            console.log('ask for active service worker registration');
+            // console.log('ask for active service worker registration');
             if (this.serviceWorkerRegistation === null) {
                 return navigator.serviceWorker.ready // returns a Promise, the active SW registration
                 .then(swreg => {
@@ -116,11 +116,11 @@ export default {
             }
         },
         getSubscription(swreg) {
-            console.log('ask for available subscription');
+            // console.log('ask for available subscription');
             return swreg.pushManager.getSubscription()
         },
         subscribe(swreg) {
-            console.log('create new subscription for this browser on this device');
+            // console.log('create new subscription for this browser on this device');
             // create new subscription for this browser on this device
             const vapidPublicKey = process.env.VUE_APP_VAPID_PUBLIC_KEY
             const convertedVapidPublicKey = this.urlBase64ToUint8Array(vapidPublicKey)
@@ -142,10 +142,10 @@ export default {
             })
         },
         findSubscription() {
-            console.log('get active service worker registration');
+            // console.log('get active service worker registration');
             return navigator.serviceWorker.ready
             .then(swreg => {
-                console.log('haal active subscription op');
+                // console.log('haal active subscription op');
                 this.serviceWorkerRegistation = swreg
                 return this.getSubscription(this.serviceWorkerRegistation)
             })
@@ -187,11 +187,11 @@ export default {
         this.findSubscription()
         .then(sub => {
             if (sub === null) {
-                console.log('no active subscription found on the client', sub);
+                // console.log('no active subscription found on the client', sub);
                 this.buttonDisabled = false
                 this.notificationsEnabled = false
             } else {
-                console.log('Active subscription found', sub);
+                // console.log('Active subscription found', sub);
                 // retrieve user info from API
                 this.buttonDisabled = false
                 this.notificationsEnabled = true
