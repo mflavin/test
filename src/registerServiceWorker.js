@@ -17,22 +17,11 @@
 /* eslint-env browser */
 'use strict';
 
-import { Workbox } from "workbox-window";
-
 if ('serviceWorker' in navigator) {
   // Delay registration until after the page has loaded, to ensure that our
   // precaching requests don't degrade the first visit experience.
   // See https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/registration
   window.addEventListener('load', function() {
-
-    const wb = new Workbox("service-worker.js");
-    wb.register();
-
-    // Fires when the registered service worker has installed but is waiting to activate.
-    wb.addEventListener("waiting", event => {
-        document.dispatchEvent(new CustomEvent('swUpdated', {detail: registration}))
-    });
-
     // Your service-worker.js *must* be located at the top-level directory relative to your site.
     // It won't be able to control pages unless it's located at the same level or higher than them.
     // *Don't* register service worker file in, e.g., a scripts/ sub-directory!
@@ -60,7 +49,6 @@ if ('serviceWorker' in navigator) {
                 // It's the perfect time to display a "New content is available; please refresh."
                 // message in the page's interface.
                 console.log('New or updated content is available.');
-                reg.waiting.postMessage({ type: 'skipWaiting' });
                 reg.unregister().then(() => {
                   console.log('successful');
                   window.location.reload(true);
