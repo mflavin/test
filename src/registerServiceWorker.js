@@ -39,7 +39,7 @@ if ('serviceWorker' in navigator) {
       // Send a message telling the service worker to skip waiting.
       // This will trigger the `controlling` event handler above.
       console.log('SKIP_WAITING SKIP_WAITING SKIP_WAITING');
-      wb.messageSW({ type: "SKIP_WAITING" });
+      wb.messageSW({ type: "skipWaiting" });
   });
 
     // Your service-worker.js *must* be located at the top-level directory relative to your site.

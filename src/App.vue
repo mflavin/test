@@ -4,7 +4,7 @@
             <router-link to="/">Home</router-link> |
             <router-link to="/about">About</router-link>
             <blockquote cite="http://">
-              COULD IT BE???
+              Nope :(
             </blockquote>
             <h3>:O <q cite="">The audience</q> Done? :D</h3>
         </div>
