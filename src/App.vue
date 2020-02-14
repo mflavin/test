@@ -5,6 +5,7 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/nunu">Nunu</router-link>
       <h1>NO WAY, EATING</h1>
+      <h2>Fix errors, cache page</h2>
     </div>
     <router-view/>
   </div>
