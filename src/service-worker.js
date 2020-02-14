@@ -67,6 +67,7 @@ self.addEventListener('message', (e) => {
         return;
     }
 
+    console.log('e.data: ', e.data);
     switch (e.data) {
         case 'skipWaiting':
             self.skipWaiting();
