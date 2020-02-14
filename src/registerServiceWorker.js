@@ -99,7 +99,9 @@ if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
 
     navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+      console.log('none');
         if (navigator.serviceWorker.controller) {
+          console.log('ung');
           // let the application know our service worker is ready
           window['serviceWorkerReady'] = true;
           window.dispatchEvent(new CustomEvent('service-worker-ready'));
@@ -110,6 +112,7 @@ if ('serviceWorker' in navigator) {
         const waitingWoker = registration.waiting;
 
         if (newWorker) {
+          console.log('seomthing');
           if (newWorker.state === 'activated' && !waitingWoker) {
             // reload to avoid skipWaiting and clients.claim()
             window.location.reload(true);
