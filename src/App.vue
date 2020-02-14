@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/nunu">Nunu</router-link>
-      <p>ungada bungada</p>
+      <h1>HeadAche</h1>
     </div>
     <router-view/>
   </div>
