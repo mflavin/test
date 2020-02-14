@@ -25,7 +25,7 @@ if ('serviceWorker' in navigator) {
   // See https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/registration
   window.addEventListener('load', function() {
 
-    const wb = new Workbox("service-worker.js");
+    const wb = new Workbox("/service-worker.js");
     wb.register();
 
     // Set up a listener that will reload the page as soon as the previously waiting service worker has taken control.
