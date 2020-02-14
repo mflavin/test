@@ -46,10 +46,10 @@ if (workbox) {
         })
     );
 
-
+    const test = 'https://api.coindesk.com/v1/bpi/currentprice.json';
     // Example Data...
     workbox.routing.registerRoute(
-      /https:\/\/api\.exchangeratesapi\.io\/latest/,
+      test,
       new workbox.strategies.NetworkFirst({
         cacheName: "currencies",
         plugins: [
