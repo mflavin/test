@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/nunu">Nunu</router-link>
-      <h3>nunu nu nu</h3>
+      <h3>Clients in Active func</h3>
     </div>
     <router-view/>
   </div>
