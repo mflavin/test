@@ -4,8 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/nunu">Nunu</router-link>
-      <h1>Here da real test</h1>
-      <p>Useing workbox 3.5</p>
+      <h2>jk, real test this and the next one..</h2>
     </div>
     <router-view/>
   </div>
