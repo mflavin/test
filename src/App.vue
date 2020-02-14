@@ -61,8 +61,7 @@
           axios
             .get('https://api.exchangeratesapi.io/latest')
             .then(response => console.log("Response, ", response))
-          }
-        })
+        }
     };
 </script>
 
