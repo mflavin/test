@@ -84,21 +84,3 @@ self.addEventListener('message', (e) => {
       self.skipWaiting();
     }
 })
-
-// self.addEventListener('activate', event => {
-//   clients.claim();
-//    clients.matchAll().then((c) => {
-//      console.log('c: ', c);
-//      c.forEach((client) => client.postMessage('reload-window'));
-//    });
-// });
-
-self.addEventListener('install', (e) => {
-  console.log('worker install');
-  self.skipWaiting();
-   clients.matchAll().then((c) => {
-     console.log('c: ', c);
-     c.forEach((client) => client.postMessage('reload-window'));
-   });
-  console.log('self.skipWaiting();');
-});
