@@ -14,7 +14,7 @@ if (workbox) {
     // workbox.routing.registerNavigationRoute('/index.html')
 
     workbox.routing.registerNavigationRoute(
-      /index.html,
+      /^index.html/,
       new workbox.strategies.NetworkFirst({
         cacheName: "app",
         plugins: [
