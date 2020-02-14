@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/nunu">Nunu</router-link>
-      <h4>Reverse now</h4>
+      <h1>on Tracks</h1>
     </div>
     <router-view/>
   </div>
