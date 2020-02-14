@@ -123,32 +123,32 @@ if (workbox) {
     })
   );
 
-  workbox.routing.registerRoute(
-    /(.*)about(.*)\.(?:png|gif|jpg)/,
-    new workbox.strategies.networkFirst({
-      cacheName: 'images-cache',
-      plugins: [
-        new workbox.expiration.Plugin({
-          maxEntries: 50,
-          maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
-        })
-      ]
-    })
-  );
-
-  const articleHandler = new workbox.strategies.networkFirst({
-    cacheName: 'articles-cache',
-    plugins: [
-      new workbox.expiration.Plugin({
-        maxEntries: 50,
-        maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
-      })
-    ]
-  });
-
-  workbox.routing.registerRoute(/^(.*)about(.*)\.html/, args => {
-    return articleHandler.handle(args);
-  });
+  // workbox.routing.registerRoute(
+  //   /(.*)about(.*)\.(?:png|gif|jpg)/,
+  //   new workbox.strategies.networkFirst({
+  //     cacheName: 'images-cache',
+  //     plugins: [
+  //       new workbox.expiration.Plugin({
+  //         maxEntries: 50,
+  //         maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
+  //       })
+  //     ]
+  //   })
+  // );
+  //
+  // const articleHandler = new workbox.strategies.networkFirst({
+  //   cacheName: 'articles-cache',
+  //   plugins: [
+  //     new workbox.expiration.Plugin({
+  //       maxEntries: 50,
+  //       maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
+  //     })
+  //   ]
+  // });
+  //
+  // workbox.routing.registerRoute(/^(.*)about(.*)\.html/, args => {
+  //   return articleHandler.handle(args);
+  // });
 
 } else {
   console.log(`Boo! Workbox didn't load 😬`);
