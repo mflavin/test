@@ -85,9 +85,9 @@ self.addEventListener('message', (e) => {
     }
 })
 
-// self.addEventListener('activate', event => {
-//   event.waitUntil(clients.claim());
-// });
+self.addEventListener('activate', event => {
+  event.waitUntil(clients.claim());
+});
 
 self.addEventListener('install', (e) => {
   console.log('worker install');
