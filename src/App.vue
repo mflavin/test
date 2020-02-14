@@ -4,7 +4,9 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/nunu">Nunu</router-link>
-      <p>Please be done and working :|||||:::::|||</p>
+      burh
+      >:()
+      <p>pls</p>
     </div>
     <router-view/>
   </div>
