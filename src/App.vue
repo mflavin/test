@@ -3,7 +3,7 @@
         <div id="nav">
             <router-link to="/">Home</router-link> |
             <router-link to="/about">About</router-link>
-            <h3>Worked before, what about now...</h3>
+            <h3>Third time is the Charm</h3>
         </div>
         <button id="refresh-button" v-if="updateExists" @click="refreshApp"><i class="fa fa-refresh"></i> Click to update!</button>
         <div v-show="showMessage" id="notification">
