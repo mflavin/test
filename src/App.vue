@@ -4,9 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/nunu">Nunu</router-link>
-      burh
-      >:()
-      <p>pls</p>
+      <h1>NO WAY, EATING</h1>
     </div>
     <router-view/>
   </div>
