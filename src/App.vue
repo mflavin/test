@@ -65,7 +65,10 @@ import axios from 'axios';
 
           axios
             .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-            .then(response => console.log("Response, ", response))
+            .then(response => {
+              console.log("Response, ", response.data.bpi);
+              console.log("Response, ", response.data.time.updated)
+            })
         }
     };
 </script>
