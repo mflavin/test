@@ -17,7 +17,7 @@
 /* eslint-env browser */
 'use strict';
 
-// import { Workbox } from "workbox-window";
+import { Workbox } from "workbox-window";
 
 if ('serviceWorker' in navigator) {
   // Delay registration until after the page has loaded, to ensure that our
