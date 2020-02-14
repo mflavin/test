@@ -56,7 +56,7 @@ if (workbox) {
           new workbox.expiration.Plugin({
             maxAgeSeconds: 10 * 60 // 10 minutes
           })
-
+        ],
       })
     );
 }
