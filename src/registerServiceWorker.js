@@ -30,8 +30,6 @@ if ('serviceWorker' in navigator) {
 
       switch (event.data) {
         case 'reload-window':
-          console.log('reload-window');
-          console.log('reload-window');
           window.location.reload(true);
           break;
         default:
