@@ -69,24 +69,14 @@ if ('serviceWorker' in navigator) {
                   console.log('successful');
                   window.location.reload(true);
                 });
-                break;
               } else {
                 // At this point, everything has been precached.
                 // It's the perfect time to display a "Content is cached for offline use." message.
                 console.log('Content is now available offline!');
-                reg.unregister().then(() => {
-                  console.log('successful');
-                  window.location.reload(true);
-                });
-                break;
               }
               break;
 
             case 'redundant':
-              reg.unregister().then(() => {
-                console.error('The installing service worker became redundant.');
-                window.location.reload(true);
-              });
               break;
           }
         };
