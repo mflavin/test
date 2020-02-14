@@ -17,7 +17,7 @@
 /* eslint-env browser */
 'use strict';
 
-import { Workbox } from "workbox-window";
+// import { Workbox } from "workbox-window";
 
 if ('serviceWorker' in navigator) {
   // Delay registration until after the page has loaded, to ensure that our
@@ -25,6 +25,7 @@ if ('serviceWorker' in navigator) {
   // See https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/registration
   window.addEventListener('load', function() {
 
+    /*
     const wb = new Workbox("service-worker.js");
     wb.register();
 
@@ -38,6 +39,7 @@ if ('serviceWorker' in navigator) {
     // This will trigger the `controlling` event handler above.
     console.log('SKIP_WAITING SKIP_WAITING SKIP_WAITING');
     wb.messageSW({ type: "skipWaiting" });
+    */
 
     // Your service-worker.js *must* be located at the top-level directory relative to your site.
     // It won't be able to control pages unless it's located at the same level or higher than them.
