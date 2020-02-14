@@ -121,6 +121,8 @@ if ('serviceWorker' in navigator) {
               window.location.reload(true);
             }
           });
+        } else {
+          console.log('nithiung');
         }
 
       })
