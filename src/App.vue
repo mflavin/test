@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/nunu">Nunu</router-link>
-      <h2>new test ung</h2>
+      <h2>No install/active SW</h2>
     </div>
     <router-view/>
   </div>
