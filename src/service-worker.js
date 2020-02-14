@@ -109,8 +109,21 @@ if (workbox) {
   // workbox.precaching.precacheAndRoute([]);
 
   workbox.routing.registerRoute(
+    /^index.html,
+    new workbox.strategies.NetworkFirst({
+      cacheName: 'homepage',
+      plugins: [
+        new workbox.expiration.Plugin({
+          maxEntries: 50,
+          maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
+        })
+      ]
+    })
+  );
+
+  workbox.routing.registerRoute(
     /(.*)about(.*)\.(?:png|gif|jpg)/,
-    workbox.strategies.cacheFirst({
+    new workbox.strategies.NetworkFirst({
       cacheName: 'images-cache',
       plugins: [
         new workbox.expiration.Plugin({
