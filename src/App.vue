@@ -3,7 +3,9 @@
         <div id="nav">
             <router-link to="/">Home</router-link> |
             <router-link to="/about">About</router-link>
-            <small>Please work... :|</small>
+            <blockquote cite="http://">
+              COULD IT BE???
+            </blockquote>
             <h3>:O <q cite="">The audience</q> Done? :D</h3>
         </div>
         <button id="refresh-button" v-if="updateExists" @click="refreshApp"><i class="fa fa-refresh"></i> Click to update!</button>
