@@ -3,8 +3,7 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/nunu">Nunu</router-link>
-      <h3>INdex.html NetworkFirst</h3>
+      <h1>Time for the test...</h1>
     </div>
     <router-view/>
   </div>
