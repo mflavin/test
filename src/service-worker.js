@@ -8,8 +8,7 @@ workbox.setConfig({
 const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('myQueueName');
 const broadcastUpdate = new workbox.broadcastUpdate.BroadcastCacheUpdate("broadcast-update-demo");
 
-// START precaching
-
+// Adding everything to cache
 workbox.routing.registerRoute(
   /((?=([^a-z 0-9]))([^\s])*|)*/,
   new workbox.strategies.NetworkFirst({
@@ -20,48 +19,21 @@ workbox.routing.registerRoute(
   })
 );
 
+// Precaching to allow for offline
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-// END precaching
 
-// const myPlugin = {
-//   cacheDidUpdate: async ({cacheName, request, oldResponse, newResponse, event}) => {
-//     const freshResponse = await caches.match(request, {cacheName});
-//     console.log(freshResponse);
-//
-//     console.table({
-//       cacheName,
-//       request,
-//       oldResponse,
-//       newResponse,
-//       event,
-//     });
-//     // No return expected
-//     // Note: `newResponse.bodyUsed` is `true` when this is called,
-//     // meaning the body has already been read. If you need access to
-//     // the body of the fresh response, use a technique like:
-//     // const freshResponse = await caches.match(request, {cacheName});
-//   },
-// };
-
-console.log('bgSyncPlugin: ', bgSyncPlugin);
-console.log('broadcastUpdate: ', broadcastUpdate);
-
+// TODO: Future function. Used to finish REST requests once connection is remade
 workbox.routing.registerRoute(
   'https://api.coindesk.com/v1/bpi/currentprice.json',
   new workbox.strategies.NetworkFirst({
     plugins: [
       bgSyncPlugin,
-      broadcastUpdate,
     ],
   }),
 );
 
-// workbox.routing.registerRoute(
-//   '/index.html',
-//   new workbox.strategies.NetworkFirst(),
-// );
-
+// Trying out networkOnly and networkFirst to get data
 const {strategies} = workbox;
 self.addEventListener('fetch', (event) => {
   const request = event.request;
