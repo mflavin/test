@@ -3,7 +3,7 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <h1>BroadcastCacheUpdate working now, but is it doing anything/???</h1>
+      <h3>Don't do this to me :( </h3>
     </div>
     <router-view/>
   </div>
