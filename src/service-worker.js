@@ -5,7 +5,8 @@ workbox.setConfig({
   debug: false
 });
 
-const bgSyncPlugin = new workbox.backgroundSync.Plugin('queue', {
+// const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('myQueueName');
+const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('queue', {
     maxRetentionTime: 24 * 60 // Retry for max of 24 Hours
 });
 const broadcastUpdate = new workbox.broadcastUpdate.BroadcastCacheUpdate("broadcast-update-demo");
