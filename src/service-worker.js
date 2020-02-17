@@ -20,6 +20,9 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 const myPlugin = {
   cacheDidUpdate: async ({cacheName, request, oldResponse, newResponse, event}) => {
+    const freshResponse = await caches.match(request, {cacheName});
+    console.log(freshResponse);
+    
     console.table({
       cacheName,
       request,
@@ -36,13 +39,13 @@ const myPlugin = {
 };
 
 const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('myQueueName');
-console.log(myPlugin.cacheDidUpdate());
 
 workbox.routing.registerRoute(
   'https://api.coindesk.com/v1/bpi/currentprice.json',
   new workbox.strategies.NetworkFirst({
     plugins: [
       bgSyncPlugin,
+      myPlugin.cacheDidUpdate()
     ],
   }),
 );
