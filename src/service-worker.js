@@ -22,29 +22,23 @@ const broadcastUpdate = new workbox.broadcastUpdate.BroadcastCacheUpdate("broadc
 // Precaching to allow for offline
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-// TODO: Future function. Used to finish REST requests once connection is remade
+// Looks for network connect for data, if none, uses cached data
 workbox.routing.registerRoute(
   'https://api.exchangeratesapi.io/latest',
-  new workbox.strategies.NetworkOnly({
-    plugins: [bgSyncPlugin],
-  }),
+  new workbox.strategies.NetworkFirst(),
 );
 
+// Looks for network connect for data, if none, uses cached data
 workbox.routing.registerRoute(
   'https://api.coindesk.com/v1/bpi/currentprice.json',
-  new workbox.strategies.NetworkFirst({
-    plugins: [
-      bgSyncPlugin,
-    ],
-  }),
+  new workbox.strategies.NetworkFirst(),
 );
 
+// TODO: Future function. Used to finish REST requests once connection is remade
 workbox.routing.registerRoute(
   'https://api.coindesk.com/v1/bpi/currentprice/CNY.json',
   new workbox.strategies.NetworkOnly({
-    plugins: [
-      bgSyncPlugin,
-    ],
+    plugins: [bgSyncPlugin],
   }),
 );
 
