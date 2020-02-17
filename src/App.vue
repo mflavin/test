@@ -15,18 +15,26 @@ import axios from 'axios';
 export default {
   methods: {
     test() {
-      axios
-        .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-        .then(response => {
-          console.log("currentPrice, ", response.data.bpi);
-          console.log("currentTime, ", response.data.time.updated)
+      fetch('https://api.coindesk.com/v1/bpi/currentprice/CNY.json')
+      .then((response) => {
+        console.log('network -- FIRST');
+        response.text().then(t => {
+          console.log('t : ', t);
         })
+      });
     },
   },
   mounted () {
     axios
       .get('https://api.exchangeratesapi.io/latest')
       .then(response => console.log("Latest, ", response.data.rates))
+
+    axios
+      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+      .then(response => {
+        console.log("currentPrice, ", response.data.bpi);
+        console.log("currentTime, ", response.data.time.updated)
+      })
   }
 };
 </script>
