@@ -18,11 +18,12 @@ workbox.routing.registerRoute(
 
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.setCatchHandler(({ event }) => {
-  if (isNav(event))
-    return caches.match(workbox.precaching.getCacheKeyForURL('/index.html'));
-  return Response.error();
-});
+// const isNav = event => event.request.mode === 'navigate';
+// workbox.routing.setCatchHandler(({ event }) => {
+//   if (isNav(event))
+//     return caches.match(workbox.precaching.getCacheKeyForURL('/index.html'));
+//   return Response.error();
+// });
 
 // END precaching
 
