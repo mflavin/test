@@ -23,18 +23,18 @@ const broadcastUpdate = new workbox.broadcastUpdate.BroadcastCacheUpdate("broadc
 // );
 
 // Precaching to allow for offline
-// workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
+workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 
-workbox.precaching.precacheAndRoute(self.__precacheManifest,
-  new workbox.strategies.NetworkOnly({
-    plugins: [
-      bgSyncPlugin,
-      new workbox.expiration.CacheExpiration({
-        maxAgeSeconds: 10, // 1 year
-      })
-    ],
-  }),
-);
+// workbox.precaching.precacheAndRoute(self.__precacheManifest,
+//   new workbox.strategies.NetworkOnly({
+//     plugins: [
+//       bgSyncPlugin,
+//       new workbox.expiration.CacheExpiration({
+//         maxAgeSeconds: 10, // 1 year
+//       })
+//     ],
+//   }),
+// );
 
 // Looks for network connect for data, if none, uses cached data
 workbox.routing.registerRoute(
