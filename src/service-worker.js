@@ -25,8 +25,8 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 // TODO: Future function. Used to finish REST requests once connection is remade
 workbox.routing.registerRoute(
-  'https://api.coindesk.com/v1/bpi/currentprice.json',
-  new workbox.strategies.NetworkFirst({
+  'https://api.exchangeratesapi.io/latest',
+  new workbox.strategies.NetworkOnly({
     plugins: [
       bgSyncPlugin,
     ],
