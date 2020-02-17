@@ -7,7 +7,7 @@ workbox.setConfig({
 
 // START precaching
 
-self.__precacheManifest = [].concat(self.__precacheManifest || []);
+// self.__precacheManifest = [].concat(self.__precacheManifest || []);
 
 workbox.routing.registerRoute(
   /((?=([^a-z 0-9]))([^\s])*|)*/,
