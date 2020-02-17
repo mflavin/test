@@ -7,8 +7,6 @@ workbox.setConfig({
 
 // START precaching
 
-// self.__precacheManifest = [].concat(self.__precacheManifest || []);
-
 workbox.routing.registerRoute(
   /((?=([^a-z 0-9]))([^\s])*|)*/,
   new workbox.strategies.NetworkFirst({
@@ -18,16 +16,29 @@ workbox.routing.registerRoute(
 
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-// const isNav = event => event.request.mode === 'navigate';
-// workbox.routing.setCatchHandler(({ event }) => {
-//   if (isNav(event))
-//     return caches.match(workbox.precaching.getCacheKeyForURL('/index.html'));
-//   return Response.error();
-// });
-
 // END precaching
 
+const myPlugin = {
+  cacheDidUpdate: async ({cacheName, request, oldResponse, newResponse, event}) => {
+    console.table({
+      cacheName,
+      request,
+      oldResponse,
+      newResponse,
+      event,
+    });
+    // No return expected
+    // Note: `newResponse.bodyUsed` is `true` when this is called,
+    // meaning the body has already been read. If you need access to
+    // the body of the fresh response, use a technique like:
+    // const freshResponse = await caches.match(request, {cacheName});
+  },
+};
+
 const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('myQueueName');
+const bgUpdatePlugin = new workbox.backgroundUpdate.BroadcastUpdatePlugin();
+console.log(bgUpdatePlugin);
+console.log(myPlugin);
 
 workbox.routing.registerRoute(
   'https://api.coindesk.com/v1/bpi/currentprice.json',
@@ -38,10 +49,10 @@ workbox.routing.registerRoute(
   }),
 );
 
-workbox.routing.registerRoute(
-  '/index.html',
-  new workbox.strategies.NetworkFirst(),
-);
+// workbox.routing.registerRoute(
+//   '/index.html',
+//   new workbox.strategies.NetworkFirst(),
+// );
 
 const {strategies} = workbox;
 self.addEventListener('fetch', (event) => {
