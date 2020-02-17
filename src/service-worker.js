@@ -36,7 +36,7 @@ const myPlugin = {
 };
 
 const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('myQueueName');
-const bgUpdatePlugin = new workbox;
+const bgUpdatePlugin = workbox;
 console.log(bgUpdatePlugin);
 console.log(myPlugin);
 
