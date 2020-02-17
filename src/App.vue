@@ -5,7 +5,8 @@
       <router-link to="/about">About</router-link>
       <router-link to="/article">Article</router-link>
       <h3 style="font-size: 5px">Done... :D</h3>
-      <button type="button" name="button" @click="test">test</button>
+      <button type="button" name="button" @click="get">get</button>
+      <button type="button" name="button" @click="push">push</button>
     </div>
     <router-view/>
   </div>
@@ -15,7 +16,7 @@
 import axios from 'axios';
 export default {
   methods: {
-    test() {
+    get() {
       fetch('https://api.coindesk.com/v1/bpi/currentprice/CNY.json')
       .then((response) => {
         console.log('network -- Only');
@@ -23,6 +24,22 @@ export default {
         //   console.log('t : ', t);
         // })
       });
+    },
+    push() {
+      axios.post(`http://jsonplaceholder.typicode.com/posts`, {
+        body:   {
+          "UserId": 117,
+          "Id": 117,
+          "Title": "TESTING"
+          "Body": "TESTING"
+        }
+      })
+      .then(response => {
+        console.log('response: ', response);
+      })
+      .catch(e => {
+        console.error("Error... : ", e);
+      })
     },
   },
   mounted () {
