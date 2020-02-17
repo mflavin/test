@@ -43,7 +43,7 @@ workbox.routing.registerRoute(
 
 workbox.routing.registerRoute(
   'https://api.coindesk.com/v1/bpi/currentprice/CNY.json',
-  new workbox.strategies.NetworkFirst({
+  new workbox.strategies.NetworkOnly({
     plugins: [
       bgSyncPlugin,
     ],
