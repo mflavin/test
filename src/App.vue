@@ -15,7 +15,7 @@ import axios from 'axios';
 export default {
   methods: {
     test() {
-      fetch('https://api.coindesk.com/v1/bpi/currentprice/CNY.json')
+      fetch('https://api.exchangeratesapi.io/latest')
       .then((response) => {
         console.log('network -- FIRST');
         response.text().then(t => {
