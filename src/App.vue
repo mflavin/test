@@ -15,13 +15,13 @@ export default {
   mounted () {
     axios
       .get('https://api.exchangeratesapi.io/latest')
-      .then(response => console.log("Response, ", response.data.rates))
+      .then(response => console.log("Latest, ", response.data.rates))
 
     axios
       .get('https://api.coindesk.com/v1/bpi/currentprice.json')
       .then(response => {
-        console.log("Response, ", response.data.bpi);
-        console.log("Response, ", response.data.time.updated)
+        console.log("currentPrice, ", response.data.bpi);
+        console.log("currentTime, ", response.data.time.updated)
       })
   }
 };
