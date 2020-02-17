@@ -3,6 +3,7 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
+      <router-link to="/article">Article</router-link>
       <h3 style="font-size: 5px">Done... :D</h3>
       <button type="button" name="button" @click="test">test</button>
     </div>
