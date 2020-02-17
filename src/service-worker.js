@@ -33,7 +33,7 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest,
       })
     ],
   }),
-});
+);
 
 // Looks for network connect for data, if none, uses cached data
 workbox.routing.registerRoute(
