@@ -43,6 +43,12 @@ workbox.routing.registerRoute(
     plugins: [bgSyncPlugin],
   }),
 );
+workbox.routing.registerRoute(
+  'https://jsonplaceholder.typicode.com/posts',
+  new workbox.strategies.NetworkOnly({
+    plugins: [bgSyncPlugin],
+  }),
+);
 
 //This immediately deploys the service worker w/o requiring a refresh
 workbox.core.skipWaiting();
