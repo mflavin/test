@@ -35,6 +35,8 @@ workbox.routing.registerRoute(
 );
 
 // TODO: Future function. Used to finish REST requests once connection is remade
+// This is running, turn off wifi, click button, watch network tab, turn on button
+// Watch requests come in with new internet connection
 workbox.routing.registerRoute(
   'https://api.coindesk.com/v1/bpi/currentprice/CNY.json',
   new workbox.strategies.NetworkOnly({
