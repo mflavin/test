@@ -5,12 +5,18 @@ workbox.setConfig({
   debug: true
 });
 
+const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('myQueueName');
+const broadcastUpdate = new workbox.broadcastUpdate.BroadcastCacheUpdate("broadcast-update-demo");
+
 // START precaching
 
 workbox.routing.registerRoute(
   /((?=([^a-z 0-9]))([^\s])*|)*/,
   new workbox.strategies.NetworkFirst({
     cacheName: workbox.core.cacheNames.precache,
+    plugins: [
+      broadcastUpdate,
+    ],
   })
 );
 
@@ -18,28 +24,26 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 // END precaching
 
-const myPlugin = {
-  cacheDidUpdate: async ({cacheName, request, oldResponse, newResponse, event}) => {
-    const freshResponse = await caches.match(request, {cacheName});
-    console.log(freshResponse);
+// const myPlugin = {
+//   cacheDidUpdate: async ({cacheName, request, oldResponse, newResponse, event}) => {
+//     const freshResponse = await caches.match(request, {cacheName});
+//     console.log(freshResponse);
+//
+//     console.table({
+//       cacheName,
+//       request,
+//       oldResponse,
+//       newResponse,
+//       event,
+//     });
+//     // No return expected
+//     // Note: `newResponse.bodyUsed` is `true` when this is called,
+//     // meaning the body has already been read. If you need access to
+//     // the body of the fresh response, use a technique like:
+//     // const freshResponse = await caches.match(request, {cacheName});
+//   },
+// };
 
-    console.table({
-      cacheName,
-      request,
-      oldResponse,
-      newResponse,
-      event,
-    });
-    // No return expected
-    // Note: `newResponse.bodyUsed` is `true` when this is called,
-    // meaning the body has already been read. If you need access to
-    // the body of the fresh response, use a technique like:
-    // const freshResponse = await caches.match(request, {cacheName});
-  },
-};
-
-const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('myQueueName');
-const broadcastUpdate = new workbox.broadcastUpdate.BroadcastCacheUpdate("broadcast-update-demo");
 console.log('bgSyncPlugin: ', bgSyncPlugin);
 console.log('broadcastUpdate: ', broadcastUpdate);
 
@@ -48,7 +52,7 @@ workbox.routing.registerRoute(
   new workbox.strategies.NetworkFirst({
     plugins: [
       bgSyncPlugin,
-      myPlugin.cacheDidUpdate()
+      broadcastUpdate,
     ],
   }),
 );
