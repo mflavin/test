@@ -25,13 +25,12 @@ const broadcastUpdate = new workbox.broadcastUpdate.BroadcastCacheUpdate("broadc
 // Precaching to allow for offline
 // workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 
-  console.log(workbox.expiration);
 workbox.precaching.precacheAndRoute(self.__precacheManifest,
   new workbox.strategies.NetworkOnly({
     plugins: [
       bgSyncPlugin,
       new workbox.expiration.CacheExpiration({
-        maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
+        maxAgeSeconds: 10, // 1 year
       })
     ],
   }),
