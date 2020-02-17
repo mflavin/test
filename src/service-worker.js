@@ -48,6 +48,7 @@ workbox.routing.registerRoute(
   new workbox.strategies.NetworkOnly({
     plugins: [bgSyncPlugin],
   }),
+  'POST'
 );
 
 //This immediately deploys the service worker w/o requiring a refresh
