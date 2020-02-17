@@ -30,8 +30,8 @@ export default {
         body:   {
           "UserId": 117,
           "Id": 117,
-          "Title": "TESTING"
-          "Body": "TESTING"
+          "Title": "TESTING",
+          "Body": "TESTING",
         }
       })
       .then(response => {
