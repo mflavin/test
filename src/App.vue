@@ -4,6 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
       <h3 style="font-size: 5px">Done... :D</h3>
+      <button type="button" name="button" @click="test">test</button>
     </div>
     <router-view/>
   </div>
@@ -12,17 +13,20 @@
 <script>
 import axios from 'axios';
 export default {
+  methods: {
+    test() {
+      axios
+        .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+        .then(response => {
+          console.log("currentPrice, ", response.data.bpi);
+          console.log("currentTime, ", response.data.time.updated)
+        })
+    },
+  },
   mounted () {
     axios
       .get('https://api.exchangeratesapi.io/latest')
       .then(response => console.log("Latest, ", response.data.rates))
-
-    axios
-      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-      .then(response => {
-        console.log("currentPrice, ", response.data.bpi);
-        console.log("currentTime, ", response.data.time.updated)
-      })
   }
 };
 </script>
