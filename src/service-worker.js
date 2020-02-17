@@ -5,7 +5,9 @@ workbox.setConfig({
   debug: false
 });
 
-const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('myQueueName');
+const bgSyncPlugin = new workbox.backgroundSync.Plugin('queue', {
+    maxRetentionTime: 24 * 60 // Retry for max of 24 Hours
+});
 const broadcastUpdate = new workbox.broadcastUpdate.BroadcastCacheUpdate("broadcast-update-demo");
 
 // Adding everything to cache
@@ -20,7 +22,18 @@ const broadcastUpdate = new workbox.broadcastUpdate.BroadcastCacheUpdate("broadc
 // );
 
 // Precaching to allow for offline
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+// workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
+
+workbox.precaching.precacheAndRoute(self.__precacheManifest,
+  new workbox.strategies.NetworkOnly({
+    plugins: [
+      bgSyncPlugin,
+      new workbox.expiration.Plugin({
+        maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
+      })
+    ],
+  }),
+});
 
 // Looks for network connect for data, if none, uses cached data
 workbox.routing.registerRoute(
@@ -37,12 +50,15 @@ workbox.routing.registerRoute(
 // TODO: Future function. Used to finish REST requests once connection is remade
 // This is running, turn off wifi, click button, watch network tab, turn on button
 // Watch requests come in with new internet connection
+
+// GET
 workbox.routing.registerRoute(
   'https://api.coindesk.com/v1/bpi/currentprice/CNY.json',
   new workbox.strategies.NetworkOnly({
     plugins: [bgSyncPlugin],
   }),
 );
+// POST
 workbox.routing.registerRoute(
   'https://jsonplaceholder.typicode.com/posts',
   new workbox.strategies.NetworkOnly({
