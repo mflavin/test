@@ -26,7 +26,7 @@ export default {
       });
     },
     push() {
-      axios.post(`http://jsonplaceholder.typicode.com/posts`, {
+      axios.post(`https://jsonplaceholder.typicode.com/posts`, {
         body:   {
           "UserId": 117,
           "Id": 117,
