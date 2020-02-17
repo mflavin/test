@@ -38,10 +38,10 @@ workbox.routing.registerRoute(
   }),
 );
 
-// workbox.routing.registerRoute(
-//   '/index.html',
-//   new workbox.strategies.NetworkFirst(),
-// );
+workbox.routing.registerRoute(
+  '/index.html',
+  new workbox.strategies.NetworkFirst(),
+);
 
 const {strategies} = workbox;
 self.addEventListener('fetch', (event) => {
