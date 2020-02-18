@@ -62,7 +62,7 @@ workbox.routing.registerRoute(
 // POST
 workbox.routing.registerRoute(
   'https://jsonplaceholder.typicode.com/posts',
-  new workbox.strategies.NetworkOnly({
+  new workbox.strategies.NetworkFirst({
     plugins: [bgSyncPlugin],
   }),
   'POST'
