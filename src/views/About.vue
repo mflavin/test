@@ -41,9 +41,9 @@
             <div class="right column">
               <h4 class="list-title">Archived Posts</h4>
               <ul class="vertical-list">
-                <router-link to="/pages/post1" class="post-link">Archived Post 1</router-link>
-                <router-link to="/pages/post2" class="post-link">Archived Post 2</router-link>
-                <router-link to="/pages/post3" class="post-link">Archived Post 3</router-link>
+                <router-link to="/post1" class="post-link">Archived Post 1</router-link>
+                <router-link to="/post2" class="post-link">Archived Post 2</router-link>
+                <router-link to="/post3" class="post-link">Archived Post 3</router-link>
               </ul>
             </div>
           </section>
