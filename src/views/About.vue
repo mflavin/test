@@ -32,22 +32,21 @@
             <div class="left column">
               <h4 class="list-title">Trending Articles</h4>
               <ul class="vertical-list">
-                <router-link to="/pages/article1" class="post-link">Article 1</router-link>
-                <router-link to="/pages/article2" class="post-link">Article 2</router-link>
-                <router-link to="/pages/article3" class="post-link">Article 3</router-link>
-                <router-link to="/pages/article4" class="post-link">Article 4</router-link>
+                <router-link to="pages/article1" class="post-link">Article 1</router-link>
+                <router-link to="pages/article2" class="post-link">Article 2</router-link>
+                <router-link to="pages/article3" class="post-link">Article 3</router-link>
+                <router-link to="pages/article4" class="post-link">Article 4</router-link>
               </ul>
             </div>
             <div class="right column">
               <h4 class="list-title">Archived Posts</h4>
               <ul class="vertical-list">
-                <router-link to="/post1" class="post-link">Archived Post 1</router-link>
-                <router-link to="/post2" class="post-link">Archived Post 2</router-link>
-                <router-link to="/post3" class="post-link">Archived Post 3</router-link>
+                <router-link to="pages/post1" class="post-link">Archived Post 1</router-link>
+                <router-link to="pages/post2" class="post-link">Archived Post 2</router-link>
+                <router-link to="pages/post3" class="post-link">Archived Post 3</router-link>
               </ul>
             </div>
           </section>
-          <router-view/>
         </article>
 
         <footer>
