@@ -32,20 +32,18 @@
             <div class="left column">
               <h4 class="list-title">Trending Articles</h4>
               <ul class="vertical-list">
-                <li class="list-item"><a href="pages/article1.html" class="post-link">Article 1</a></li>
-                <li class="list-item"><a href="pages/article2.html" class="post-link">Article 2</a></li>
-                <li class="list-item"><a href="pages/article3.html" class="post-link">Article 3</a></li>
-                <li class="list-item"><a href="pages/article4.html" class="post-link">Article 4</a></li>
-                <li class="list-item"><a href="pages/article-missing.html" class="post-link">Non-existent article</a></li>
+                <router-link to="pages/article1" class="post-link">Article 1</router-link>
+                <router-link to="pages/article2" class="post-link">Article 2</router-link>
+                <router-link to="pages/article3" class="post-link">Article 3</router-link>
+                <router-link to="pages/article4" class="post-link">Article 4</router-link>
               </ul>
             </div>
             <div class="right column">
               <h4 class="list-title">Archived Posts</h4>
               <ul class="vertical-list">
-                <li class="list-item"><a href="pages/post1.html" class="post-link">Archived Post 1</a></li>
-                <li class="list-item"><a href="pages/post2.html" class="post-link">Archived Post 2</a></li>
-                <li class="list-item"><a href="pages/post3.html" class="post-link">Archived Post 3</a></li>
-                <li class="list-item"><a href="pages/post-missing.html" class="post-link">Non-existent Post 4</a></li>
+                <router-link to="pages/post1" class="post-link">Archived Post 1</router-link>
+                <router-link to="pages/post2" class="post-link">Archived Post 2</router-link>
+                <router-link to="pages/post3" class="post-link">Archived Post 3</router-link>
               </ul>
             </div>
           </section>
