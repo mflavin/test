@@ -5,13 +5,13 @@
         <span style="color: lightblue; display: block;">
          Home
         </span>
-      </router-link style="flex: 0 0 33%;"> |
-      <router-link to="/about">
+      </router-link> |
+      <router-link to="/about" style="flex: 0 0 33%;">
         <span style="color: salmon; display: block;">
          About
         </span>
-      </router-link style="flex: 0 0 33%;"> |
-      <router-link to="/article">
+      </router-link> |
+      <router-link to="/article" style="flex: 0 0 33%;">
         <span style="color: steelblue; display: block;">
          Article
         </span>
