@@ -1,35 +1,37 @@
 <template>
   <div id="app">
-    <div id="nav" style="display: flex; justify-content: space-between; flex-wrap: wrap; padding-left: 0;">
-      <router-link to="/" style="flex: 0 0 33%; padding-bottom: 35px;">
-        <span style="color: lightblue; display: block;">
-         Home
-        </span>
-      </router-link> |
-      <router-link to="/about" style="flex: 0 0 33%; padding-bottom: 35px;">
-        <span style="color: salmon; display: block;">
-         About
-        </span>
-      </router-link> |
-      <router-link to="/article" style="flex: 0 0 33%; padding-bottom: 35px;">
-        <span style="color: steelblue; display: block;">
-         Article
-        </span>
-      </router-link>
-      <button type="button" name="button" @click="get" style="flex: 0 0 33%; margin-bottom: 35px;"><b>G</b>et!</button>
-      <button type="button" name="button" @click="getLat" style="flex: 0 0 33%; margin-bottom: 35px;"><b>G</b>et <b>L</b>at!</button>
-      <button type="button" name="button" @click="push" style="flex: 0 0 33%; margin-bottom: 35px;"><b>P</b>ush!</button>
-      <small style="flex: 0 0 33%;">
-        <div class="get"></div>
-      </small>
-      <small style="flex: 0 0 33%;">
-        <div class="getLat"></div>
-      </small>
-      <small style="flex: 0 0 33%;">
-        <div class="push"></div>
-      </small>
-    </div>
-    <router-view/>
+    <body>
+      <div id="nav" style="display: flex; justify-content: space-between; flex-wrap: wrap; padding-left: 0;">
+        <router-link to="/" style="flex: 0 0 33%; padding-bottom: 35px;">
+          <span style="color: lightblue; display: block;">
+           Home
+          </span>
+        </router-link> |
+        <router-link to="/about" style="flex: 0 0 33%; padding-bottom: 35px;">
+          <span style="color: salmon; display: block;">
+           About
+          </span>
+        </router-link> |
+        <router-link to="/article" style="flex: 0 0 33%; padding-bottom: 35px;">
+          <span style="color: steelblue; display: block;">
+           Article
+          </span>
+        </router-link>
+        <button type="button" name="button" @click="get" style="flex: 0 0 33%; margin-bottom: 35px;"><b>G</b>et!</button>
+        <button type="button" name="button" @click="getLat" style="flex: 0 0 33%; margin-bottom: 35px;"><b>G</b>et <b>L</b>at!</button>
+        <button type="button" name="button" @click="push" style="flex: 0 0 33%; margin-bottom: 35px;"><b>P</b>ush!</button>
+        <small style="flex: 0 0 33%;">
+          <div class="get"></div>
+        </small>
+        <small style="flex: 0 0 33%;">
+          <div class="getLat"></div>
+        </small>
+        <small style="flex: 0 0 33%;">
+          <div class="push"></div>
+        </small>
+      </div>
+      <router-view/>
+    </body>
   </div>
 </template>
 
