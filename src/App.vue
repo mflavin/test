@@ -2,17 +2,17 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">
-        <span style="color: lightblue">
+        <span style="color: lightblue; display: block;">
          h O m E
         </span>
       </router-link> |
       <router-link to="/about">
-        <span style="color: salmon">
+        <span style="color: salmon; display: block;">
          a B o U t
         </span>
       </router-link> |
       <router-link to="/article">
-        <span style="color: steelblue">
+        <span style="color: steelblue; display: block;">
          a R t I c L e
         </span>
       </router-link>
