@@ -1,9 +1,21 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">... h O m E ...</router-link> |
-      <router-link to="/about">... a B o U t ...</router-link> |
-      <router-link to="/article">... a R t I c L e ...</router-link>
+      <router-link to="/">
+        <span style="color: lightblue">
+         h O m E
+        </span>
+      </router-link> |
+      <router-link to="/about">
+        <span style="color: salmon">
+         a B o U t
+        </span>
+      </router-link> |
+      <router-link to="/article">
+        <span style="color: steelblue">
+         a R t I c L e
+        </span>
+      </router-link>
       <small>
         <div class="get"></div>
       </small>
