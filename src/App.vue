@@ -7,8 +7,8 @@
       <small>
         <div class="get"></div>
       </small>
-      <button type="button" name="button" @click="get">get</button>
-      <button type="button" name="button" @click="push">push</button>
+      <button type="button" name="button" @click="get"><b>G</b>et!</button>
+      <button type="button" name="button" @click="push"><b>P</b>ush!</button>
       <small>
         <div class="push"></div>
       </small>
@@ -27,7 +27,7 @@ export default {
         console.log('network -- Only, with backup');
         console.log(response);
         const data = document.querySelector('.get');
-        data.innerHTML = response.bpi;
+        data.innerHTML = response.text();
       });
     },
     push() {
