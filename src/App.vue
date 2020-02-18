@@ -25,9 +25,12 @@ export default {
       fetch('https://api.coindesk.com/v1/bpi/currentprice/CNY.json')
       .then((response) => {
         console.log('network -- Only, with backup');
-        console.log(response);
+        console.log(response.text());
+        console.log(response.json());
         const data = document.querySelector('.get');
         data.innerHTML = response.text();
+      }).then((data) => {
+        console.log('data : ', data);
       });
     },
     push() {

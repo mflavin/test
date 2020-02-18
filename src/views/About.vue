@@ -13,13 +13,6 @@
 
         <article>
           <h1>New ujpdar</h1>
-          <div class="first">
-          </div>
-          <li><p><button class="fetch">Make fetch request</button></p></li>
-          <li><p><button class="network-only">Network Only Request</button></p></li>
-          <li><p><button class="network-first-valid">Network First Request (Valid URL)</button></p></li>
-          <div class="data">
-          </div>
           <section>
             <div class="img-container left column">
               <img src="../images/business.jpg" alt="A person reading the business section of a newspaper">
