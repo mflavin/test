@@ -5,18 +5,15 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/article">Article</router-link>
       <small>
-        response.text().then ...
         <div class="get"></div>
       </small>
       <button type="button" name="button" @click="get"><b>G</b>et!</button>
       <button type="button" name="button" @click="getLat"><b>G</b>et <b>L</b>at!</button>
       <button type="button" name="button" @click="push"><b>P</b>ush!</button>
       <small>
-        getLat ...
         <div class="getLat"></div>
       </small>
       <small>
-        push
         <div class="push"></div>
       </small>
     </div>
