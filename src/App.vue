@@ -16,16 +16,16 @@
          Article
         </span>
       </router-link>
-      <small>
-        <div class="get"></div>
-      </small>
       <button type="button" name="button" @click="get" style="flex: 0 0 33%;"><b>G</b>et!</button>
       <button type="button" name="button" @click="getLat" style="flex: 0 0 33%;"><b>G</b>et <b>L</b>at!</button>
       <button type="button" name="button" @click="push" style="flex: 0 0 33%;"><b>P</b>ush!</button>
-      <small>
+      <small style="flex: 0 0 33%;">
+        <div class="get"></div>
+      </small>
+      <small style="flex: 0 0 33%;">
         <div class="getLat"></div>
       </small>
-      <small>
+      <small style="flex: 0 0 33%;">
         <div class="push"></div>
       </small>
     </div>
