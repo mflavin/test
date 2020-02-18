@@ -28,8 +28,13 @@ export default {
         console.log('network -- Only, with backup');
         const data = document.querySelector('.get');
         response.text().then(d => {
+          var j = JSON.parse(d).bpi.USD;
           console.log('d: ', d);
-          data.innerHTML = JSON.parse(d).bpi.USD;
+          console.log(JSON.parse(d).bpi.USD.code);
+          console.log(JSON.parse(d).bpi.USD.rate);
+          console.log(JSON.parse(d).bpi.USD.description);
+          console.log(JSON.parse(d).bpi.USD.rate_float);
+          data.innerHTML = `${d.code}, ${d.rate}, ${d.description}, ${d.rate_float}`;
         })
       });
     },
