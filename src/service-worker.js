@@ -73,8 +73,6 @@ workbox.core.skipWaiting();
 workbox.core.clientsClaim();
 
 self.addEventListener('install', function(event) {
-  // https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle#the_first_service_worker
-  // The install event is the first event a service worker gets, and it only happens once.
   self.skipWaiting();
   console.log('worker install');
   workbox.core.skipWaiting();
