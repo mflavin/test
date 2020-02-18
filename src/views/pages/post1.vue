@@ -4,7 +4,7 @@
     <header>
       <ul class="navbar">
         <li><a href="../index.html">Home</a></li>
-        <li class="profile-icon"><img src="../images/icon/icon.svg" alt="profile icon" /></li>
+        <li class="profile-icon"><img src="../../images/icon/icon.svg" alt="profile icon" /></li>
       </ul>
     </header>
 
@@ -13,7 +13,7 @@
       <section>
 
         <div class="img-container left column">
-          <img src="../images/articles/solar.jpg" alt="Solar panels in a field">
+          <img src="../../images/articles/solar.jpg" alt="Solar panels in a field">
         </div>
 
         <div class="right column">
