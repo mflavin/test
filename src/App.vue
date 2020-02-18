@@ -30,11 +30,8 @@ export default {
         response.text().then(d => {
           var j = JSON.parse(d).bpi.USD;
           console.log('d: ', d);
-          console.log(JSON.parse(d).bpi.USD.code);
-          console.log(JSON.parse(d).bpi.USD.rate);
-          console.log(JSON.parse(d).bpi.USD.description);
-          console.log(JSON.parse(d).bpi.USD.rate_float);
-          data.innerHTML = `${d.code}, ${d.rate}, ${d.description}, ${d.rate_float}`;
+          console.log('j: ', j);
+          data.innerHTML = `${j.code}, ${j.rate}, ${j.description}, ${j.rate_float}`;
         })
       });
     },
@@ -51,6 +48,9 @@ export default {
         console.log('response: ', response);
         const first = document.querySelector('.push');
         first.innerHTML = response;
+        response.text().then(d => {
+          console.log('d: ', d);
+        })
       })
       .catch(e => {
         console.error("Error... : ", e);
