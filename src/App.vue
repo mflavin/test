@@ -75,10 +75,8 @@ export default {
       .then(response => {
         console.log('response: ', response);
         const first = document.querySelector('.push');
-        first.innerHTML = response;
-        response.text().then(d => {
-          console.log('d: ', d);
-        })
+        const d = response.data.body;
+        first.innerHTML = `${d.UserId}, ${d.Id}, ${d.Title}, ${d.Body}`;
       })
       .catch(e => {
         console.error("Error... : ", e);
