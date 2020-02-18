@@ -4,19 +4,19 @@
       <router-link to="/">
         <span style="color: lightblue; display: block;">
          Home
-         Most consistent updataing so far :D
+         Clean Looking good to go
         </span>
       </router-link> |
       <router-link to="/about">
         <span style="color: salmon; display: block;">
          Home About
-         Most consistent updataing so far :D
+         Clean Looking good to go
         </span>
       </router-link> |
       <router-link to="/article">
         <span style="color: steelblue; display: block;">
          Home About Article
-         Most consistent updataing so far :D
+         Clean Looking good to go
         </span>
       </router-link>
       <small>
