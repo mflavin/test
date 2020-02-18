@@ -1,30 +1,27 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">
+    <div id="nav" style="display: flex; justify-content: space-between; flex-wrap: wrap; padding-left: 0;">
+      <router-link to="/" style="flex: 0 0 33%;">
         <span style="color: lightblue; display: block;">
          Home
-         Clean Looking good to go
         </span>
-      </router-link> |
+      </router-link style="flex: 0 0 33%;"> |
       <router-link to="/about">
         <span style="color: salmon; display: block;">
-         Home About
-         Clean Looking good to go
+         About
         </span>
-      </router-link> |
+      </router-link style="flex: 0 0 33%;"> |
       <router-link to="/article">
         <span style="color: steelblue; display: block;">
-         Home About Article
-         Clean Looking good to go
+         Article
         </span>
       </router-link>
       <small>
         <div class="get"></div>
       </small>
-      <button type="button" name="button" @click="get"><b>G</b>et!</button>
-      <button type="button" name="button" @click="getLat"><b>G</b>et <b>L</b>at!</button>
-      <button type="button" name="button" @click="push"><b>P</b>ush!</button>
+      <button type="button" name="button" @click="get" style="flex: 0 0 33%;"><b>G</b>et!</button>
+      <button type="button" name="button" @click="getLat" style="flex: 0 0 33%;"><b>G</b>et <b>L</b>at!</button>
+      <button type="button" name="button" @click="push" style="flex: 0 0 33%;"><b>P</b>ush!</button>
       <small>
         <div class="getLat"></div>
       </small>
