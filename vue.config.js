@@ -1,15 +1,13 @@
-// vue.config.js
 module.exports = {
-    publicPath: '/test/',
-    pwa: {
-        workboxPluginMode: 'InjectManifest',
-        workboxOptions: {
-            swSrc: 'src/service-worker.js',
-            exclude: [
-                /\.map$/,
-                /manifest\.json$/
-            ],
-        },
-        themeColor: '#1da025'
+  publicPath: '/test/',
+  // Used to configure serviceWorker
+  pwa: {
+    // configure the workbox plugin
+    workboxPluginMode: 'InjectManifest',
+    workboxOptions: {
+      // swSrc is required in InjectManifest mode.
+      swSrc: 'src/service-worker.js',
+      // ...other Workbox options...
     },
-}
+  },
+};
