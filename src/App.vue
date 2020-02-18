@@ -16,9 +16,9 @@
          Article
         </span>
       </router-link>
-      <button type="button" name="button" @click="get" style="flex: 0 0 33%; padding-bottom: 35px;"><b>G</b>et!</button>
-      <button type="button" name="button" @click="getLat" style="flex: 0 0 33%; padding-bottom: 35px;"><b>G</b>et <b>L</b>at!</button>
-      <button type="button" name="button" @click="push" style="flex: 0 0 33%; padding-bottom: 35px;"><b>P</b>ush!</button>
+      <button type="button" name="button" @click="get" style="flex: 0 0 33%; margin-bottom: 35px;"><b>G</b>et!</button>
+      <button type="button" name="button" @click="getLat" style="flex: 0 0 33%; margin-bottom: 35px;"><b>G</b>et <b>L</b>at!</button>
+      <button type="button" name="button" @click="push" style="flex: 0 0 33%; margin-bottom: 35px;"><b>P</b>ush!</button>
       <small style="flex: 0 0 33%;">
         <div class="get"></div>
       </small>

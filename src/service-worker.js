@@ -71,10 +71,3 @@ workbox.routing.registerRoute(
 //This immediately deploys the service worker w/o requiring a refresh
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
-
-self.addEventListener('install', function(event) {
-  self.skipWaiting();
-  console.log('worker install');
-  workbox.core.skipWaiting();
-  workbox.core.clientsClaim();
-});
