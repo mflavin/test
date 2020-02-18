@@ -9,8 +9,14 @@
         <div class="get"></div>
       </small>
       <button type="button" name="button" @click="get"><b>G</b>et!</button>
+      <button type="button" name="button" @click="getLat"><b>G</b>et <b>L</b>at!</button>
       <button type="button" name="button" @click="push"><b>P</b>ush!</button>
       <small>
+        getLat ...
+        <div class="push"></div>
+      </small>
+      <small>
+        push
         <div class="push"></div>
       </small>
     </div>
@@ -32,6 +38,17 @@ export default {
           console.log('d: ', d);
           console.log('j: ', j);
           data.innerHTML = `${j.code}, ${j.rate}, ${j.description}, ${j.rate_float}`;
+        })
+      });
+    },
+    getLat() {
+      fetch('https://api.exchangeratesapi.io/latest')
+      .then((response) => {
+        console.log('network -- First, with backup');
+        const data = document.querySelector('.get');
+        console.log('response: ', response);
+        response.text().then(d => {
+          console.log('d: ', d);
         })
       });
     },
