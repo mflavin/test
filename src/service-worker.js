@@ -2,7 +2,7 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox
 
 // Note: Ignore the error that Glitch raises about workbox being undefined.
 workbox.setConfig({
-  debug: false
+  debug: true
 });
 
 // const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('myQueueName');
@@ -71,3 +71,12 @@ workbox.routing.registerRoute(
 //This immediately deploys the service worker w/o requiring a refresh
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
+
+self.addEventListener('install', function(event) {
+  // https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle#the_first_service_worker
+  // The install event is the first event a service worker gets, and it only happens once.
+  self.skipWaiting();
+  console.log('worker install');
+  workbox.core.skipWaiting();
+  workbox.core.clientsClaim();
+});
