@@ -47,7 +47,7 @@ export default {
         console.log('network -- First, with backup');
         const getLat = document.querySelector('.getLat');
         response.text().then(d => {
-          var j = JSON.parse(d).bpi.USD;
+          var j = JSON.parse(d);
           console.log('d: ', d);
           console.log('j: ', j);
           getLat.innerHTML = `${j.date}, ${j.base}, ${j.rates.CAD}, ${j.rates.USD}`;
