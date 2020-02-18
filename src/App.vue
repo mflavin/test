@@ -5,6 +5,7 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/article">Article</router-link>
       <small>
+        response.text().then ...
         <div class="get"></div>
       </small>
       <button type="button" name="button" @click="get"><b>G</b>et!</button>
@@ -26,7 +27,7 @@ export default {
       .then((response) => {
         console.log('network -- Only, with backup');
         const data = document.querySelector('.get');
-        response.then(d => {
+        response.text().then(d => {
           console.log('d: ', d);
           data.innerHTML = d.bpi;
         })
