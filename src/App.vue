@@ -2,11 +2,16 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
       <router-link to="/article">Article</router-link>
-      <h3 style="font-size: 5px">Done... :D</h3>
+      <small>
+        <div class="get"></div>
+      </small>
       <button type="button" name="button" @click="get">get</button>
       <button type="button" name="button" @click="push">push</button>
+      <small>
+        <div class="push"></div>
+      </small>
     </div>
     <router-view/>
   </div>
@@ -19,10 +24,9 @@ export default {
     get() {
       fetch('https://api.coindesk.com/v1/bpi/currentprice/CNY.json')
       .then((response) => {
-        console.log('network -- Only');
-        // response.text().then(t => {
-        //   console.log('t : ', t);
-        // })
+        console.log('network -- Only, with backup');
+        const data = document.querySelector('.get');
+        data.innerHTML = response;
       });
     },
     push() {
@@ -36,6 +40,8 @@ export default {
       })
       .then(response => {
         console.log('response: ', response);
+        const first = document.querySelector('.push');
+        first.innerHTML = response;
       })
       .catch(e => {
         console.error("Error... : ", e);
