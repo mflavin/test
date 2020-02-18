@@ -12,18 +12,18 @@ const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('queue', {
 const broadcastUpdate = new workbox.broadcastUpdate.BroadcastCacheUpdate("broadcast-update-demo");
 
 // Adding everything to cache
-// workbox.routing.registerRoute(
-//   /((?=([^a-z 0-9]))([^\s])*|)*/,
-//   new workbox.strategies.NetworkFirst({
-//     cacheName: workbox.core.cacheNames.precache,
-//     plugins: [
-//       broadcastUpdate,
-//     ],
-//   })
-// );
+workbox.routing.registerRoute(
+  /((?=([^a-z 0-9]))([^\s])*|)*/,
+  new workbox.strategies.NetworkFirst({
+    cacheName: workbox.core.cacheNames.precache,
+    plugins: [
+      broadcastUpdate,
+    ],
+  })
+);
 
 // Precaching to allow for offline
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
+// workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 
 // workbox.precaching.precacheAndRoute(self.__precacheManifest,
 //   new workbox.strategies.NetworkOnly({
