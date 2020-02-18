@@ -29,7 +29,7 @@ export default {
         const data = document.querySelector('.get');
         response.text().then(d => {
           console.log('d: ', d);
-          data.innerHTML = d.bpi;
+          data.innerHTML = JSON.parse(d).bpi.USD;
         })
       });
     },
