@@ -14,41 +14,20 @@
  * limitations under the License.
  */
 
-/* eslint-env browser */
+/* eslint-disable no-console */
+/* eslint-disable-next-line */
 'use strict';
 
 if ('serviceWorker' in navigator) {
   // Delay registration until after the page has loaded, to ensure that our
   // precaching requests don't degrade the first visit experience.
   // See https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/registration
-  window.addEventListener('load', function() {
-
-    navigator.serviceWorker.addEventListener('message', (event) => {
-      if (!event.data) {
-        return;
-      }
-
-      switch (event.data) {
-        case 'reload-window':
-          window.location.reload(true);
-          break;
-        default:
-          // NOOP
-          break;
-      }
-    });
-
-
-    navigator.serviceWorker.addEventListener('message', (event) => {
-      console.log(`Received a message from workbox-broadcast-update.`);
-      console.log(event.data);
-    });
-
+  window.addEventListener('load', () => {
     // Your service-worker.js *must* be located at the top-level directory relative to your site.
     // It won't be able to control pages unless it's located at the same level or higher than them.
     // *Don't* register service worker file in, e.g., a scripts/ sub-directory!
     // See https://github.com/slightlyoff/ServiceWorker/issues/468
-    navigator.serviceWorker.register('service-worker.js').then(function(reg) {
+    navigator.serviceWorker.register(`${process.env.BASE_URL}service-worker.js`).then((reg) => {
       const app = document.getElementById('app').__vue__;
       // Watches to see if route changed then checks for new code
       // TODO: Test this a bit more, make sure it doesn't mess up with form submits or similar page actions
@@ -57,12 +36,14 @@ if ('serviceWorker' in navigator) {
         reg.update();
       });
       // updatefound is fired if service-worker.js changes.
-      reg.onupdatefound = function() {
+      /* eslint-disable-next-line */
+      reg.onupdatefound = () => {
         // The updatefound event implies that reg.installing is set; see
         // https://w3c.github.io/ServiceWorker/#service-worker-registration-updatefound-event
-        var installingWorker = reg.installing;
+        const installingWorker = reg.installing;
 
-        installingWorker.onstatechange = function() {
+        /* eslint-disable-next-line */
+        installingWorker.onstatechange = () => {
           switch (installingWorker.state) {
             case 'installed':
               if (navigator.serviceWorker.controller) {
@@ -70,9 +51,10 @@ if ('serviceWorker' in navigator) {
                 // have been added to the cache.
                 // It's the perfect time to display a "New content is available; please refresh."
                 // message in the page's interface.
-                console.log('New or updated content is available.');
+                console.log('New content is available; please refresh.');
+                // New content, auto refresh
                 reg.unregister().then(() => {
-                  console.log('successful');
+                  console.log('Reload serviceWorker...');
                   window.location.reload(true);
                 });
               } else {
@@ -83,25 +65,25 @@ if ('serviceWorker' in navigator) {
               break;
 
             case 'redundant':
+              reg.unregister().then(() => {
+                console.error('The installing service worker became redundant.');
+                window.location.reload(true);
+              });
               break;
+
+            default:
+              console.log('Default Switch Case.');
           }
         };
       };
-    }).catch(function(e) {
+    }).catch((e) => {
       console.error('Error during service worker registration:', e);
+    });
+    let refreshing;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (refreshing) return;
+      window.location.reload();
+      refreshing = true;
     });
   });
 }
-
-
-// if ('serviceWorker' in navigator) {
-//   window.addEventListener('load', () => {
-//     navigator.serviceWorker.register('service-worker.js')
-//       .then(registration => {
-//         console.log(`Service Worker registered! Scope: ${registration.scope}`);
-//       })
-//       .catch(err => {
-//         console.log(`Service Worker registration failed: ${err}`);
-//       });
-//   });
-// }
