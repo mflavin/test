@@ -3,17 +3,17 @@
     <div id="nav">
       <router-link to="/">
         <span style="color: lightblue; display: block;">
-         h O m E
+         Home
         </span>
       </router-link> |
       <router-link to="/about">
         <span style="color: salmon; display: block;">
-         a B o U t
+         Home About
         </span>
       </router-link> |
       <router-link to="/article">
         <span style="color: steelblue; display: block;">
-         a R t I c L e
+         Home About Article
         </span>
       </router-link>
       <small>
