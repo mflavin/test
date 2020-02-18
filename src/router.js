@@ -30,7 +30,7 @@ export default new Router({
     {
       path: '/pages',
       name: 'pages',
-      component: Home,
+      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
       children: [
         {
           path: '/article1',
