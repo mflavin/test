@@ -47,6 +47,7 @@
               </ul>
             </div>
           </section>
+          <router-view/>
         </article>
 
         <footer>
