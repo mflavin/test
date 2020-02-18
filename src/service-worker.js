@@ -7,7 +7,11 @@ workbox.setConfig({
 
 // const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('myQueueName');
 const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('queue', {
-    maxRetentionTime: 24 * 60 // Retry for max of 24 Hours
+    maxRetentionTime: 24 * 60, // Retry for max of 24 Hours
+    // the new bit
+    callbacks: {
+      queueDidReplay: showNotification
+    }
 });
 const broadcastUpdate = new workbox.broadcastUpdate.BroadcastCacheUpdate("broadcast-update-demo");
 
@@ -71,3 +75,11 @@ workbox.routing.registerRoute(
 //This immediately deploys the service worker w/o requiring a refresh
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
+
+const showNotification = () => {
+  self.registration.showNotification('Post Sent', {
+    body: 'You are back online and your post was successfully sent!',
+    icon: 'assets/logo.png',
+    badge: 'assets/pim-mortirolo.png'
+  });
+};
