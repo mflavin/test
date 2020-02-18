@@ -13,7 +13,7 @@
       <button type="button" name="button" @click="push"><b>P</b>ush!</button>
       <small>
         getLat ...
-        <div class="push"></div>
+        <div class="getLat"></div>
       </small>
       <small>
         push
@@ -45,10 +45,12 @@ export default {
       fetch('https://api.exchangeratesapi.io/latest')
       .then((response) => {
         console.log('network -- First, with backup');
-        const data = document.querySelector('.get');
-        console.log('response: ', response);
+        const getLat = document.querySelector('.getLat');
         response.text().then(d => {
+          var j = JSON.parse(d).bpi.USD;
           console.log('d: ', d);
+          console.log('j: ', j);
+          getLat.innerHTML = `${j.date}, ${j.base}, ${j.rates.CAD}, ${j.rates.USD}`;
         })
       });
     },
