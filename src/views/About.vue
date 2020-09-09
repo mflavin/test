@@ -12,7 +12,7 @@
         </header>
 
         <article>
-          <h1>New ujpdar</h1>
+          <h1>New Update!</h1>
           <section>
             <div class="img-container left column">
               <img src="../images/business.jpg" alt="A person reading the business section of a newspaper">
