@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="RElaod on button lcick..." />
+    <HelloWorld msg="When new content and url changes, should refresh with new changes!" />
   </div>
 </template>
 
