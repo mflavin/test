@@ -1,14 +1,10 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
 
-if (workbox) {
-  console.log(`Yay! Workbox is loaded 🎉`);
-} else {
-  console.log(`Boo! Workbox didn't load 😬`);
-}
+console.log(`Yay! Workbox is loaded 🎉`);
 
 // Note: Ignore the error that Glitch raises about workbox being undefined.
 workbox.setConfig({
-  debug: false
+  debug: true
 });
 
 // const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('myQueueName');
