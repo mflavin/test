@@ -8,7 +8,7 @@ if (workbox) {
 
 // Note: Ignore the error that Glitch raises about workbox being undefined.
 workbox.setConfig({
-  debug: true
+  debug: false
 });
 
 // const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('myQueueName');
