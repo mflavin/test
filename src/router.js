@@ -17,7 +17,9 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      component: () => import(/* webpackMode: "lazy" */
+/* webpackPrefetch: true */
+/* webpackChunkName: "about" */ './views/About.vue')
     },
     {
       path: '/article',
@@ -25,82 +27,114 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/article.vue')
+      component: () => import(/* webpackMode: "lazy" */
+/* webpackPrefetch: true */
+/* webpackChunkName: "about" */ './views/article.vue')
     },
     {
       path: 'pages/article1',
       name: 'article1',
-      component: () => import(/* webpackChunkName: "about" */ './views/pages/article1.vue')
+      component: () => import(/* webpackMode: "lazy" */
+/* webpackPrefetch: true */
+/* webpackChunkName: "about" */ './views/pages/article1.vue')
     },
     {
       path: 'pages/article2',
       name: 'article2',
-      component: () => import(/* webpackChunkName: "about" */ './views/pages/article2.vue')
+      component: () => import(/* webpackMode: "lazy" */
+/* webpackPrefetch: true */
+/* webpackChunkName: "about" */ './views/pages/article2.vue')
     },
     {
       path: 'pages/article3',
       name: 'article3',
-      component: () => import(/* webpackChunkName: "about" */ './views/pages/article3.vue')
+      component: () => import(/* webpackMode: "lazy" */
+/* webpackPrefetch: true */
+/* webpackChunkName: "about" */ './views/pages/article3.vue')
     },
     {
       path: 'pages/article4',
       name: 'article4',
-      component: () => import(/* webpackChunkName: "about" */ './views/pages/article4.vue')
+      component: () => import(/* webpackMode: "lazy" */
+/* webpackPrefetch: true */
+/* webpackChunkName: "about" */ './views/pages/article4.vue')
     },
     {
       path: 'pages/post1',
       name: 'post1',
-      component: () => import(/* webpackChunkName: "about" */ './views/pages/post1.vue')
+      component: () => import(/* webpackMode: "lazy" */
+/* webpackPrefetch: true */
+/* webpackChunkName: "about" */ './views/pages/post1.vue')
     },
     {
       path: 'pages/post2',
       name: 'post2',
-      component: () => import(/* webpackChunkName: "about" */ './views/pages/post2.vue')
+      component: () => import(/* webpackMode: "lazy" */
+/* webpackPrefetch: true */
+/* webpackChunkName: "about" */ './views/pages/post2.vue')
     },
     {
       path: 'pages/post3',
       name: 'post3',
-      component: () => import(/* webpackChunkName: "about" */ './views/pages/post3.vue')
+      component: () => import(/* webpackMode: "lazy" */
+/* webpackPrefetch: true */
+/* webpackChunkName: "about" */ './views/pages/post3.vue')
     },
     // {
     //   path: '/pages',
     //   name: 'pages',
-    //   component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+    //   component: () => import(/* webpackMode: "lazy" */
+/* webpackPrefetch: true */
+/* webpackChunkName: "about" */ './views/About.vue'),
     //   children: [
     //     {
     //       path: '/article1',
     //       name: 'article1',
-    //       component: () => import(/* webpackChunkName: "about" */ './views/pages/article1.vue')
+    //       component: () => import(/* webpackMode: "lazy" */
+/* webpackPrefetch: true */
+/* webpackChunkName: "about" */ './views/pages/article1.vue')
     //     },
     //     {
     //       path: '/article2',
     //       name: 'article2',
-    //       component: () => import(/* webpackChunkName: "about" */ './views/pages/article2.vue')
+    //       component: () => import(/* webpackMode: "lazy" */
+/* webpackPrefetch: true */
+/* webpackChunkName: "about" */ './views/pages/article2.vue')
     //     },
     //     {
     //       path: '/article3',
     //       name: 'article3',
-    //       component: () => import(/* webpackChunkName: "about" */ './views/pages/article3.vue')
+    //       component: () => import(/* webpackMode: "lazy" */
+/* webpackPrefetch: true */
+/* webpackChunkName: "about" */ './views/pages/article3.vue')
     //     },
     //     {
     //       path: '/article4',
     //       name: 'article4',
-    //       component: () => import(/* webpackChunkName: "about" */ './views/pages/article4.vue')
+    //       component: () => import(/* webpackMode: "lazy" */
+/* webpackPrefetch: true */
+/* webpackChunkName: "about" */ './views/pages/article4.vue')
     //     },
     //     {
     //       path: '/post1',
     //       name: 'post1',
-    //       component: () => import(/* webpackChunkName: "about" */ './views/pages/post1.vue')
+    //       component: () => import(/* webpackMode: "lazy" */
+/* webpackPrefetch: true */
+/* webpackChunkName: "about" */ './views/pages/post1.vue')
     //     },
     //     {
     //       path: '/post2',
     //       name: 'post2',
-    //       component: () => import(/* webpackChunkName: "about" */ './views/pages/post2.vue')
+    //       component: () => import(/* webpackMode: "lazy" */
+/* webpackPrefetch: true */
+/* webpackChunkName: "about" */ './views/pages/post2.vue')
     //     },
     //     {
     //       path: '/post3',
     //       name: 'post3',
-    //       component: () => import(/* webpackChunkName: "about" */ './views/pages/post3.vue')
+    //       component: () => import(/* webpackMode: "lazy" */
+/* webpackPrefetch: true */
+/* webpackChunkName: "about" */ './views/pages/post3.vue')
     //     },
     //   ]
     // },
