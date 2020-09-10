@@ -1,20 +1,15 @@
-workbox.precaching.precacheAndRoute(self.__precacheManifest);
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js');
 
-workbox.routing.registerRoute(
-  /https:\/\/api\.exchangeratesapi\.io\/latest/,
-  new workbox.strategies.NetworkFirst({
-    cacheName: "currencies",
-    plugins: [
-      new workbox.expiration.Plugin({
-        maxAgeSeconds: 10 * 60 // 10 minutes
-      })
-    ]
-  })
-);
+console.log('workbox up?');
 
-addEventListener("message", event => {
-  console.log('oof');
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    skipWaiting();
-  }
+// Note: Ignore the error that Glitch raises about workbox being undefined.
+workbox.setConfig({
+  debug: true
 });
+
+// Precaching to allow for offline
+workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
+
+//This immediately deploys the service worker w/o requiring a refresh
+workbox.core.skipWaiting();
+workbox.core.clientsClaim();
