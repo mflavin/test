@@ -28,8 +28,8 @@ module.exports = {
     ],
     // if you don't put the "/" here, you get this error:
     // "bundle.js:1 Uncaught SyntaxError: Unexpected token <"
-    publicPath: '/test/',
   },
+  publicPath: '/test/',
   // Used to configure serviceWorker
   pwa: {
     // configure the workbox plugin
