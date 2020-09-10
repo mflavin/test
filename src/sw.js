@@ -1,11 +1,8 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.4/workbox-sw.js');
 
-// Is webpack bundling getting in the way there???
-console.log('...test...');
-
 // Note: Ignore the error that Glitch raises about workbox being undefined.
 workbox.setConfig({
-  debug: true
+  debug: false
 });
 
 // Precaching to allow for offline
