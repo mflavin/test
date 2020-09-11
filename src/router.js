@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+const Home = () => import(
+  /* webpackMode: "lazy" */
+  /* webpackPrefetch: true */
+  /* webpackChunkName: "landingPage" */
+  './views/Home.vue'
+);
 
 Vue.use(Router)
 
