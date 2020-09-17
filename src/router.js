@@ -38,7 +38,7 @@ export default new Router({
       component: () => import(
         /* webpackMode: "lazy" */
         /* webpackPrefetch: true */
-        /* webpackChunkName: "about" */
+        /* webpackChunkName: "articles" */
         './views/article.vue'
       )
     },
@@ -48,7 +48,7 @@ export default new Router({
       component: () => import(
         /* webpackMode: "lazy" */
         /* webpackPrefetch: true */
-        /* webpackChunkName: "about" */
+        /* webpackChunkName: "articles" */
         './views/pages/article1.vue'
       )
     },
@@ -58,7 +58,7 @@ export default new Router({
       component: () => import(
         /* webpackMode: "lazy" */
         /* webpackPrefetch: true */
-        /* webpackChunkName: "about" */
+        /* webpackChunkName: "articles" */
         './views/pages/article2.vue'
       )
     },
@@ -68,7 +68,7 @@ export default new Router({
       component: () => import(
         /* webpackMode: "lazy" */
         /* webpackPrefetch: true */
-        /* webpackChunkName: "about" */
+        /* webpackChunkName: "articles" */
         './views/pages/article3.vue'
       )
     },
@@ -78,7 +78,7 @@ export default new Router({
       component: () => import(
         /* webpackMode: "lazy" */
         /* webpackPrefetch: true */
-        /* webpackChunkName: "about" */
+        /* webpackChunkName: "articles" */
         './views/pages/article4.vue'
       )
     },
@@ -88,7 +88,7 @@ export default new Router({
       component: () => import(
         /* webpackMode: "lazy" */
         /* webpackPrefetch: true */
-        /* webpackChunkName: "about" */
+        /* webpackChunkName: "posts" */
         './views/pages/post1.vue'
       )
     },
@@ -98,7 +98,7 @@ export default new Router({
       component: () => import(
         /* webpackMode: "lazy" */
         /* webpackPrefetch: true */
-        /* webpackChunkName: "about" */
+        /* webpackChunkName: "posts" */
         './views/pages/post2.vue'
       )
     },
