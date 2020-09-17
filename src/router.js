@@ -23,9 +23,7 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(
-        /* webpackMode: "lazy" */
-        /* webpackPrefetch: true */
-        /* webpackChunkName: "about" */
+        /* webpackChunkName: "forms" */
         './views/About.vue'
       )
     },
@@ -36,9 +34,7 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(
-        /* webpackMode: "lazy" */
-        /* webpackPrefetch: true */
-        /* webpackChunkName: "articles" */
+        /* webpackChunkName: "forms" */
         './views/article.vue'
       )
     },
@@ -46,9 +42,7 @@ export default new Router({
       path: 'pages/article1',
       name: 'article1',
       component: () => import(
-        /* webpackMode: "lazy" */
-        /* webpackPrefetch: true */
-        /* webpackChunkName: "articles" */
+        /* webpackChunkName: "forms" */
         './views/pages/article1.vue'
       )
     },
@@ -56,9 +50,7 @@ export default new Router({
       path: 'pages/article2',
       name: 'article2',
       component: () => import(
-        /* webpackMode: "lazy" */
-        /* webpackPrefetch: true */
-        /* webpackChunkName: "articles" */
+        /* webpackChunkName: "forms" */
         './views/pages/article2.vue'
       )
     },
@@ -66,9 +58,7 @@ export default new Router({
       path: 'pages/article3',
       name: 'article3',
       component: () => import(
-        /* webpackMode: "lazy" */
-        /* webpackPrefetch: true */
-        /* webpackChunkName: "articles" */
+        /* webpackChunkName: "forms" */
         './views/pages/article3.vue'
       )
     },
@@ -86,9 +76,7 @@ export default new Router({
       path: 'pages/post1',
       name: 'post1',
       component: () => import(
-        /* webpackMode: "lazy" */
-        /* webpackPrefetch: true */
-        /* webpackChunkName: "posts" */
+        /* webpackChunkName: "forms" */
         './views/pages/post1.vue'
       )
     },
@@ -96,9 +84,7 @@ export default new Router({
       path: 'pages/post2',
       name: 'post2',
       component: () => import(
-        /* webpackMode: "lazy" */
-        /* webpackPrefetch: true */
-        /* webpackChunkName: "posts" */
+        /* webpackChunkName: "forms" */
         './views/pages/post2.vue'
       )
     },
