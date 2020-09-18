@@ -6,12 +6,22 @@
          Home
         </span>
       </router-link> |
-      <router-link :to="navigator.onLine ? '/about' : '/#/about'" style="flex: 0 0 33%; padding-bottom: 35px;">
+      <router-link v-if="navigator.onLine" to="/about" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: salmon; display: block;">
          About
         </span>
       </router-link> |
-      <router-link :to="navigator.onLine ? '/article' : '/#/article'" style="flex: 0 0 33%; padding-bottom: 35px;">
+      <router-link v-else to="/#/about" style="flex: 0 0 33%; padding-bottom: 35px;">
+        <span style="color: salmon; display: block;">
+         About
+        </span>
+      </router-link> |
+      <router-link v-if="navigator.onLine" to="/article" style="flex: 0 0 33%; padding-bottom: 35px;">
+        <span style="color: steelblue; display: block;">
+         Article
+        </span>
+      </router-link>
+      <router-link v-else to="/#/article" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: steelblue; display: block;">
          Article
         </span>
