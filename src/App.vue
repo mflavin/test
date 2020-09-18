@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <div id="nav" style="display: flex; justify-content: space-between; flex-wrap: wrap; padding-left: 0;">
-      <router-link to="/" style="flex: 0 0 33%; padding-bottom: 35px;">
+      <router-link :to="{ name: 'Home' }" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: lightblue; display: block;">
          Home
         </span>
       </router-link> |
-      <router-link to="/about" style="flex: 0 0 33%; padding-bottom: 35px;">
+      <router-link :to="{ name: 'About' }" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: salmon; display: block;">
          About
         </span>
       </router-link>
-      <router-link to="/article" style="flex: 0 0 33%; padding-bottom: 35px;">
+      <router-link :to="{ name: 'Article' }" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: steelblue; display: block;">
          Article
         </span>
