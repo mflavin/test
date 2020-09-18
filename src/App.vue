@@ -3,10 +3,10 @@
     <div id="nav" style="display: flex; justify-content: space-between; flex-wrap: wrap; padding-left: 0;">
       <router-link to="/" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: lightblue; display: block;">
-         Home
+         Home : onLine {{ onLine }}
         </span>
       </router-link> |
-      <router-link v-if="isOnline" to="/about" style="flex: 0 0 33%; padding-bottom: 35px;">
+      <router-link v-if="onLine" to="/about" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: salmon; display: block;">
          About
         </span>
@@ -16,7 +16,7 @@
          About
         </span>
       </router-link> |
-      <router-link v-if="isOnline" to="/article" style="flex: 0 0 33%; padding-bottom: 35px;">
+      <router-link v-if="onLine" to="/article" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: steelblue; display: block;">
          Article
         </span>
@@ -60,11 +60,9 @@
 <script>
 import axios from 'axios';
 export default {
-  computed: {
-    isOnline() {
-      return navigator.onLine;
-    }
-  },
+  data: () => ({
+    onLine: null,
+  }),
   methods: {
     get() {
       fetch('https://api.coindesk.com/v1/bpi/currentprice/CNY.json')
@@ -113,6 +111,7 @@ export default {
     },
   },
   mounted () {
+    this.onLine = navigator.onLine;
     axios
       .get('https://api.exchangeratesapi.io/latest')
       .then(response => console.log("Latest, ", response.data.rates))
