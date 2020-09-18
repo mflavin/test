@@ -9,10 +9,8 @@ workbox.setConfig({
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-// 'With this in place, the '/{NESTED_ROUTE_NAME}' route also works offline.'
-// SOURCE: https://www.blog.plint-sites.nl/adding-workbox-to-a-vue-cli-pwa/
-workbox.routing.registerRoute('/index.html');
-workbox.routing.registerRoute('/about/');
+workbox.routing.precacheAndRoute('/index.html');
+workbox.routing.precacheAndRoute('/about/');
 
 // This immediately deploys the service worker w/o requiring a refresh
 workbox.core.skipWaiting();
