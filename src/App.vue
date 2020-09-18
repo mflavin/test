@@ -6,12 +6,12 @@
          Home
         </span>
       </router-link> |
-      <router-link to="/about" style="flex: 0 0 33%; padding-bottom: 35px;">
+      <router-link :to="navigator.onLine ? '/about' : '/#/about'" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: salmon; display: block;">
          About
         </span>
       </router-link> |
-      <router-link to="/article" style="flex: 0 0 33%; padding-bottom: 35px;">
+      <router-link :to="navigator.onLine ? '/article' : '/#/article'" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: steelblue; display: block;">
          Article
         </span>

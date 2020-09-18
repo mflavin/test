@@ -16,7 +16,7 @@ export default new Router({
     https://dev-forms.myqsrsoft.com/dashboard  --> https://dev-forms.myqsrsoft.com/#/dashboard
     https://mflavin.github.io/test/about       --> https://mflavin.github.io/test/#/about
   */
-  mode: navigator.onLine ? 'history' : 'hash',
+  mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
