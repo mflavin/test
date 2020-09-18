@@ -10,6 +10,12 @@ const Home = () => import(
 Vue.use(Router)
 
 export default new Router({
+  /*
+    NOTE: While offline, if you add a hash before routes, offline seems to work while mode: history
+    Example
+    https://dev-forms.myqsrsoft.com/dashboard  --> https://dev-forms.myqsrsoft.com/#/dashboard
+    https://mflavin.github.io/test/about       --> https://mflavin.github.io/test/#/about
+  */
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -17,38 +23,6 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home,
-      children: [
-        {
-          path: '/about',
-          name: 'about',
-          // route level code-splitting
-          // this generates a separate chunk (about.[hash].js) for this route
-          // which is lazy-loaded when the route is visited.
-          component: () => import(
-            /* webpackMode: "lazy" */
-            /* webpackPrefetch: true */
-            /* webpackChunkName: "about" */
-            './views/About.vue'
-          )
-        },
-        {
-          path: '*',
-          redirect: '/',
-        }
-      ],
-    },
-    {
-      path: '/test/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(
-        /* webpackMode: "lazy" */
-        /* webpackPrefetch: true */
-        /* webpackChunkName: "about" */
-        './views/About.vue'
-      )
     },
     {
       path: '/about',
