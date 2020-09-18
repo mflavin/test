@@ -5,7 +5,7 @@ workbox.setConfig({
   debug: true
 });
 
-workbox.routing.registerRoute(new RegExp('/.*'), new workbox.strategies.NetworkFirst());
+// workbox.routing.registerRoute(new RegExp('/.*'), new workbox.strategies.NetworkFirst());
 
 // Precaching to allow for offline
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
