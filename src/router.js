@@ -94,27 +94,7 @@ export default new Router({
       )
     },
     {
-      path: 'test/*',
-      component: NotFound,
-    },
-    {
-      path: '/test/*',
-      component: NotFound,
-    },
-    {
-      path: '/test/*/',
-      component: NotFound,
-    },
-    {
       path: '*',
-      component: NotFound,
-    },
-    {
-      path: '/*',
-      component: NotFound,
-    },
-    {
-      path: '/*/',
       component: NotFound,
     },
   ]
