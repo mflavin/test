@@ -6,9 +6,7 @@ workbox.setConfig({
 });
 
 // Precaching to allow for offline
-self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest);
-
 workbox.precaching.precacheAndRoute('/index.html');
 workbox.precaching.precacheAndRoute('/about/');
 
