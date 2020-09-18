@@ -3,25 +3,15 @@
     <div id="nav" style="display: flex; justify-content: space-between; flex-wrap: wrap; padding-left: 0;">
       <router-link to="/" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: lightblue; display: block;">
-         Home : onLine {{ onLine }}
+         Home
         </span>
       </router-link> |
-      <router-link v-if="onLine" to="/about" style="flex: 0 0 33%; padding-bottom: 35px;">
+      <router-link to="/about" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: salmon; display: block;">
          About
-        </span>
-      </router-link> |
-      <router-link v-else to="/#/about" style="flex: 0 0 33%; padding-bottom: 35px;">
-        <span style="color: salmon; display: block;">
-         About
-        </span>
-      </router-link> |
-      <router-link v-if="onLine" to="/article" style="flex: 0 0 33%; padding-bottom: 35px;">
-        <span style="color: steelblue; display: block;">
-         Article
         </span>
       </router-link>
-      <router-link v-else to="/#/article" style="flex: 0 0 33%; padding-bottom: 35px;">
+      <router-link to="/article" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: steelblue; display: block;">
          Article
         </span>
