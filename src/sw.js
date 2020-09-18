@@ -6,9 +6,7 @@ workbox.setConfig({
 });
 
 // Precaching to allow for offline
-workbox.precaching.precacheAndRoute(self.__precacheManifest);
-workbox.precaching.precacheAndRoute('/index.html');
-workbox.precaching.precacheAndRoute('/about/');
+workbox.precaching.precacheAndRoute(self.__precacheManifest, ['/index.html', '/about/']);
 
 // This immediately deploys the service worker w/o requiring a refresh
 workbox.core.skipWaiting();
