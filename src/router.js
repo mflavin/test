@@ -6,6 +6,7 @@ const Home = () => import(
   /* webpackChunkName: "home" */
   './views/Home.vue'
 );
+const NotFound = { template: "<div>not found</div>" };
 
 Vue.use(Router)
 
@@ -94,7 +95,7 @@ export default new Router({
     },
     {
       path: '*',
-      redirect: '/',
-    }
+      component: NotFound,
+    },
   ]
 })
