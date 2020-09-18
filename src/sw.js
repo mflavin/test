@@ -1,5 +1,7 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.4/workbox-sw.js');
 
+workbox.routing.registerRoute(new RegExp('/.*'), new workbox.strategies.NetworkFirst());
+
 // Note: Ignore the error that Glitch raises about workbox being undefined.
 workbox.setConfig({
   debug: true
