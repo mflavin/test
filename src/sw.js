@@ -9,8 +9,8 @@ workbox.setConfig({
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.precacheAndRoute('/index.html');
-workbox.routing.precacheAndRoute('/about/');
+workbox.precaching.precacheAndRoute('/index.html');
+workbox.precaching.precacheAndRoute('/about/');
 
 // This immediately deploys the service worker w/o requiring a refresh
 workbox.core.skipWaiting();
