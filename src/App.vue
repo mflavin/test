@@ -6,21 +6,21 @@
          Home
         </span>
       </router-link> |
-      <router-link v-if="navigator.onLine" to="/about" style="flex: 0 0 33%; padding-bottom: 35px;">
+      <!-- <router-link v-if="navigator.onLine" to="/about" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: salmon; display: block;">
          About
         </span>
-      </router-link> |
+      </router-link> | -->
       <router-link v-else to="/#/about" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: salmon; display: block;">
          About
         </span>
       </router-link> |
-      <router-link v-if="navigator.onLine" to="/article" style="flex: 0 0 33%; padding-bottom: 35px;">
+      <!-- <router-link v-if="navigator.onLine" to="/article" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: steelblue; display: block;">
          Article
         </span>
-      </router-link>
+      </router-link> -->
       <router-link v-else to="/#/article" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: steelblue; display: block;">
          Article
@@ -108,6 +108,17 @@ export default {
     },
   },
   mounted () {
+    try {
+      console.log('navigator, ', navigator);
+    } catch (e) {
+      console.log('e, ', e);
+    }
+
+    try {
+      console.log('navigator.onLine, ', navigator.onLine);
+    } catch (e) {
+      console.log('e, ', e);
+    }
     axios
       .get('https://api.exchangeratesapi.io/latest')
       .then(response => console.log("Latest, ", response.data.rates))
