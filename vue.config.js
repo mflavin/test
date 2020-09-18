@@ -38,8 +38,6 @@ module.exports = {
       // swSrc is required in InjectManifest mode.
       swSrc: 'src/sw.js',
       // ...other Workbox options...
-      // Ignore all URL parameters.
-      ignoreURLParametersMatching: [/.*/],
     },
   },
 };
