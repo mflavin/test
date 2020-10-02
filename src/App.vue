@@ -104,9 +104,11 @@ export default {
       })
     },
     jobs() {
-      fetch('https://api.hearthstonejson.com/v1/25770/enUS/cards.json')
+      fetch('https://api.hearthstonejson.com/v1/25770/all/cards.json')
       .then((response) => {
         console.log('response, ',response);
+        const d = response.data.body;
+        console.log('d, ', d);
         // const getJobs = document.querySelector('.jobs');
         // response.text().then(d => {
         //   var j = JSON.parse(d);
