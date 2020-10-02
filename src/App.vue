@@ -132,6 +132,11 @@ export default {
         console.log("currentPrice, ", response.data.bpi);
         console.log("currentTime, ", response.data.time.updated)
       })
+
+    console.log('Start of slow.');
+    axios.get('https://api.hearthstonejson.com/v1/25770/all/cards.json');
+    axios.get('https://api.hearthstonejson.com/v1/26757/all/cards.json');
+    console.log('End of slow.');
   }
 };
 </script>
