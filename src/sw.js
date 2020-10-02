@@ -22,6 +22,10 @@ const broadcastUpdate = new workbox.broadcastUpdate.BroadcastCacheUpdate("broadc
 //   })
 // );
 
+// https://jobs.github.com/api
+// TODO: https://jobs.github.com/positions.json?search=code
+// This is kinda slow 600ms - 1.3s, try to bhSync for quicker speed
+
 // Precaching to allow for offline
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 

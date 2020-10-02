@@ -19,14 +19,18 @@
       <button type="button" name="button" @click="get" style="flex: 0 0 33%; margin-bottom: 35px;"><b>G</b>et!</button>
       <button type="button" name="button" @click="getLat" style="flex: 0 0 33%; margin-bottom: 35px;"><b>G</b>et <b>L</b>at!</button>
       <button type="button" name="button" @click="push" style="flex: 0 0 33%; margin-bottom: 35px;"><b>P</b>ush!</button>
-      <small style="flex: 0 0 33%;">
+      <button type="button" name="button" @click="jobs" style="flex: 0 0 33%; margin-bottom: 35px;"><b>J</b>obs!</button>
+      <small style="flex: 0 0 25%;">
         <div class="get"></div>
       </small>
-      <small style="flex: 0 0 33%;">
+      <small style="flex: 0 0 25%;">
         <div class="getLat"></div>
       </small>
-      <small style="flex: 0 0 33%;">
+      <small style="flex: 0 0 25%;">
         <div class="push"></div>
+      </small>
+      <small style="flex: 0 0 25%;">
+        <div class="jobs"></div>
       </small>
     </div>
     <button id="app-update" class="app-update">
@@ -98,6 +102,19 @@ export default {
       .catch(e => {
         console.error("Error... : ", e);
       })
+    },
+    jobs() {
+      fetch('https://jobs.github.com/positions.json?search=code')
+      .then((response) => {
+        console.log('response, ',response);
+        // const getJobs = document.querySelector('.jobs');
+        // response.text().then(d => {
+        //   var j = JSON.parse(d);
+        //   console.log('d: ', d);
+        //   console.log('j: ', j);
+        //   getJobs.innerHTML = `${j.date}, ${j.base}, ${j.rates.CAD}, ${j.rates.USD}`;
+        // })
+      });
     },
   },
   mounted () {
