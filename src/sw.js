@@ -22,9 +22,9 @@ const broadcastUpdate = new workbox.broadcastUpdate.BroadcastCacheUpdate("broadc
 //   })
 // );
 
-// https://jobs.github.com/api
-// TODO: https://jobs.github.com/positions.json?search=code
-// This is kinda slow 600ms - 1.3s, try to bhSync for quicker speed
+// https://hearthstonejson.com/
+// https://api.hearthstonejson.com/v1/25770/all/cards.json
+// This is kinda slow 140ms - 600ms, try to bhSync for quicker speed
 
 // Precaching to allow for offline
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
@@ -55,6 +55,14 @@ workbox.routing.registerRoute(
 // TODO: Future function. Used to finish REST requests once connection is remade
 // This is running, turn off wifi, click button, watch network tab, turn on button
 // Watch requests come in with new internet connection
+
+// GET
+workbox.routing.registerRoute(
+  'https://api.hearthstonejson.com/v1/25770/all/cards.json',
+  new workbox.strategies.NetworkFirst({
+    plugins: [bgSyncPlugin],
+  }),
+);
 
 // GET
 workbox.routing.registerRoute(
