@@ -16,10 +16,11 @@
          Article
         </span>
       </router-link>
-      <button type="button" name="button" @click="get" style="flex: 0 0 33%; margin-bottom: 35px;"><b>G</b>et!</button>
-      <button type="button" name="button" @click="getLat" style="flex: 0 0 33%; margin-bottom: 35px;"><b>G</b>et <b>L</b>at!</button>
-      <button type="button" name="button" @click="push" style="flex: 0 0 33%; margin-bottom: 35px;"><b>P</b>ush!</button>
-      <button type="button" name="button" @click="jobs" style="flex: 0 0 33%; margin-bottom: 35px;"><b>J</b>obs!</button>
+      <button type="button" name="button" @click="get" style="flex: 0 0 20%; margin-bottom: 35px;"><b>G</b>et!</button>
+      <button type="button" name="button" @click="getLat" style="flex: 0 0 20%; margin-bottom: 35px;"><b>G</b>et <b>L</b>at!</button>
+      <button type="button" name="button" @click="push" style="flex: 0 0 20%; margin-bottom: 35px;"><b>P</b>ush!</button>
+      <button type="button" name="button" @click="fastCards" style="flex: 0 0 20%; margin-bottom: 35px;"><b>F</b>astCards!</button>
+      <button type="button" name="button" @click="slowCards" style="flex: 0 0 20%; margin-bottom: 35px;"><b>S</b>lowCards!</button>
       <small style="flex: 0 0 25%;">
         <div class="get"></div>
       </small>
@@ -28,9 +29,6 @@
       </small>
       <small style="flex: 0 0 25%;">
         <div class="push"></div>
-      </small>
-      <small style="flex: 0 0 25%;">
-        <div class="jobs"></div>
       </small>
     </div>
     <button id="app-update" class="app-update">
@@ -103,20 +101,22 @@ export default {
         console.error("Error... : ", e);
       })
     },
-    jobs() {
+    fastCards() {
       fetch('https://api.hearthstonejson.com/v1/25770/all/cards.json')
       .then((response) => {
         console.log('response, ',response);
         response.text().then(d => {
           console.log('d ,' , d);
         });
-        // const getJobs = document.querySelector('.jobs');
-        // response.text().then(d => {
-        //   var j = JSON.parse(d);
-        //   console.log('d: ', d);
-        //   console.log('j: ', j);
-        //   getJobs.innerHTML = `${j.date}, ${j.base}, ${j.rates.CAD}, ${j.rates.USD}`;
-        // })
+      });
+    },
+    slowCards() {
+      fetch('https://api.hearthstonejson.com/v1/26757/all/cards.json')
+      .then((response) => {
+        console.log('response, ',response);
+        response.text().then(d => {
+          console.log('d ,' , d);
+        });
       });
     },
   },
