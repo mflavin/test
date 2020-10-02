@@ -104,7 +104,7 @@ export default {
       })
     },
     jobs() {
-      fetch('http://cors.io/?https://jobs.github.com/positions.json?search=code')
+      fetch('http://jobs.github.com/positions.json?search=code')
       .then((response) => {
         console.log('response, ',response);
         // const getJobs = document.querySelector('.jobs');
