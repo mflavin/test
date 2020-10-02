@@ -104,7 +104,7 @@ export default {
       })
     },
     jobs() {
-      fetch('http://jobs.github.com/positions.json?search=code')
+      fetch('https://api.hearthstonejson.com/v1/25770/enUS/cards.json')
       .then((response) => {
         console.log('response, ',response);
         // const getJobs = document.querySelector('.jobs');
