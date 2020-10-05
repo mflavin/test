@@ -1,3 +1,6 @@
+import {registerRoute} from 'workbox-routing';
+import {NetworkFirst} from 'workbox-strategies';
+import {CacheableResponsePlugin} from 'workbox-cacheable-response';
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
 
 // Note: Ignore the error that Glitch raises about workbox being undefined.
@@ -55,10 +58,6 @@ workbox.routing.registerRoute(
 // TODO: Future function. Used to finish REST requests once connection is remade
 // This is running, turn off wifi, click button, watch network tab, turn on button
 // Watch requests come in with new internet connection
-
-import { registerRoute } from 'workbox-routing';
-import { NetworkFirst } from 'workbox-strategies';
-import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 
 registerRoute(
   ({url}) => url.pathname.startsWith('https://api.hearthstonejson.com/v1/25770/all/cards.json'),
