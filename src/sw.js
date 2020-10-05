@@ -58,7 +58,7 @@ workbox.routing.registerRoute(
 
 workbox.routing.registerRoute(
   ({url}) => url.pathname.startsWith('https://api.hearthstonejson.com/v1/25770/all/cards.json'),
-  new workbox.strategies.NetworkFirst({
+  new workbox.strategies.StaleWhileRevalidate({
     cacheName: 'api-cache',
     plugins: [
       new workbox.cacheableResponse.CacheableResponsePlugin({
