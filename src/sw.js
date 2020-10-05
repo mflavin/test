@@ -56,13 +56,32 @@ workbox.routing.registerRoute(
 // This is running, turn off wifi, click button, watch network tab, turn on button
 // Watch requests come in with new internet connection
 
-// GET
+const cacheableResponse = new workbox.cacheableResponse.Plugin({
+    statuses: [0, 200],
+    headers: {
+        'x-is-cacheable': true,
+    },
+});
+
+// APIs
 workbox.routing.registerRoute(
-  'https://api.hearthstonejson.com/v1/25770/all/cards.json',
-  new workbox.strategies.NetworkFirst({
-    plugins: [bgSyncPlugin],
-  }),
+  new RegExp('https://api.hearthstonejson.com/v1/25770/all/cards.json'),
+  workbox.strategies.networkFirst({
+    cacheName: 'api-cache',
+    plugins: [
+      cacheableResponse,
+      bgSyncPlugin,
+    ]
+  })
 );
+
+// GET
+// workbox.routing.registerRoute(
+//   'https://api.hearthstonejson.com/v1/25770/all/cards.json',
+//   new workbox.strategies.NetworkFirst({
+//     plugins: [bgSyncPlugin],
+//   }),
+// );
 
 // GET
 workbox.routing.registerRoute(
