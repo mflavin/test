@@ -56,21 +56,20 @@ workbox.routing.registerRoute(
 // This is running, turn off wifi, click button, watch network tab, turn on button
 // Watch requests come in with new internet connection
 
-const cacheableResponse = new workbox.cacheableResponse.Plugin({
-    statuses: [0, 200],
-    headers: {
-        'x-is-cacheable': true,
-    },
-});
+import { registerRoute } from 'workbox-routing';
+import { NetworkFirst } from 'workbox-strategies';
+import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 
-// APIs
-workbox.routing.registerRoute(
-  new RegExp('https://api.hearthstonejson.com/v1/25770/all/cards.json'),
-  workbox.strategies.networkFirst({
+registerRoute(
+  ({url}) => url.pathname.startsWith('https://api.hearthstonejson.com/v1/25770/all/cards.json'),
+  new NetworkFirst({
     cacheName: 'api-cache',
     plugins: [
-      cacheableResponse,
-      bgSyncPlugin,
+      new CacheableResponsePlugin({
+        headers: {
+          'X-Is-Cacheable': 'true',
+        },
+      })
     ]
   })
 );
