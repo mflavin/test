@@ -1,7 +1,7 @@
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
 import {registerRoute} from 'workbox-routing';
 import {NetworkFirst} from 'workbox-strategies';
 import {CacheableResponsePlugin} from 'workbox-cacheable-response';
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
 
 // Note: Ignore the error that Glitch raises about workbox being undefined.
 workbox.setConfig({
