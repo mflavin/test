@@ -88,7 +88,6 @@ workbox.core.clientsClaim();
 self.addEventListener('install', (event) => {
   // Get API URL passed as query parameter to service worker
   const preInstallUrl = 'https://api.hearthstonejson.com/v1/25770/all/cards.json';
-
   // Fetch precaching URLs and attach them to the cache list
   const assetsLoaded = fetch(preInstallUrl);
   event.waitUntil(assetsLoaded);
