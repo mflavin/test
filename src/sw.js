@@ -56,27 +56,13 @@ workbox.routing.registerRoute(
 // This is running, turn off wifi, click button, watch network tab, turn on button
 // Watch requests come in with new internet connection
 
-workbox.routing.registerRoute(
-  ({url}) => url.pathname.startsWith('https://api.hearthstonejson.com/v1/25770/all/cards.json'),
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: 'api-cache',
-    plugins: [
-      new workbox.cacheableResponse.CacheableResponsePlugin({
-        headers: {
-          'X-Is-Cacheable': 'true',
-        },
-      })
-    ]
-  })
-);
-
 // GET
-// workbox.routing.registerRoute(
-//   'https://api.hearthstonejson.com/v1/25770/all/cards.json',
-//   new workbox.strategies.NetworkFirst({
-//     plugins: [bgSyncPlugin],
-//   }),
-// );
+workbox.routing.registerRoute(
+  'https://api.hearthstonejson.com/v1/25770/all/cards.json',
+  new workbox.strategies.NetworkFirst({
+    plugins: [bgSyncPlugin],
+  }),
+);
 
 // GET
 workbox.routing.registerRoute(
@@ -97,3 +83,13 @@ workbox.routing.registerRoute(
 //This immediately deploys the service worker w/o requiring a refresh
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
+
+// Hook into install event
+self.addEventListener('install', (event) => {
+  // Get API URL passed as query parameter to service worker
+  const preInstallUrl = 'https://api.hearthstonejson.com/v1/25770/all/cards.json';
+
+  // Fetch precaching URLs and attach them to the cache list
+  const assetsLoaded = fetch(preInstallUrl);
+  event.waitUntil(assetsLoaded);
+});
