@@ -10,7 +10,7 @@ const Offline = () => import(
   /* webpackMode: "lazy" */
   /* webpackPrefetch: true */
   /* webpackChunkName: "offline" */
-  './views/offline.html'
+  './views/offline.vue'
 );
 
 Vue.use(Router)
