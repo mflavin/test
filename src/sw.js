@@ -86,7 +86,7 @@ workbox.routing.registerRoute(
 workbox.routing.registerRoute(
   ({ event }) => event.request.mode === 'navigate',
   async () => {
-    const defaultBase = 'https://mflavin.github.io/test/';
+    const defaultBase = process.env.BASE_URL;
     console.log('defaultBase, ', defaultBase);
     return caches
       .match(workbox.precaching.getCacheKeyForURL(defaultBase))
