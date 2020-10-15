@@ -80,6 +80,11 @@ workbox.routing.registerRoute(
   'POST'
 );
 
+workbox.routing.setCatchHandler(() => {
+  console.log('setCatchHandler');
+  return caches.match(workbox.precaching.getCacheKeyForURL('./views/offline.vue'));
+});
+
 //This immediately deploys the service worker w/o requiring a refresh
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
@@ -102,16 +107,11 @@ self.addEventListener('fetch', function(event) {
           return response;
         } else if (event.request.headers.get('accept').includes('text/html')) {
           console.log('else if');
+          return 'https://mflavin.github.io/test/offline';
           // TODO: PUSH THROUGH offline.html
-          return caches.match(workbox.precaching.getCacheKeyForURL('views/offline.vue'));
           // workbox.precaching.precacheAndRoute
         }
       });
     })
   );
-});
-
-workbox.routing.setCatchHandler(() => {
-  console.log('setCatchHandler');
-  return caches.match(workbox.precaching.getCacheKeyForURL('views/offline.vue'));
 });

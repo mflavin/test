@@ -99,6 +99,11 @@ export default new Router({
       )
     },
     {
+      path: '/offline',
+      name: 'offline',
+      component: Offline,
+    },
+    {
       path: '*',
       name: 'offline',
       component: Offline,
