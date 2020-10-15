@@ -102,6 +102,7 @@ self.addEventListener('fetch', function(event) {
           return response;
         } else if (event.request.headers.get('accept').includes('text/html')) {
           console.log('else if');
+          // TODO: PUSH THROUGH offline.html
           return caches.match(workbox.precaching.getCacheKeyForURL('/offline.html'));
           // workbox.precaching.precacheAndRoute
         }

@@ -6,7 +6,12 @@ const Home = () => import(
   /* webpackChunkName: "home" */
   './views/Home.vue'
 );
-const NotFound = { template: "<div>not found</div>" };
+const Offline = () => import(
+  /* webpackMode: "lazy" */
+  /* webpackPrefetch: true */
+  /* webpackChunkName: "offline" */
+  './views/offline.html'
+);
 
 Vue.use(Router)
 
@@ -95,8 +100,8 @@ export default new Router({
     },
     {
       path: '*',
-      name: 'Not Found',
-      component: NotFound,
+      name: 'offline',
+      component: Offline,
     }
   ]
 })
