@@ -114,21 +114,3 @@ self.addEventListener('install', (event) => {
   const assetsLoaded = fetch(preInstallUrl);
   event.waitUntil(assetsLoaded);
 });
-
-self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    fetch(event.request).catch(function() {
-      return caches.match(event.request).then(function(response) {
-        if (response) {
-          console.log('response, ', response);
-          return response;
-        } else if (event.request.headers.get('accept').includes('text/html')) {
-          console.log('else if');
-          return 'https://mflavin.github.io/test/offline';
-          // TODO: PUSH THROUGH offline.html
-          // workbox.precaching.precacheAndRoute
-        }
-      });
-    })
-  );
-});
