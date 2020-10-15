@@ -95,7 +95,8 @@ export default new Router({
     },
     {
       path: '*',
+      name: 'Not Found',
       component: NotFound,
-    },
+    }
   ]
 })
