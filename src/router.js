@@ -105,8 +105,7 @@ export default new Router({
     },
     {
       path: '*',
-      name: 'offline',
-      component: Offline,
-    }
+      redirect: '/',
+    },
   ]
 })
