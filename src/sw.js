@@ -80,10 +80,27 @@ workbox.routing.registerRoute(
   'POST'
 );
 
-workbox.routing.setCatchHandler(() => {
-  console.log('setCatchHandler');
-  return caches.match(workbox.precaching.getCacheKeyForURL('./views/offline.vue'));
-});
+// default page handler for offline usage,
+// where the browser does not how to handle deep links
+// it's a SPA, so each path that is a navigation should default to index.html
+workbox.routing.registerRoute(
+  ({ event }) => event.request.mode === 'navigate',
+  async () => {
+    const defaultBase = '/index.html';
+    console.log('defaultBase, ', defaultBase);
+    return caches
+      .match(workbox.precaching.getCacheKeyForURL(defaultBase))
+      .then(response => {
+          console.log('response, ', response);
+          return response || fetch(defaultBase);
+      })
+      .catch(err => {
+        console.log('err, ', err);
+        console.log('catch detch');
+        return fetch(defaultBase);
+      });
+  }
+);
 
 //This immediately deploys the service worker w/o requiring a refresh
 workbox.core.skipWaiting();
