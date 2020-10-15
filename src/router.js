@@ -6,12 +6,6 @@ const Home = () => import(
   /* webpackChunkName: "home" */
   './views/Home.vue'
 );
-const Offline = () => import(
-  /* webpackMode: "lazy" */
-  /* webpackPrefetch: true */
-  /* webpackChunkName: "offline" */
-  './views/offline.vue'
-);
 
 Vue.use(Router)
 
@@ -97,11 +91,6 @@ export default new Router({
       component: () => import(
         './views/pages/post2.vue'
       )
-    },
-    {
-      path: '/offline',
-      name: 'offline',
-      component: Offline,
     },
     {
       path: '*',
