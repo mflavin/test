@@ -103,7 +103,7 @@ self.addEventListener('fetch', function(event) {
         } else if (event.request.headers.get('accept').includes('text/html')) {
           console.log('else if');
           // TODO: PUSH THROUGH offline.html
-          return caches.match(workbox.precaching.getCacheKeyForURL('/offline.html'));
+          return caches.match(workbox.precaching.getCacheKeyForURL('views/offline.vue'));
           // workbox.precaching.precacheAndRoute
         }
       });
@@ -113,5 +113,5 @@ self.addEventListener('fetch', function(event) {
 
 workbox.routing.setCatchHandler(() => {
   console.log('setCatchHandler');
-  return caches.match(workbox.precaching.getCacheKeyForURL('offline.html'));
+  return caches.match(workbox.precaching.getCacheKeyForURL('views/offline.vue'));
 });
