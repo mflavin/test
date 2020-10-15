@@ -88,34 +88,13 @@ workbox.routing.registerRoute(
   async () => {
     const defaultBase = 'https://mflavin.github.io/test/';
     const test = '/';
-    try {
-      console.log(process.env.BASE_URL);
-      caches
-        .match(workbox.precaching.getCacheKeyForURL(test))
-        .then(response => {
-          console.log('response || fetch(test)', response || fetch(test));
-        })
-        .catch(err => {
-          console.log('fetch(test)', fetch(test));
-        });
-    } catch (e) {
-      console.log('cant log process.env.BASE_URL');
-      caches
-        .match(workbox.precaching.getCacheKeyForURL(test))
-        .then(response => {
-          console.log('response || fetch(test)', response || fetch(test));
-        })
-        .catch(err => {
-          console.log('fetch(test)', fetch(test));
-        });
-    }
     return caches
-      .match(workbox.precaching.getCacheKeyForURL(defaultBase))
+      .match(workbox.precaching.getCacheKeyForURL(test))
       .then(response => {
-        return response || fetch(defaultBase);
+        return response || fetch(test);
       })
       .catch(err => {
-        return fetch(defaultBase);
+        return fetch(test);
       });
   }
 );
