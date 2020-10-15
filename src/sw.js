@@ -98,8 +98,10 @@ self.addEventListener('fetch', function(event) {
     fetch(event.request).catch(function() {
       return caches.match(event.request).then(function(response) {
         if (response) {
+          console.log('response, ', response);
           return response;
         } else if (event.request.headers.get('accept').includes('text/html')) {
+          console.log('else if');
           return caches.match(workbox.precaching.getCacheKeyForURL('/offline.html'));
           // workbox.precaching.precacheAndRoute
         }
@@ -108,24 +110,7 @@ self.addEventListener('fetch', function(event) {
   );
 });
 
-
-const CACHE_NAME = 'offline-html';
-// This assumes /offline.html is a URL for your self-contained
-// (no external images or styles) offline page.
-const FALLBACK_HTML_URL = '/offline.html';
-
-const networkOnly = new workbox.strategies.NetworkOnly();
-const navigationHandler = async (params) => {
-  try {
-    // Attempt a network request.
-    return await networkOnly.handle(params);
-  } catch (error) {
-    // If it fails, return the cached HTML.
-    return FALLBACK_HTML_URL;
-  }
-};
-
-// Register this strategy to handle all navigations.
-workbox.routing.registerRoute(
-  new workbox.routing.NavigationRoute(navigationHandler)
-);
+workbox.routing.setCatchHandler(() => {
+  console.log('setCatchHandler');
+  return caches.match(workbox.precaching.getCacheKeyForURL('offline.html'));
+});
