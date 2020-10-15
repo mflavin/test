@@ -86,7 +86,7 @@ workbox.routing.registerRoute(
 workbox.routing.registerRoute(
   ({ event }) => event.request.mode === 'navigate',
   async () => {
-    const defaultBase = './views/offline.vue';
+    const defaultBase = 'https://mflavin.github.io/test/article';
     console.log('defaultBase, ', defaultBase);
     return caches
       .match(workbox.precaching.getCacheKeyForURL(defaultBase))
