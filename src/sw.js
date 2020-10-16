@@ -80,6 +80,23 @@ workbox.routing.registerRoute(
   'POST'
 );
 
+
+
+//This immediately deploys the service worker w/o requiring a refresh
+workbox.core.skipWaiting();
+workbox.core.clientsClaim();
+
+// Hook into install event
+self.addEventListener('install', (event) => {
+  // Get API URL passed as query parameter to service worker
+  const preInstallUrl = 'https://api.hearthstonejson.com/v1/25770/all/cards.json';
+  // Fetch precaching URLs and attach them to the cache list
+  const assetsLoaded = fetch(preInstallUrl);
+  event.waitUntil(assetsLoaded);
+});
+
+
+
 // default page handler for offline usage,
 // where the browser does not how to handle deep links
 // it's a SPA, so each path that is a navigation should default to index.html
@@ -99,16 +116,3 @@ workbox.routing.registerRoute(
       });
   }
 );
-
-//This immediately deploys the service worker w/o requiring a refresh
-workbox.core.skipWaiting();
-workbox.core.clientsClaim();
-
-// Hook into install event
-self.addEventListener('install', (event) => {
-  // Get API URL passed as query parameter to service worker
-  const preInstallUrl = 'https://api.hearthstonejson.com/v1/25770/all/cards.json';
-  // Fetch precaching URLs and attach them to the cache list
-  const assetsLoaded = fetch(preInstallUrl);
-  event.waitUntil(assetsLoaded);
-});
