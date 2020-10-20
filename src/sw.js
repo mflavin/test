@@ -118,7 +118,7 @@
 
 
 // ====== TESTING BELOW ======
-
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
 
 import {* as navigationPreload} from 'workbox-navigation-preload';
 import {registerRoute, NavigationRoute} from 'workbox-routing';
