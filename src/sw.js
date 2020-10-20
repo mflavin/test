@@ -120,6 +120,10 @@
 // ====== TESTING BELOW ======
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
 
+//This immediately deploys the service worker w/o requiring a refresh
+workbox.core.skipWaiting();
+workbox.core.clientsClaim();
+
 const CACHE_NAME = 'offline-html';
 // This assumes /offline.html is a URL for your self-contained
 // (no external images or styles) offline page.
