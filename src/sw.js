@@ -102,6 +102,33 @@ workbox.routing.registerRoute(
   }
 );
 
+const offlinePage = '/offline/';
+/**
+ * Pages to cache
+ */
+ workbox.routing.registerRoute('https://mflavin.github.io/test/about',
+   async ({event}) => {
+     try {
+       return await workbox.strategies.staleWhileRevalidate({
+           cacheName: 'cache-pages'
+       }).handle({event});
+     } catch (error) {
+       return caches.match(offlinePage);
+     }
+   }
+ );
+workbox.routing.registerRoute('https://mflavin.github.io/test/article',
+  async ({event}) => {
+    try {
+      return await workbox.strategies.staleWhileRevalidate({
+          cacheName: 'cache-pages'
+      }).handle({event});
+    } catch (error) {
+      return caches.match(offlinePage);
+    }
+  }
+);
+
 //This immediately deploys the service worker w/o requiring a refresh
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
