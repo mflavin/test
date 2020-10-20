@@ -141,7 +141,7 @@ self.addEventListener('install', (event) => {
   );
 });
 
-workbox.navigationPreload.enable()
+// workbox.navigationPreload.enable()
 
 const networkOnly = new workbox.strategies.NetworkOnly();
 const navigationHandler = async (params) => {
