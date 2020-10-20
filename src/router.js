@@ -7,6 +7,13 @@ const Home = () => import(
   './views/Home.vue'
 );
 
+const Offline = () => import(
+  /* webpackMode: "lazy" */
+  /* webpackPrefetch: true */
+  /* webpackChunkName: "offline" */
+  './views/Offline.vue'
+);
+
 Vue.use(Router)
 
 export default new Router({
@@ -23,6 +30,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home,
+    },
+    {
+      path: '/offline',
+      name: 'Offline',
+      component: Offline,
     },
     {
       path: '/about',
