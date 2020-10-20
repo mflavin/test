@@ -120,10 +120,6 @@
 // ====== TESTING BELOW ======
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
 
-import { * as navigationPreload } from 'workbox-navigation-preload';
-import { registerRoute, NavigationRoute } from 'workbox-routing';
-import { NetworkOnly } from 'workbox-strategies';
-
 const CACHE_NAME = 'offline-html';
 // This assumes /offline.html is a URL for your self-contained
 // (no external images or styles) offline page.
@@ -137,9 +133,9 @@ self.addEventListener('install', async (event) => {
   );
 });
 
-navigationPreload.enable();
+workbox.navigationPreload.enable()
 
-const networkOnly = new NetworkOnly();
+const networkOnly = new workbox.strategies.NetworkOnly();
 const navigationHandler = async (params) => {
   try {
     // Attempt a network request.
@@ -153,6 +149,6 @@ const navigationHandler = async (params) => {
 };
 
 // Register this strategy to handle all navigations.
-registerRoute(
-  new NavigationRoute(navigationHandler)
+workbox.routing.registerRoute(
+  new workbox.routing.NavigationRoute(navigationHandler)
 );
