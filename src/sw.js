@@ -118,11 +118,11 @@
 
 
 // ====== TESTING BELOW ======
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
 
-import {* as navigationPreload} from 'workbox-navigation-preload';
-import {registerRoute, NavigationRoute} from 'workbox-routing';
-import {NetworkOnly} from 'workbox-strategies';
+import { * as navigationPreload } from 'workbox-navigation-preload';
+import { registerRoute, NavigationRoute } from 'workbox-routing';
+import { NetworkOnly } from 'workbox-strategies';
 
 const CACHE_NAME = 'offline-html';
 // This assumes /offline.html is a URL for your self-contained
