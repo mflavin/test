@@ -123,63 +123,42 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox
 // Precaching to allow for offline
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 
-const CACHE_NAME = 'offline-html';
-// This assumes /offline.html is a URL for your self-contained
-// (no external images or styles) offline page.
-const FALLBACK_HTML_URL = '/offline.html';
-// Populate the cache with the offline HTML page when the
-// service worker is installed.
-// self.addEventListener('install', async (event) => {
-//   event.waitUntil(
-//     caches.open(CACHE_NAME)
-//       .then((cache) => cache.add(FALLBACK_HTML_URL))
-//   );
-// });
-
-// workbox.navigationPreload.enable()
-
-// const networkOnly = new workbox.strategies.NetworkOnly();
-// const navigationHandler = async (params) => {
-//   try {
-//     // Attempt a network request.
-//     return await networkOnly.handle(params)
-//       .then(resp => console.log('Success, ', resp))
-//       .catch(e => console.log('Error found, ', e));
-//   } catch (error) {
-//     // If it fails, return the cached HTML.
-//     return caches.match(FALLBACK_HTML_URL, {
-//       cacheName: CACHE_NAME,
-//     });
-//   }
-// };
-//
-// // Register this strategy to handle all navigations.
-// workbox.routing.registerRoute(
-//   new workbox.routing.NavigationRoute(navigationHandler)
-// );
-
-// default page handler for offline usage,
-// where the browser does not how to handle deep links
-// it's a SPA, so each path that is a navigation should default to index.html
-workbox.routing.registerRoute(
-  ({ event }) => event.request.mode === 'navigate',
-  async () => {
-    const defaultBase = 'https://mflavin.github.io/test/';
-    const test = '/test/';
-    console.log('===update===');
-    return caches
-      .match(workbox.precaching.getCacheKeyForURL(test))
-      .then(response => {
-        console.log(response ? '===response===' : '===fetch(test)===');
-        return response || fetch(test);
-      })
-      .catch(err => {
-        console.log('===fetch(test)===');
-        return fetch(test);
-      });
-  }
-);
-
 //This immediately deploys the service worker w/o requiring a refresh
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
+
+const CACHE_NAME = 'offline-html';
+// This assumes /offline.html is a URL for your self-contained
+// (no external images or styles) offline page.
+const FALLBACK_HTML_URL = 'test/offline.html';
+// Populate the cache with the offline HTML page when the
+// service worker is installed.
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(FALLBACK_HTML_URL)
+    .then((cache) => cache.addAll(FALLBACK_HTML_URL))
+    .catch(e => 'err, ', e)
+  );
+});
+
+workbox.navigationPreload.enable()
+
+const networkOnly = new workbox.strategies.NetworkOnly();
+const navigationHandler = async (params) => {
+  try {
+    // Attempt a network request.
+    return await networkOnly.handle(params)
+      .then(resp => console.log('Success, ', resp))
+      .catch(e => console.log('Error found, ', e));
+  } catch (error) {
+    // If it fails, return the cached HTML.
+    return caches.match(FALLBACK_HTML_URL, {
+      cacheName: CACHE_NAME,
+    });
+  }
+};
+
+// Register this strategy to handle all navigations.
+workbox.routing.registerRoute(
+  new workbox.routing.NavigationRoute(navigationHandler)
+);
