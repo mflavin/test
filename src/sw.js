@@ -92,9 +92,11 @@ workbox.routing.registerRoute(
     return caches
       .match(workbox.precaching.getCacheKeyForURL(test))
       .then(response => {
+        console.log(response ? 'response' : 'fetch(test)');
         return response || fetch(test);
       })
       .catch(err => {
+        console.log('fetch(test)');
         return fetch(test);
       });
   }
