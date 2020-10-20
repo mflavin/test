@@ -129,12 +129,12 @@ const CACHE_NAME = 'offline-html';
 const FALLBACK_HTML_URL = '/offline.html';
 // Populate the cache with the offline HTML page when the
 // service worker is installed.
-self.addEventListener('install', async (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => cache.add(FALLBACK_HTML_URL))
-  );
-});
+// self.addEventListener('install', async (event) => {
+//   event.waitUntil(
+//     caches.open(CACHE_NAME)
+//       .then((cache) => cache.add(FALLBACK_HTML_URL))
+//   );
+// });
 
 // workbox.navigationPreload.enable()
 
