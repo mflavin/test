@@ -1,4 +1,5 @@
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const workboxBuild = require('workbox-build');
 
 // NOTE: True when testing, should be false when not in dev or not needed
 const enableAnalyze = false;
