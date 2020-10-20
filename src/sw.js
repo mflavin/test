@@ -80,27 +80,27 @@ workbox.routing.registerRoute(
   'POST'
 );
 
-// default page handler for offline usage,
-// where the browser does not how to handle deep links
-// it's a SPA, so each path that is a navigation should default to index.html
-workbox.routing.registerRoute(
-  ({ event }) => event.request.mode === 'navigate',
-  async () => {
-    const defaultBase = 'https://mflavin.github.io/test/';
-    const test = '/test/';
-    console.log('===update===');
-    return caches
-      .match(workbox.precaching.getCacheKeyForURL(test))
-      .then(response => {
-        console.log(response ? '===response===' : '===fetch(test)===');
-        return response || fetch(test);
-      })
-      .catch(err => {
-        console.log('===fetch(test)===');
-        return fetch(test);
-      });
-  }
-);
+// // default page handler for offline usage,
+// // where the browser does not how to handle deep links
+// // it's a SPA, so each path that is a navigation should default to index.html
+// workbox.routing.registerRoute(
+//   ({ event }) => event.request.mode === 'navigate',
+//   async () => {
+//     const defaultBase = 'https://mflavin.github.io/test/';
+//     const test = '/test/';
+//     console.log('===update===');
+//     return caches
+//       .match(workbox.precaching.getCacheKeyForURL(test))
+//       .then(response => {
+//         console.log(response ? '===response===' : '===fetch(test)===');
+//         return response || fetch(test);
+//       })
+//       .catch(err => {
+//         console.log('===fetch(test)===');
+//         return fetch(test);
+//       });
+//   }
+// );
 
 const offlinePage = '/offline/';
 /**
