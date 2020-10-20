@@ -130,15 +130,14 @@ workbox.core.clientsClaim();
 const CACHE_NAME = 'offline-html';
 // This assumes /offline.html is a URL for your self-contained
 // (no external images or styles) offline page.
-const FALLBACK_HTML_URL = 'test/offline.html';
-// Populate the cache with the offline HTML page when the
-// service worker is installed.
+const FALLBACK_HTML_URL = '/test/offline.html';
+// Hook into install event
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(FALLBACK_HTML_URL)
-    .then((cache) => cache.addAll(FALLBACK_HTML_URL))
-    .catch(e => 'err, ', e)
-  );
+  // Get API URL passed as query parameter to service worker
+  const preInstallUrl = '/test/offline.html';
+  // Fetch precaching URLs and attach them to the cache list
+  const assetsLoaded = fetch(preInstallUrl);
+  event.waitUntil(assetsLoaded);
 });
 
 // workbox.navigationPreload.enable()
