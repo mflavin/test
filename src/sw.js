@@ -2,7 +2,7 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox
 
 // Note: Ignore the error that Glitch raises about workbox being undefined.
 workbox.setConfig({
-  debug: true
+  debug: false,
 });
 
 // const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('myQueueName');
@@ -88,15 +88,15 @@ workbox.routing.registerRoute(
   async () => {
     const defaultBase = 'https://mflavin.github.io/test/';
     const test = '/test/';
-    console.log('update');
+    console.log('===update===');
     return caches
       .match(workbox.precaching.getCacheKeyForURL(test))
       .then(response => {
-        console.log(response ? 'response' : 'fetch(test)');
+        console.log(response ? '===response===' : '===fetch(test)===');
         return response || fetch(test);
       })
       .catch(err => {
-        console.log('fetch(test)');
+        console.log('===fetch(test)===');
         return fetch(test);
       });
   }
