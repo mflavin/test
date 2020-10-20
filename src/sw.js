@@ -148,7 +148,12 @@ const navigationHandler = async (params) => {
     // Attempt a network request.
     return await networkOnly.handle(params)
       .then(resp => console.log('Success, ', resp))
-      .catch(e => console.log('Error found, ', e));
+      .catch(e => {
+        // If it fails, return the cached HTML.
+        return caches.match(FALLBACK_HTML_URL, {
+          cacheName: CACHE_NAME,
+        });
+      });
   } catch (error) {
     // If it fails, return the cached HTML.
     return caches.match(FALLBACK_HTML_URL, {
