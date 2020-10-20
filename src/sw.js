@@ -146,7 +146,9 @@ const networkOnly = new workbox.strategies.NetworkOnly();
 const navigationHandler = async (params) => {
   try {
     // Attempt a network request.
-    return await networkOnly.handle(params);
+    return await networkOnly.handle(params)
+      .then(resp => console.log('Success, ', resp))
+      .catch(e => console.log('Error found, ', e));
   } catch (error) {
     // If it fails, return the cached HTML.
     return caches.match(FALLBACK_HTML_URL, {
