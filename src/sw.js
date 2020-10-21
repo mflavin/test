@@ -230,6 +230,15 @@ workbox.routing.registerRoute(
   }
 );
 
+self.addEventListener('fetch', function(event) {
+  console.log('fetch event, ', event);
+  event.respondWith(
+    fetch(event.request).catch(function() {
+      return caches.match(event.request);
+    })
+  );
+});
+
 // This immediately deploys the service worker w/o requiring a refresh
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
