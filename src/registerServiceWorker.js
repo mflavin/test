@@ -88,11 +88,6 @@ if ('serviceWorker' in navigator) {
       refreshing = true;
     });
 
-    navigator.serviceWorker.addEventListener('message', event => {
-      // event is a MessageEvent object
-      console.log(`The service worker sent me a message: ${event.data}`);
-    });
-
     navigator.serviceWorker.ready.then(registration => {
       registration.active.postMessage({ VUE_APP_API_PATH: process.env.VUE_APP_API_PATH });
     });
