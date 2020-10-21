@@ -200,52 +200,18 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest);
 workbox.routing.registerRoute(
   ({ event }) => event.request.mode === 'navigate',
   async () => {
-    let hamSam;
     const defaultBase = globalRoute || '/';
-    // globalRoute, https://mflavin.github.io/test/
     console.log('globalRoute, ', globalRoute);
     return caches
       .match(workbox.precaching.getCacheKeyForURL(defaultBase))
       .then(response => {
-        if (response) {
-          console.log('huh: ', response);
-          return response;
-        }
-        console.log('yeah : fetch');
-        return fetch(defaultBase)
-          .then(e => {
-             console.log('succ', e)
-             return e;
-          })
-          .catch(e => console.log('err', e));
+        return response || fetch(defaultBase);
       })
       .catch(err => {
-        return fetch(defaultBase)
-          .then(e => {
-             console.log('succ', e)
-             return e;
-          })
-          .catch(e => console.log('err', e));
+        return fetch(defaultBase);
       });
   }
 );
-
-self.addEventListener('fetch', function(event) {
-  console.log('fetch event, ', event);
-  event.respondWith(
-    fetch(event.request).catch(function() {
-      return caches.match(event.request)
-        .then(resp => {
-          console.log('good resp');
-          return resp;
-        })
-        .catch(e => {
-          console.log('e,' , e);
-          return e;
-        });
-    })
-  );
-});
 
 // This immediately deploys the service worker w/o requiring a refresh
 workbox.core.skipWaiting();
