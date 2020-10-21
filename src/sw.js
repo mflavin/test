@@ -1,5 +1,7 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
 
+let globalRoute;
+
 // Note: Ignore the error that Glitch raises about workbox being undefined.
 workbox.setConfig({
   debug: false,
@@ -89,6 +91,7 @@ workbox.routing.registerRoute(
     const defaultBase = 'https://mflavin.github.io/test/';
     const test = '/test/';
     console.log('===update===');
+    console.log('globalRoute, ', globalRoute);
     return caches
       .match(workbox.precaching.getCacheKeyForURL(test))
       .then(response => {
@@ -133,6 +136,7 @@ self.addEventListener('message', (event) => {
   console.log('event, ', event);
   console.log('event.data, ', event.data);
   console.log('event.source.url, ', event.source.url);
+  globalRoute = event.data.VUE_APP_API_PATH;
 });
 
 //This immediately deploys the service worker w/o requiring a refresh
