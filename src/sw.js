@@ -181,9 +181,9 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.4/workbox
 
 let globalRoute;
 
-// self.addEventListener('message', (event) => {
-//   globalRoute = event.data.VUE_APP_API_PATH;
-// });
+self.addEventListener('message', (event) => {
+  globalRoute = event.data.VUE_APP_API_PATH;
+});
 
 // Note: Ignore the error that Glitch raises about workbox being undefined.
 workbox.setConfig({
@@ -201,6 +201,7 @@ workbox.routing.registerRoute(
   ({ event }) => event.request.mode === 'navigate',
   async () => {
     const defaultBase = globalRoute || '/';
+    console.log('globalRoute, ', globalRoute);
     return caches
       .match(workbox.precaching.getCacheKeyForURL(defaultBase))
       .then(response => {
