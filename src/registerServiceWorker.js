@@ -1,3 +1,4 @@
+import workbox from 'https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
 /**
  * Copyright 2015 Google Inc. All rights reserved.
  *
@@ -89,7 +90,6 @@
 // }
 
 if ('serviceWorker' in navigator) {
-  import workbox from 'https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
   const wb = new Workbox(`${process.env.BASE_URL}sw.js`);
   wb.messageSW({ process: process });
   wb.register();
