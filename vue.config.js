@@ -1,7 +1,5 @@
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const workboxBuild = require('workbox-build');
-// Inside of webpack.config.js:
-const {InjectManifest} = require('workbox-webpack-plugin');
 
 // NOTE: True when testing, should be false when not in dev or not needed
 const enableAnalyze = false;
@@ -32,8 +30,6 @@ module.exports = {
           }),
         ]
         : [],
-      // Other plugins...
-      new InjectManifest({ swSrc: 'src/sw.js' }),
     ],
     // if you don't put the "/" here, you get this error:
     // "bundle.js:1 Uncaught SyntaxError: Unexpected token <"
