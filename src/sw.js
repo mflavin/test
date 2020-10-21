@@ -88,6 +88,7 @@ workbox.routing.registerRoute(
   async () => {
     const defaultBase = 'https://mflavin.github.io/test/';
     const test = '/test/';
+    console.log('process.env.VUE_APP_API_PATH, ', process.env.VUE_APP_API_PATH);
     console.log('===update===');
     return caches
       .match(workbox.precaching.getCacheKeyForURL(test))
