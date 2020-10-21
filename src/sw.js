@@ -234,7 +234,15 @@ self.addEventListener('fetch', function(event) {
   console.log('fetch event, ', event);
   event.respondWith(
     fetch(event.request).catch(function() {
-      return caches.match(event.request);
+      return caches.match(event.request)
+        .then(resp => {
+          console.log('good resp');
+          return resp;
+        })
+        .catch(e => {
+          console.log('e,' , e);
+          return e;
+        });
     })
   );
 });
