@@ -73,7 +73,7 @@ export default new Router({
             /* webpackMode: "lazy" */
             /* webpackPrefetch: true */
             /* webpackChunkName: "forms" */
-            './views/about.vue'
+            './views/About.vue'
           ),
           props: true,
         },
