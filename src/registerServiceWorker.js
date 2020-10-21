@@ -1,4 +1,4 @@
-import { Workbox } from 'https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-window.prod.mjs';
+import { Workbox } from 'workbox-window';
 /**
  * Copyright 2015 Google Inc. All rights reserved.
  *
