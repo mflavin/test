@@ -1,4 +1,4 @@
-import workbox from 'https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
+import workbox from 'https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js';
 /**
  * Copyright 2015 Google Inc. All rights reserved.
  *
