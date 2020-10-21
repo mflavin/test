@@ -206,8 +206,13 @@ workbox.routing.registerRoute(
     return caches
       .match(workbox.precaching.getCacheKeyForURL(defaultBase))
       .then(response => {
-        console.log('response, ', response);
-        console.log('fetch: ', fetch(defaultBase).then(e => console.log('succ', e)).catch(e => console.log('err', e)));
+        const test = () => {
+          console.log('fetch: ');
+          return fetch(defaultBase).then(e => console.log('succ', e)).catch(e => console.log('err', e))
+        }
+        
+        test();
+
         return response || fetch(defaultBase)
           .then(e => {
              console.log('succ', e)
