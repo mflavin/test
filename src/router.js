@@ -3,14 +3,14 @@ import Router from 'vue-router'
 const Home = () => import(
   /* webpackMode: "lazy" */
   /* webpackPrefetch: true */
-  /* webpackChunkName: "home" */
+  /* webpackChunkName: "forms" */
   './views/Home.vue'
 );
 
 const Offline = () => import(
   /* webpackMode: "lazy" */
   /* webpackPrefetch: true */
-  /* webpackChunkName: "offline" */
+  /* webpackChunkName: "forms" */
   './views/Offline.vue'
 );
 
@@ -45,7 +45,7 @@ export default new Router({
       component: () => import(
         /* webpackMode: "lazy" */
         /* webpackPrefetch: true */
-        /* webpackChunkName: "about" */
+        /* webpackChunkName: "forms" */
         './views/About.vue'
       ),
       children: [
@@ -58,7 +58,7 @@ export default new Router({
           component: () => import(
             /* webpackMode: "lazy" */
             /* webpackPrefetch: true */
-            /* webpackChunkName: "cheese" */
+            /* webpackChunkName: "forms" */
             './views/article.vue'
           )
         },
@@ -73,12 +73,12 @@ export default new Router({
       component: () => import(
         /* webpackMode: "lazy" */
         /* webpackPrefetch: true */
-        /* webpackChunkName: "article" */
+        /* webpackChunkName: "forms" */
         './views/article.vue'
       )
     },
     {
-      path: 'pages/article1',
+      path: '/pages/article1',
       name: 'article1',
       component: () => import(
         './views/pages/article1.vue'
