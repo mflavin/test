@@ -129,7 +129,7 @@ self.addEventListener('message', (event) => {
   console.log('event, ', event);
   console.log('event.data, ', event.data);
   console.log('event.source.url, ', event.source.url);
-  // globalRoute = event.data.VUE_APP_API_PATH;
+  globalRoute = event.data.VUE_APP_API_PATH;
 });
 
 // self.addEventListener('fetch', (event) => {
