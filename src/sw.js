@@ -210,8 +210,8 @@ workbox.routing.registerRoute(
           console.log('fetch: ');
           return fetch(defaultBase).then(e => console.log('succ', e)).catch(e => console.log('err', e))
         }
-        
-        test();
+
+        console.log(test());
 
         return response || fetch(defaultBase)
           .then(e => {
