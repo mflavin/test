@@ -85,35 +85,35 @@ export default new Router({
       )
     },
     {
-      path: 'pages/article2',
+      path: '/pages/article2',
       name: 'article2',
       component: () => import(
         './views/pages/article2.vue'
       )
     },
     {
-      path: 'pages/article3',
+      path: '/pages/article3',
       name: 'article3',
       component: () => import(
         './views/pages/article3.vue'
       )
     },
     {
-      path: 'pages/article4',
+      path: '/pages/article4',
       name: 'article4',
       component: () => import(
         './views/pages/article4.vue'
       )
     },
     {
-      path: 'pages/post1',
+      path: '/pages/post1',
       name: 'post1',
       component: () => import(
         './views/pages/post1.vue'
       )
     },
     {
-      path: 'pages/post2',
+      path: '/pages/post2',
       name: 'post2',
       component: () => import(
         './views/pages/post2.vue'

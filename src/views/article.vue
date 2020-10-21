@@ -16,7 +16,7 @@
         </div>
 
         <div class="right column">
-          <h2 class="headline">Article 1</h2>
+          <h2 class="headline">Article</h2>
           <p class="content">
             I love cheese, especially manchego swiss. ☺ Fromage queso jarlsberg cheesy
             feet emmental cottage cheese camembert de normandie bocconcini. Cottage cheese
