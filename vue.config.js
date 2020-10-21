@@ -1,5 +1,4 @@
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const workboxPlugin = require('workbox-webpack-plugin');
 
 // NOTE: True when testing, should be false when not in dev or not needed
 const enableAnalyze = false;
@@ -26,11 +25,6 @@ module.exports = {
           }),
         ]
         : [],
-        new workboxPlugin.GenerateSW({
-          swDest: 'sw.js',
-          clientsClaim: true,
-          skipWaiting: true,
-        })
     ],
     // if you don't put the "/" here, you get this error:
     // "bundle.js:1 Uncaught SyntaxError: Unexpected token <"
