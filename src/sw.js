@@ -181,9 +181,9 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.4/workbox
 
 let globalRoute;
 
-self.addEventListener('message', (event) => {
-  globalRoute = event.data.VUE_APP_API_PATH;
-});
+// self.addEventListener('message', (event) => {
+//   globalRoute = event.data.VUE_APP_API_PATH;
+// });
 
 // Note: Ignore the error that Glitch raises about workbox being undefined.
 workbox.setConfig({
