@@ -121,17 +121,17 @@ export default {
     },
   },
   mounted () {
-    this.onLine = navigator.onLine;
-    axios
-      .get('https://api.exchangeratesapi.io/latest')
-      .then(response => console.log("Latest, ", response.data.rates))
-
-    axios
-      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-      .then(response => {
-        console.log("currentPrice, ", response.data.bpi);
-        console.log("currentTime, ", response.data.time.updated)
-      })
+    // this.onLine = navigator.onLine;
+    // axios
+    //   .get('https://api.exchangeratesapi.io/latest')
+    //   .then(response => console.log("Latest, ", response.data.rates))
+    //
+    // axios
+    //   .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+    //   .then(response => {
+    //     console.log("currentPrice, ", response.data.bpi);
+    //     console.log("currentTime, ", response.data.time.updated)
+    //   })
 
     // console.log('Start of slow.');
     // axios.get('https://api.hearthstonejson.com/v1/25770/all/cards.json');
