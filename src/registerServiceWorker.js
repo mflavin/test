@@ -94,7 +94,7 @@ if ('serviceWorker' in navigator) {
     });
 
     navigator.serviceWorker.ready.then(registration => {
-      registration.active.postMessage('Hi service worker');
+      registration.active.postMessage({ VUE_APP_API_PATH: process.env.VUE_APP_API_PATH });
     });
 
   });

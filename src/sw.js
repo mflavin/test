@@ -131,6 +131,8 @@ workbox.routing.registerRoute(
 
 self.addEventListener('message', (event) => {
   console.log('event, ', event);
+  console.log('event.data, ', event.data);
+  console.log('event.source.url, ', event.source.url);
 });
 
 //This immediately deploys the service worker w/o requiring a refresh
