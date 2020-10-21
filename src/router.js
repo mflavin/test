@@ -47,7 +47,22 @@ export default new Router({
         /* webpackPrefetch: true */
         /* webpackChunkName: "about" */
         './views/About.vue'
-      )
+      ),
+      children: [
+        {
+          path: '/article',
+          name: 'Article',
+          // route level code-splitting
+          // this generates a separate chunk (about.[hash].js) for this route
+          // which is lazy-loaded when the route is visited.
+          component: () => import(
+            /* webpackMode: "lazy" */
+            /* webpackPrefetch: true */
+            /* webpackChunkName: "article" */
+            './views/article.vue'
+          )
+        },
+      ]
     },
     {
       path: '/article',
