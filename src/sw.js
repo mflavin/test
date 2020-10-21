@@ -106,24 +106,24 @@ workbox.routing.registerRoute(
   }
 );
 
-const cacheOnly = new workbox.strategies.CacheOnly();
-const networkFirst = new workbox.strategies.NetworkFirst();
-
-workbox.routing.registerRoute(
-  /\/test\/.*/,
-  async args => {
-    const offlineRequest = new Request('/test/offline');
-    console.log('offlineRequest, ', offlineRequest);
-    try {
-      const response = await networkFirst.handle(args);
-      console.log('response || await cacheOnly.handle({request: offlineRequest})');
-      console.log(response || await cacheOnly.handle({request: offlineRequest}));
-      return response || await cacheOnly.handle({request: offlineRequest});
-    } catch (error) {
-      return await cacheOnly.handle({request: offlineRequest})
-    }
-  }
-);
+// const cacheOnly = new workbox.strategies.CacheOnly();
+// const networkFirst = new workbox.strategies.NetworkFirst();
+//
+// workbox.routing.registerRoute(
+//   /\/test\/.*/,
+//   async args => {
+//     const offlineRequest = new Request('/test/offline');
+//     console.log('offlineRequest, ', offlineRequest);
+//     try {
+//       const response = await networkFirst.handle(args);
+//       console.log('response || await cacheOnly.handle({request: offlineRequest})');
+//       console.log(response || await cacheOnly.handle({request: offlineRequest}));
+//       return response || await cacheOnly.handle({request: offlineRequest});
+//     } catch (error) {
+//       return await cacheOnly.handle({request: offlineRequest})
+//     }
+//   }
+// );
 
 self.addEventListener('message', (event) => {
   console.log('event, ', event);
