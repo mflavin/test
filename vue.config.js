@@ -5,10 +5,6 @@ const workboxBuild = require('workbox-build');
 const enableAnalyze = false;
 const isBundleAnalyze = enableAnalyze;
 
-process.env.VUE_APP_VERSION = require('./package.json').version
-console.log('process.env.VUE_APP_VERSION: ', process.env.VUE_APP_VERSION);
-console.log('process.env.VUE_APP_API_PATH: ', process.env.VUE_APP_API_PATH);
-
 module.exports = {
   chainWebpack: config => {
     config.module
