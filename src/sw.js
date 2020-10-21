@@ -200,19 +200,17 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest);
 workbox.routing.registerRoute(
   ({ event }) => event.request.mode === 'navigate',
   async () => {
+    let hamSam;
     const defaultBase = globalRoute || '/';
     // globalRoute, https://mflavin.github.io/test/
     console.log('globalRoute, ', globalRoute);
     return caches
       .match(workbox.precaching.getCacheKeyForURL(defaultBase))
       .then(response => {
-        const test = () => {
-          console.log('fetch: ');
-          return fetch(defaultBase).then(e => console.log('succ', e)).catch(e => console.log('err', e))
-        }
-
-        console.log(test());
-
+        console.log('response, ', response);
+        console.log('fetch: ', hamSam);
+        fetch(defaultBase).then(e => hamSam = e).catch(e => hamSam = e)
+        console.log('hamSam: ', hamSam);
         return response || fetch(defaultBase)
           .then(e => {
              console.log('succ', e)
