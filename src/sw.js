@@ -106,38 +106,27 @@ workbox.routing.registerRoute(
   }
 );
 
-// const offlinePage = '/offline/';
-// /**
-//  * Pages to cache
-//  */
-//  workbox.routing.registerRoute('https://mflavin.github.io/test/about',
-//    async ({event}) => {
-//      try {
-//        return await workbox.strategies.staleWhileRevalidate({
-//            cacheName: 'cache-pages'
-//        }).handle({event});
-//      } catch (error) {
-//        return caches.match(offlinePage);
-//      }
-//    }
-//  );
-// workbox.routing.registerRoute('https://mflavin.github.io/test/article',
-//   async ({event}) => {
-//     try {
-//       return await workbox.strategies.staleWhileRevalidate({
-//           cacheName: 'cache-pages'
-//       }).handle({event});
-//     } catch (error) {
-//       return caches.match(offlinePage);
-//     }
-//   }
-// );
+const cacheOnly = new workbox.strategies.CacheOnly();
+const networkFirst = new workbox.strategies.NetworkFirst();
+
+workbox.routing.registerRoute(
+  /\/test\/.*/,
+  async args => {
+    const offlineRequest = new Request('/test/offline');
+    try {
+      const response = await networkFirst.handle(args);
+      return response || await cacheOnly.handle({request: offlineRequest});
+    } catch (error) {
+      return await cacheOnly.handle({request: offlineRequest})
+    }
+  }
+);
 
 self.addEventListener('message', (event) => {
   console.log('event, ', event);
   console.log('event.data, ', event.data);
   console.log('event.source.url, ', event.source.url);
-  globalRoute = event.data.VUE_APP_API_PATH;
+  // globalRoute = event.data.VUE_APP_API_PATH;
 });
 
 // self.addEventListener('fetch', (event) => {
