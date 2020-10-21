@@ -1,9 +1,15 @@
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const workboxBuild = require('workbox-build');
+// Inside of webpack.config.js:
+const {InjectManifest} = require('workbox-webpack-plugin');
 
 // NOTE: True when testing, should be false when not in dev or not needed
 const enableAnalyze = false;
 const isBundleAnalyze = enableAnalyze;
+
+process.env.VUE_APP_VERSION = require('./package.json').version
+console.log('process.env.VUE_APP_VERSION: ', process.env.VUE_APP_VERSION);
+console.log('process.env.VUE_APP_API_PATH: ', process.env.VUE_APP_API_PATH);
 
 module.exports = {
   chainWebpack: config => {
@@ -26,6 +32,8 @@ module.exports = {
           }),
         ]
         : [],
+      // Other plugins...
+      new InjectManifest({ swSrc: 'src/sw.js' }),
     ],
     // if you don't put the "/" here, you get this error:
     // "bundle.js:1 Uncaught SyntaxError: Unexpected token <"
