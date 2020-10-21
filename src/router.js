@@ -58,7 +58,7 @@ export default new Router({
           component: () => import(
             /* webpackMode: "lazy" */
             /* webpackPrefetch: true */
-            /* webpackChunkName: "article" */
+            /* webpackChunkName: "cheese" */
             './views/article.vue'
           )
         },
