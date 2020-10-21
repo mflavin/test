@@ -201,11 +201,12 @@ workbox.routing.registerRoute(
   ({ event }) => event.request.mode === 'navigate',
   async () => {
     const defaultBase = globalRoute || '/';
+    // globalRoute, https://mflavin.github.io/test/
     console.log('globalRoute, ', globalRoute);
     return caches
       .match(workbox.precaching.getCacheKeyForURL(defaultBase))
       .then(response => {
-        return response || fetch(defaultBase);
+        return response || fetch(defaultBase).then(e => console.log('succ', e)).catch(e => console.log('err', e));
       })
       .catch(err => {
         return fetch(defaultBase);
