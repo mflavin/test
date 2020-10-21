@@ -60,7 +60,36 @@ export default new Router({
             /* webpackPrefetch: true */
             /* webpackChunkName: "forms" */
             './views/article.vue'
-          )
+          ),
+          props: true,
+        },
+        {
+          path: '/apple',
+          name: 'apple',
+          // route level code-splitting
+          // this generates a separate chunk (about.[hash].js) for this route
+          // which is lazy-loaded when the route is visited.
+          component: () => import(
+            /* webpackMode: "lazy" */
+            /* webpackPrefetch: true */
+            /* webpackChunkName: "forms" */
+            './views/about.vue'
+          ),
+          props: true,
+        },
+        {
+          path: '/post',
+          name: 'post',
+          // route level code-splitting
+          // this generates a separate chunk (about.[hash].js) for this route
+          // which is lazy-loaded when the route is visited.
+          component: () => import(
+            /* webpackMode: "lazy" */
+            /* webpackPrefetch: true */
+            /* webpackChunkName: "forms" */
+            './views/pages/post2.vue'
+          ),
+          props: true,
         },
       ]
     },
