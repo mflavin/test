@@ -50,7 +50,6 @@ self.addEventListener('fetch', async event => {
       });
   }
 });
-);
 
 // This immediately deploys the service worker w/o requiring a refresh
 workbox.core.skipWaiting();
