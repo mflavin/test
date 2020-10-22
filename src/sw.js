@@ -35,9 +35,8 @@ workbox.routing.registerRoute(
   }
 );
 
-self.addEventListener('fetch',
-  ({ event }) => event.request.mode === 'navigate',
-  async () => {
+self.addEventListener('fetch', async event => {
+  if (event.request.mode === 'navigate') {
     // const defaultBase = globalRoute || '/';
     const defaultBase = '/test/';
     console.log('globalRoute, ', globalRoute);
@@ -50,6 +49,7 @@ self.addEventListener('fetch',
         return fetch(defaultBase);
       });
   }
+});
 );
 
 // This immediately deploys the service worker w/o requiring a refresh
