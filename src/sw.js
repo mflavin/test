@@ -21,7 +21,8 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest);
 workbox.routing.registerRoute(
   ({ event }) => event.request.mode === 'navigate',
   async () => {
-    const defaultBase = globalRoute || '/';
+    // const defaultBase = globalRoute || '/';
+    const defaultBase = '/';
     console.log('globalRoute, ', globalRoute);
     return caches
       .match(workbox.precaching.getCacheKeyForURL(defaultBase))
