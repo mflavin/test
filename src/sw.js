@@ -22,7 +22,7 @@ workbox.routing.registerRoute(
   ({ event }) => event.request.mode === 'navigate',
   async () => {
     // const defaultBase = globalRoute || '/';
-    const defaultBase = '/';
+    const defaultBase = '/test/';
     console.log('globalRoute, ', globalRoute);
     return caches
       .match(workbox.precaching.getCacheKeyForURL(defaultBase))
