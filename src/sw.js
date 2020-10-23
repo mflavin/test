@@ -15,24 +15,33 @@ workbox.setConfig({
 // Precaching to allow for offline
 workbox.precaching.precacheAndRoute(self.__precacheManifest);
 
-// Adding everything to cache
+
+const FALLBACK_URL = '/test/';
+
+const urlHandler = workbox.strategies.networkFirst({
+  cacheName: 'page-cache'
+});
+
 workbox.routing.registerRoute(
-  /((?=([^a-z 0-9]))([^\s])*|)*/,
-  new workbox.strategies.NetworkFirst({
-    cacheName: workbox.core.cacheNames.precache,
-  }).catch(e => {
-    const defaultBase = '/test/';
-    console.log('error, ', e);
-    // fetch(defaultBase)
-    return caches.match(defaultBase);
-  })
+  /\/.+\//,
+  ({ event }) => {
+    return urlHandler.handle({
+      event
+    })
+    .then((response) => {
+      return response || caches.match(FALLBACK_URL);
+    })
+    .catch(() => caches.match(FALLBACK_URL));
+  }
 );
 
 // default page handler for offline usage,
 // where the browser does not how to handle deep links
 // it's a SPA, so each path that is a navigation should default to index.html
 workbox.routing.registerRoute(
-  ({ event }) => event.request.mode === 'navigate',
+  ({
+    event
+  }) => event.request.mode === 'navigate',
   async () => {
     // const defaultBase = globalRoute || '/';
     const defaultBase = '/test/';
