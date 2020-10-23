@@ -37,6 +37,7 @@ module.exports = {
     workboxOptions: {
       // swSrc is required in InjectManifest mode.
       swSrc: 'src/sw.js',
+      navigateFallback: '/test/',
       // ...other Workbox options...
     },
   },
