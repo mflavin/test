@@ -1,10 +1,19 @@
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { GenerateSW } = require('workbox-webpack-plugin');
 
 // NOTE: True when testing, should be false when not in dev or not needed
 const enableAnalyze = false;
 const isBundleAnalyze = enableAnalyze;
 
 module.exports = {
+  plugins: [
+    // Other plugins...
+    new GenerateSW({
+      cleanupOutdatedCaches: true,
+      navigationPreload: true,
+      skipWaiting: true,
+    })
+  ],
   chainWebpack: config => {
     config.module
       .rule('vue')
@@ -31,13 +40,13 @@ module.exports = {
   },
   publicPath: '/test/',
   // Used to configure serviceWorker
-  pwa: {
-    // configure the workbox plugin
-    workboxPluginMode: 'InjectManifest',
-    workboxOptions: {
-      // swSrc is required in InjectManifest mode.
-      swSrc: 'src/sw.js',
-      // ...other Workbox options...
-    },
-  },
+  // pwa: {
+  //   // configure the workbox plugin
+  //   workboxPluginMode: 'InjectManifest',
+  //   workboxOptions: {
+  //     // swSrc is required in InjectManifest mode.
+  //     swSrc: 'src/sw.js',
+  //     // ...other Workbox options...
+  //   },
+  // },
 };
