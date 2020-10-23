@@ -20,6 +20,11 @@ workbox.routing.registerRoute(
   /((?=([^a-z 0-9]))([^\s])*|)*/,
   new workbox.strategies.NetworkFirst({
     cacheName: workbox.core.cacheNames.precache,
+  }).catch(e => {
+    const defaultBase = '/test/';
+    console.log('error, ', e);
+    // fetch(defaultBase)
+    return caches.match(defaultBase);
   })
 );
 
