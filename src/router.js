@@ -24,7 +24,7 @@ export default new Router({
     https://mflavin.github.io/test/about       --> https://mflavin.github.io/test/#/about
   */
   mode: 'history',
-  base: navigator.onLine ? process.env.BASE_URL : '/',
+  base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
