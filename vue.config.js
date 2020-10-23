@@ -46,7 +46,7 @@ module.exports = {
     // configure the workbox plugin
     workboxPluginMode: 'GenerateSW',
     workboxOptions: {
-      cleanupOutdatedCaches: true,
+      // cleanupOutdatedCaches: true,
       navigationPreload: true,
       skipWaiting: true
     },
