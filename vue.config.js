@@ -46,6 +46,7 @@ module.exports = {
     // configure the workbox plugin
     workboxPluginMode: 'GenerateSW',
     workboxOptions: {
+      swSrc: 'src/test-worker.js',
       cleanupOutdatedCaches: true,
       navigationPreload: true,
       skipWaiting: true
