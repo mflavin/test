@@ -47,7 +47,7 @@ module.exports = {
     workboxPluginMode: 'GenerateSW',
     workboxOptions: {
       // cleanupOutdatedCaches: true,
-      navigationPreload: true,
+      // navigationPreload: true,
       skipWaiting: true
     },
   },
