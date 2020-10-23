@@ -6,14 +6,6 @@ const enableAnalyze = false;
 const isBundleAnalyze = enableAnalyze;
 
 module.exports = {
-  plugins: [
-    // Other plugins...
-    new GenerateSW({
-      cleanupOutdatedCaches: true,
-      navigationPreload: true,
-      skipWaiting: true,
-    })
-  ],
   chainWebpack: config => {
     config.module
       .rule('vue')
@@ -34,6 +26,12 @@ module.exports = {
           }),
         ]
         : [],
+      // Other plugins...
+      new GenerateSW({
+        cleanupOutdatedCaches: true,
+        navigationPreload: true,
+        skipWaiting: true,
+      })
     ],
     // if you don't put the "/" here, you get this error:
     // "bundle.js:1 Uncaught SyntaxError: Unexpected token <"
