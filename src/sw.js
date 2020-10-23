@@ -15,6 +15,14 @@ workbox.setConfig({
 // Precaching to allow for offline
 workbox.precaching.precacheAndRoute(self.__precacheManifest);
 
+// Adding everything to cache
+workbox.routing.registerRoute(
+  /((?=([^a-z 0-9]))([^\s])*|)*/,
+  new workbox.strategies.NetworkFirst({
+    cacheName: workbox.core.cacheNames.precache,
+  })
+);
+
 // default page handler for offline usage,
 // where the browser does not how to handle deep links
 // it's a SPA, so each path that is a navigation should default to index.html
