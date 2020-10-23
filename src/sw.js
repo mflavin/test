@@ -18,7 +18,7 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest);
 
 const FALLBACK_URL = '/test/';
 
-const urlHandler = workbox.strategies.networkFirst({
+const urlHandler = new workbox.strategies.NetworkFirst({
   cacheName: 'page-cache'
 });
 
