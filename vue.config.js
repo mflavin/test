@@ -26,12 +26,6 @@ module.exports = {
           }),
         ]
         : [],
-      // Other plugins...
-      new GenerateSW({
-        cleanupOutdatedCaches: true,
-        navigationPreload: true,
-        skipWaiting: true,
-      })
     ],
     // if you don't put the "/" here, you get this error:
     // "bundle.js:1 Uncaught SyntaxError: Unexpected token <"
@@ -47,4 +41,21 @@ module.exports = {
   //     // ...other Workbox options...
   //   },
   // },
+
+  pwa: {
+    // configure the workbox plugin
+    workboxPluginMode: 'GenerateSW',
+    workboxOptions: {
+      cleanupOutdatedCaches: true,
+      navigationPreload: true,
+      skipWaiting: true,
+    },
+  },
 };
+
+// Other plugins...
+new GenerateSW({
+  cleanupOutdatedCaches: true,
+  navigationPreload: true,
+  skipWaiting: true,
+})
