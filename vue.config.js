@@ -1,5 +1,9 @@
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const { GenerateSW } = require('workbox-webpack-plugin');
+const {
+  BundleAnalyzerPlugin
+} = require('webpack-bundle-analyzer');
+const {
+  GenerateSW
+} = require('workbox-webpack-plugin');
 
 // NOTE: True when testing, should be false when not in dev or not needed
 const enableAnalyze = false;
@@ -18,20 +22,31 @@ module.exports = {
   configureWebpack: {
     plugins: [
       // ... rest webpack plugins here,
-      ...isBundleAnalyze
-        ? [
-          new BundleAnalyzerPlugin({
-            analyzerMode: 'static',
-            statsOptions: { source: false },
-          }),
-        ]
-        : [],
+      ...isBundleAnalyze ?
+      [
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'static',
+          statsOptions: {
+            source: false
+          },
+        }),
+      ] :
+      [],
       // Other plugins...
       new GenerateSW({
         cleanupOutdatedCaches: true,
         navigationPreload: true,
         skipWaiting: true,
-        inlineWorkboxRuntime: true,
+        runtimeCaching: [{
+          urlPattern: /^https?.*/,
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'offlineCache',
+            expiration: {
+              maxEntries: 200,
+            },
+          },
+        }, ],
       })
     ],
     // if you don't put the "/" here, you get this error:
