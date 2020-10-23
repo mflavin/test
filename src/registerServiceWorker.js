@@ -89,7 +89,7 @@ if ('serviceWorker' in navigator) {
     });
 
     navigator.serviceWorker.ready.then(registration => {
-      registration.active.postMessage({ VUE_APP_API_PATH: process.env.VUE_APP_API_PATH });
+      registration.active.postMessage({ VUE_APP_API_PATH: process.env.BASE_URL });
     });
 
   });
