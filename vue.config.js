@@ -31,6 +31,7 @@ module.exports = {
         cleanupOutdatedCaches: true,
         navigationPreload: true,
         skipWaiting: true,
+        inlineWorkboxRuntime: true,
       })
     ],
     // if you don't put the "/" here, you get this error:
