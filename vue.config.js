@@ -46,16 +46,16 @@ module.exports = {
     // configure the workbox plugin
     workboxPluginMode: 'GenerateSW',
     workboxOptions: {
-      // cleanupOutdatedCaches: true,
-      // navigationPreload: true,
+      cleanupOutdatedCaches: true,
+      navigationPreload: true,
       skipWaiting: true
     },
   },
 };
 
-// Other plugins...
-new GenerateSW({
-  cleanupOutdatedCaches: true,
-  navigationPreload: true,
-  skipWaiting: true,
-})
+// // Other plugins...
+// new GenerateSW({
+//   cleanupOutdatedCaches: true,
+//   navigationPreload: true,
+//   skipWaiting: true,
+// })
