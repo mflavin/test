@@ -27,6 +27,7 @@ workbox.routing.registerRoute(
     return caches
       .match(workbox.precaching.getCacheKeyForURL(defaultBase))
       .then(response => {
+        console.log('fetch(defaultBase), ', fetch(defaultBase));
         return response || fetch(defaultBase);
       })
       .catch(err => {
