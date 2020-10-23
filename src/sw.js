@@ -53,7 +53,7 @@ self.addEventListener('fetch', function(event) {
                 })
             })
             .catch(function(err) {       // fallback mechanism
-              return cache.match('/offline.html');
+              return fetch('/offline.html');
             });
         }
       })
