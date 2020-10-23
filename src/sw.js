@@ -15,26 +15,6 @@ workbox.setConfig({
 // Precaching to allow for offline
 workbox.precaching.precacheAndRoute(self.__precacheManifest);
 
-
-const FALLBACK_URL = '/test/';
-
-const urlHandler = new workbox.strategies.NetworkFirst({
-  cacheName: 'page-cache'
-});
-
-workbox.routing.registerRoute(
-  /\/.+\//,
-  ({ event }) => {
-    return urlHandler.handle({
-      event
-    })
-    .then((response) => {
-      return response || caches.match(FALLBACK_URL);
-    })
-    .catch(() => caches.match(FALLBACK_URL));
-  }
-);
-
 // default page handler for offline usage,
 // where the browser does not how to handle deep links
 // it's a SPA, so each path that is a navigation should default to index.html
