@@ -48,7 +48,7 @@ module.exports = {
     workboxOptions: {
       cleanupOutdatedCaches: true,
       navigationPreload: true,
-      skipWaiting: true,
+      skipWaiting: true
     },
   },
 };
