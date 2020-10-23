@@ -47,9 +47,9 @@ module.exports = {
     workboxPluginMode: 'GenerateSW',
     workboxOptions: {
       swSrc: 'src/test-worker.js',
-      "cleanupOutdatedCaches": true,
-      "navigationPreload": true,
-      "skipWaiting": true
+      cleanupOutdatedCaches: true,
+      navigationPreload: true,
+      skipWaiting: true
     },
   },
 };
