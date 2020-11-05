@@ -111,10 +111,12 @@ export default {
       });
     },
     slowCards() {
-      fetch('https://deelay.me/5000/https://picsum.photos/200/300')
+      fetch('https://deelay.me/5000/https://api.hearthstonejson.com/v1/25770/all/cards.json')
       .then((response) => {
         console.log('response, ',response);
-        console.log('slowly');
+        response.text().then(d => {
+          console.log('d ,' , d);
+        });
       });
     },
   },
@@ -132,7 +134,7 @@ export default {
     //   })
 
     console.log('Start of slow.');
-    axios.get('https://deelay.me/5000/https://picsum.photos/200/300');
+    axios.get('https://deelay.me/5000/https://api.hearthstonejson.com/v1/25770/all/cards.json');
     console.log('End of slow.');
   }
 };

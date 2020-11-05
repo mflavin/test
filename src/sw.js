@@ -16,7 +16,7 @@ workbox.setConfig({
 workbox.precaching.precacheAndRoute(self.__precacheManifest);
 
 workbox.routing.registerRoute(
-  'https://deelay.me/5000/https://picsum.photos/200/300',
+  'https://deelay.me/5000/https://api.hearthstonejson.com/v1/25770/all/cards.json',
   new workbox.strategies.NetworkFirst(),
 );
 
