@@ -20,7 +20,7 @@ const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('queue', {
 });
 
 workbox.routing.registerRoute(
-  'https://deelay.me/5000/https://api.hearthstonejson.com/v1/25770/all/cards.json',
+  'https://run.mocky.io/v3/98d8ddc2-36e3-4884-b019-9b00120b287e',
   new workbox.strategies.NetworkFirst({
     plugins: [bgSyncPlugin],
   }),

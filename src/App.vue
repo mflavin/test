@@ -102,7 +102,8 @@ export default {
       })
     },
     fastCards() {
-      fetch('https://deelay.me/5000/https://api.hearthstonejson.com/v1/25770/all/cards.json')
+      // 860 ms
+      fetch('https://run.mocky.io/v3/98d8ddc2-36e3-4884-b019-9b00120b287e')
       .then((response) => {
         console.log('response, ',response);
         response.text().then(d => {
@@ -112,7 +113,8 @@ export default {
       });
     },
     slowCards() {
-      fetch('https://deelay.me/5000/https://api.hearthstonejson.com/v1/26757/all/cards.json')
+      // 740 ms
+      fetch('https://run.mocky.io/v3/8bb3ec26-5036-4981-959f-c8c940c225ad')
       .then((response) => {
         console.log('response, ',response);
         response.text().then(d => {
@@ -136,8 +138,8 @@ export default {
     //   })
 
     console.log('Start of slow.');
-    axios.get('https://deelay.me/5000/https://api.hearthstonejson.com/v1/25770/all/cards.json');
-    axios.get('https://api.hearthstonejson.com/v1/26757/all/cards.json');
+    axios.get('https://run.mocky.io/v3/98d8ddc2-36e3-4884-b019-9b00120b287e');
+    axios.get('https://run.mocky.io/v3/8bb3ec26-5036-4981-959f-c8c940c225ad');
     console.log('End of slow.');
   }
 };
