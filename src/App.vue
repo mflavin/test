@@ -118,7 +118,7 @@ export default {
       .then((response) => {
         console.log('response, ',response);
         response.text().then(d => {
-          const data = JSON.parse(JSON.stringify(d));
+          const data = d;
           console.log('data ,' , data[data.length - 1]);
           alert('slowCards')
         });
