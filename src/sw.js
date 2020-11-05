@@ -21,9 +21,7 @@ const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('queue', {
 
 workbox.routing.registerRoute(
   'https://run.mocky.io/v3/98d8ddc2-36e3-4884-b019-9b00120b287e',
-  new workbox.strategies.NetworkFirst({
-    plugins: [bgSyncPlugin],
-  }),
+  new workbox.strategies.StaleWhileRevalidate(),
 );
 
 // default page handler for offline usage,
