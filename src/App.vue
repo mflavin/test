@@ -119,7 +119,9 @@ export default {
         console.log('response, ',response);
         response.text().then(d => {
           const data = d;
-          console.log('data ,' , data[data.length - 1]);
+          console.log(d);
+          console.log(typeof d);
+          // console.log('data ,' , data[data.length - 1]);
           alert('slowCards')
         });
       });
