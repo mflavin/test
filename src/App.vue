@@ -111,7 +111,7 @@ export default {
       });
     },
     slowCards() {
-      fetch('http://slowwly.robertomurray.co.uk/delay/5000/url/http://www.google.com')
+      fetch('https://deelay.me/5000/https://picsum.photos/200/300')
       .then((response) => {
         console.log('response, ',response);
         console.log('slowly');
@@ -132,7 +132,7 @@ export default {
     //   })
 
     console.log('Start of slow.');
-    axios.get('http://slowwly.robertomurray.co.uk/delay/5000/url/http://www.google.com');
+    axios.get('https://deelay.me/5000/https://picsum.photos/200/300');
     console.log('End of slow.');
   }
 };

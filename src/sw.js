@@ -16,7 +16,7 @@ workbox.setConfig({
 workbox.precaching.precacheAndRoute(self.__precacheManifest);
 
 workbox.routing.registerRoute(
-  'http://slowwly.robertomurray.co.uk/delay/5000/url/http://www.google.com',
+  'https://deelay.me/5000/https://picsum.photos/200/300',
   new workbox.strategies.NetworkFirst(),
 );
 
