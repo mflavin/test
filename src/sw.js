@@ -15,6 +15,11 @@ workbox.setConfig({
 // Precaching to allow for offline
 workbox.precaching.precacheAndRoute(self.__precacheManifest);
 
+workbox.routing.registerRoute(
+  'http://slowwly.robertomurray.co.uk/delay/5000/url/http://www.google.com',
+  new workbox.strategies.NetworkFirst(),
+);
+
 // default page handler for offline usage,
 // where the browser does not how to handle deep links
 // it's a SPA, so each path that is a navigation should default to index.html

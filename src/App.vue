@@ -111,12 +111,10 @@ export default {
       });
     },
     slowCards() {
-      fetch('https://api.hearthstonejson.com/v1/26757/all/cards.json')
+      fetch('axios.get('http://slowwly.robertomurray.co.uk/delay/5000/url/http://www.google.com');')
       .then((response) => {
         console.log('response, ',response);
-        response.text().then(d => {
-          console.log('d ,' , d);
-        });
+        console.log('slowly');
       });
     },
   },
@@ -133,10 +131,9 @@ export default {
     //     console.log("currentTime, ", response.data.time.updated)
     //   })
 
-    // console.log('Start of slow.');
-    // axios.get('https://api.hearthstonejson.com/v1/25770/all/cards.json');
-    // axios.get('https://api.hearthstonejson.com/v1/26757/all/cards.json');
-    // console.log('End of slow.');
+    console.log('Start of slow.');
+    axios.get('http://slowwly.robertomurray.co.uk/delay/5000/url/http://www.google.com');
+    console.log('End of slow.');
   }
 };
 </script>
