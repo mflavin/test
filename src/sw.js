@@ -24,6 +24,11 @@ workbox.routing.registerRoute(
   new workbox.strategies.StaleWhileRevalidate(),
 );
 
+workbox.routing.registerRoute(
+  'https://api.coindesk.com/v1/bpi/currentprice.json',
+  new workbox.strategies.StaleWhileRevalidate(),
+);
+
 // default page handler for offline usage,
 // where the browser does not how to handle deep links
 // it's a SPA, so each path that is a navigation should default to index.html

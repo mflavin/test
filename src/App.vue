@@ -114,30 +114,29 @@ export default {
     },
     slowCards() {
       // 740 ms
-      fetch('https://run.mocky.io/v3/5ce711b0-6659-4b4c-88d4-1078cd62148f')
+      fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
       .then((response) => {
         console.log('response, ',response);
         response.text().then(d => {
-          const data = d;
-          console.log('data ,' , data[data.length - 1]);
+          console.log('d ,' , d);
           alert('slowCards')
         });
       });
     },
   },
-  // NOTE: https://designer.mocky.io/manage
+  // NOTE: https://designer.mocky.io/manage -- in cognito
   mounted () {
     // this.onLine = navigator.onLine;
     // axios
     //   .get('https://api.exchangeratesapi.io/latest')
     //   .then(response => console.log("Latest, ", response.data.rates))
     //
-    // axios
-    //   .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-    //   .then(response => {
-    //     console.log("currentPrice, ", response.data.bpi);
-    //     console.log("currentTime, ", response.data.time.updated)
-    //   })
+    axios
+      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+      .then(response => {
+        console.log("currentPrice, ", response.data.bpi);
+        console.log("currentTime, ", response.data.time.updated)
+      })
 
     console.log('Start of slow.');
     axios.get('https://run.mocky.io/v3/98d8ddc2-36e3-4884-b019-9b00120b287e');
