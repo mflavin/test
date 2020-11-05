@@ -114,19 +114,18 @@ export default {
     },
     slowCards() {
       // 740 ms
-      fetch('https://run.mocky.io/v3/8bb3ec26-5036-4981-959f-c8c940c225ad')
+      fetch('https://run.mocky.io/v3/5ce711b0-6659-4b4c-88d4-1078cd62148f')
       .then((response) => {
         console.log('response, ',response);
         response.text().then(d => {
           const data = d;
-          console.log(d);
-          console.log(JSON.parse(d));
-          // console.log('data ,' , data[data.length - 1]);
+          console.log('data ,' , data[data.length - 1]);
           alert('slowCards')
         });
       });
     },
   },
+  // NOTE: https://designer.mocky.io/manage
   mounted () {
     // this.onLine = navigator.onLine;
     // axios
@@ -142,7 +141,7 @@ export default {
 
     console.log('Start of slow.');
     axios.get('https://run.mocky.io/v3/98d8ddc2-36e3-4884-b019-9b00120b287e');
-    axios.get('https://run.mocky.io/v3/8bb3ec26-5036-4981-959f-c8c940c225ad');
+    axios.get('https://run.mocky.io/v3/5ce711b0-6659-4b4c-88d4-1078cd62148f');
     console.log('End of slow.');
   }
 };
