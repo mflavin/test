@@ -118,7 +118,8 @@ export default {
       .then((response) => {
         console.log('response, ',response);
         response.text().then(d => {
-          console.log('d ,' , d);
+          const data = JSON.parse(d);
+          console.log('data ,' , data[data.length - 1]);
           alert('slowCards')
         });
       });
