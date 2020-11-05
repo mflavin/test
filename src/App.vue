@@ -120,7 +120,7 @@ export default {
         response.text().then(d => {
           const data = d;
           console.log(d);
-          console.log(typeof d);
+          console.log(JSON.parse(d));
           // console.log('data ,' , data[data.length - 1]);
           alert('slowCards')
         });
