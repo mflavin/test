@@ -111,7 +111,7 @@ export default {
       });
     },
     slowCards() {
-      fetch('axios.get('http://slowwly.robertomurray.co.uk/delay/5000/url/http://www.google.com');')
+      fetch('http://slowwly.robertomurray.co.uk/delay/5000/url/http://www.google.com')
       .then((response) => {
         console.log('response, ',response);
         console.log('slowly');
