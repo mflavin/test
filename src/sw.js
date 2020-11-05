@@ -15,9 +15,15 @@ workbox.setConfig({
 // Precaching to allow for offline
 workbox.precaching.precacheAndRoute(self.__precacheManifest);
 
+const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('queue', {
+    maxRetentionTime: 24 * 60, // Retry for max of 24 Hours
+});
+
 workbox.routing.registerRoute(
   'https://deelay.me/5000/https://api.hearthstonejson.com/v1/25770/all/cards.json',
-  new workbox.strategies.NetworkFirst(),
+  new workbox.strategies.NetworkFirst({
+    plugins: [bgSyncPlugin],
+  }),
 );
 
 // default page handler for offline usage,

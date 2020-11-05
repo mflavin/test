@@ -136,8 +136,8 @@ export default {
     //   })
 
     console.log('Start of slow.');
-    // axios.get('https://deelay.me/5000/https://api.hearthstonejson.com/v1/25770/all/cards.json');
-    // axios.get('https://api.hearthstonejson.com/v1/26757/all/cards.json');
+    axios.get('https://deelay.me/5000/https://api.hearthstonejson.com/v1/25770/all/cards.json');
+    axios.get('https://api.hearthstonejson.com/v1/26757/all/cards.json');
     console.log('End of slow.');
   }
 };
