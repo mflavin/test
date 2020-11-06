@@ -119,6 +119,7 @@ async function setCache(request, response) {
   var key, data;
   let body = await request.json();
   let id = CryptoJS.MD5(body.query).toString();
+  console.log('body, ', body);
   console.log('setCache id ,', id);
 
   var entry = {
@@ -134,6 +135,7 @@ async function getCache(request) {
   try {
     let body = await request.json();
     let id = CryptoJS.MD5(body.query).toString();
+    console.log('body, ', body);
     console.log('getCache id ,', id);
     data = await idbKeyval.get(id, store);
     if (!data) return null;
