@@ -36,23 +36,9 @@ workbox.routing.registerRoute(
 //   'POST'
 // );
 
-// Workbox with custom handler to use IndexedDB for cache.
 workbox.routing.registerRoute(
   'https://graphqlzero.almansi.me/api',
-  async ({
-    event
-  }) => {
-    return new workbox.strategies.StaleWhileRevalidate(event);
-  },
-  'POST'
-);
-workbox.routing.registerRoute(
-  new RegExp('/api(/)?'),
-  async ({
-    event
-  }) => {
-    return new workbox.strategies.StaleWhileRevalidate(event);
-  },
+  new workbox.strategies.NetworkFirst(),
   'POST'
 );
 
