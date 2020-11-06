@@ -1,7 +1,4 @@
-// importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.4/workbox-sw.js');
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js');
-importScripts('https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js');
-importScripts('https://cdn.jsdelivr.net/npm/idb-keyval@3/dist/idb-keyval-iife.min.js');
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.4/workbox-sw.js');
 
 let globalRoute;
 
@@ -40,12 +37,12 @@ workbox.routing.registerRoute(
 // https://medium.com/@jono/cache-graphql-post-requests-with-service-worker-100a822a388a
 workbox.routing.registerRoute(
   '/api',
-  async ({event}) => staleWhileRevalidate(event),
+  async ({event}) => workbox.strategies.staleWhileRevalidate(event),
   'POST'
 );
 workbox.routing.registerRoute(
   'https://graphqlzero.almansi.me/api',
-  async ({event}) => staleWhileRevalidate(event),
+  async ({event}) => workbox.strategies.staleWhileRevalidate(event),
   'POST'
 );
 
