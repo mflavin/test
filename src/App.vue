@@ -188,7 +188,11 @@ export default {
       const client = new ApolloClient({
         uri: 'https://api.graphql.jobs/'
       });
-      client.query({ query: que}).then(console.log);
+      client.query({ query: que}).then(resp => {
+        console.log(resp, ' resp')
+        const g = document.querySelector('.push');
+        g.innerHTML = resp.cities[2];
+      });
     },
     push() {
       axios.post(`https://jsonplaceholder.typicode.com/posts`, {
