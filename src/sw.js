@@ -40,6 +40,12 @@ workbox.routing.registerRoute(
   'POST'
 );
 
+self.addEventListener('fetch', async (event) => {
+  if (event.request.method === 'POST') {
+    event.respondWith(event);
+  }
+});
+
 // default page handler for offline usage,
 // where the browser does not how to handle deep links
 // it's a SPA, so each path that is a navigation should default to index.html
