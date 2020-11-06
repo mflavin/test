@@ -2,22 +2,6 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.4/workbox
 
 let globalRoute;
 
-async function staleWhileRevalidate(event) {
-  let promise = null;
-  // let cachedResponse = await getCache(event.request.clone());
-  let cachedResponse = event.request.clone();
-  let fetchPromise = fetch(event.request.clone())
-    .then((response) => {
-      // setCache(event.request.clone(), response.clone());
-      return response;
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-  // return cachedResponse ? Promise.resolve(cachedResponse) : fetchPromise;
-  return fetchPromise;
-}
-
 self.addEventListener('message', (event) => {
   globalRoute = event.data.VUE_APP_API_PATH;
 });
@@ -52,24 +36,6 @@ workbox.routing.registerRoute(
 //   'POST'
 // );
 
-workbox.routing.registerRoute(
-  'https://api.graphql.jobs/',
-  async ({
-    event
-  }) => {
-    return staleWhileRevalidate(event);
-  },
-  'POST'
-);
-
-self.addEventListener('fetch', async (event) => {
-  if (event.request.method === 'POST') {
-    event.respondWith(staleWhileRevalidate(event));
-  }
-
-  // TODO: Handles other types of requests.
-});
-
 // default page handler for offline usage,
 // where the browser does not how to handle deep links
 // it's a SPA, so each path that is a navigation should default to index.html
@@ -97,9 +63,90 @@ workbox.routing.registerRoute(
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
 
+workbox.routing.registerRoute(
+  'https://api.graphql.jobs/',
+  async ({
+    event
+  }) => {
+    return staleWhileRevalidate(event);
+  },
+  'POST'
+);
+
+// Return cached response when possible, and fetch new results from server in
+// the background and update the cache.
+self.addEventListener('fetch', async (event) => {
+  if (event.request.method === 'POST') {
+    event.respondWith(staleWhileRevalidate(event));
+  }
+});
+
+async function staleWhileRevalidate(event) {
+  let promise = null;
+  let cachedResponse = await getCache(event.request.clone());
+  let fetchPromise = fetch(event.request.clone())
+    .then((response) => {
+      setCache(event.request.clone(), response.clone());
+      return response;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  return cachedResponse ? Promise.resolve(cachedResponse) : fetchPromise;
+}
+
+async function serializeResponse(response) {
+  let serializedHeaders = {};
+  for (var entry of response.headers.entries()) {
+    serializedHeaders[entry[0]] = entry[1];
+  }
+  let serialized = {
+    headers: serializedHeaders,
+    status: response.status,
+    statusText: response.statusText
+  };
+  serialized.body = await response.json();
+  return serialized;
+}
+
+async function setCache(request, response) {
+  var key, data;
+  let body = await request.json();
+  let id = CryptoJS.MD5(body.query).toString();
+
+  var entry = {
+    query: body.query,
+    response: await serializeResponse(response),
+    timestamp: Date.now()
+  };
+  idbKeyval.set(id, entry, store);
+}
+
+async function getCache(request) {
+  let data;
+  try {
+    let body = await request.json();
+    let id = CryptoJS.MD5(body.query).toString();
+    data = await idbKeyval.get(id, store);
+    if (!data) return null;
+
+    // Check cache max age.
+    let cacheControl = request.headers.get('Cache-Control');
+    let maxAge = cacheControl ? parseInt(cacheControl.split('=')[1]) : 3600;
+    if (Date.now() - data.timestamp > maxAge * 1000) {
+      console.log(`Cache expired. Load from API endpoint.`);
+      return null;
+    }
+
+    console.log(`Load response from cache.`);
+    return new Response(JSON.stringify(data.response.body), data.response);
+  } catch (err) {
+    return null;
+  }
+}
+
 
 // https://redfin.engineering/how-to-fix-the-refresh-button-when-using-service-workers-a8e27af6df68
-
 
 
 
