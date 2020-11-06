@@ -68,53 +68,6 @@ const que = gql`
         name
         type
         updatedAt
-        country {
-          createdAt
-          id
-          isoCode
-          name
-          slug
-          type
-          updatedAt
-          jobs {
-            userEmail
-            updatedAt
-            title
-            slug
-            postedAt
-            locationNames
-            id
-            isFeatured
-            isPublished
-            createdAt
-            description
-            commitment {
-              updatedAt
-              title
-              slug
-              id
-              createdAt
-            }
-            applyUrl
-          }
-          cities {
-            updatedAt
-            type
-            slug
-            name
-            id
-            createdAt
-            country {
-              isoCode
-              id
-              createdAt
-              name
-              slug
-              type
-              updatedAt
-            }
-          }
-        }
       }
       createdAt
       id
