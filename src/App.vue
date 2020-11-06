@@ -158,10 +158,6 @@ export default {
             <div class="leftDiv"> type: </div>
             <div class="rightDiv">${JSON.stringify(resp.data.cities[idx].type)} </div>
           </div>
-          <div class="blockDiv">
-            <div class="leftDiv"> id: </div>
-            <div class="rightDiv">${JSON.stringify(resp.data.cities[idx].id)} </div>
-          </div>
         `;
         self.loading = false;
       });
