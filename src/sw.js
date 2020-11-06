@@ -34,9 +34,17 @@ workbox.routing.registerRoute(
   new workbox.strategies.StaleWhileRevalidate(),
 );
 
+// Workbox with custom handler to use IndexedDB for cache.
 workbox.routing.registerRoute(
   new RegExp('/api(/)?'),
-  new workbox.strategies.StaleWhileRevalidate(),
+  // Uncomment below to see the error thrown from Cache Storage API.
+  //workbox.strategies.staleWhileRevalidate(),
+  async ({
+    event
+  }) => {
+    return new workbox.strategies.StaleWhileRevalidate(event);
+  },
+  'POST'
 );
 
 // default page handler for offline usage,
