@@ -36,9 +36,12 @@ workbox.routing.registerRoute(
 //   'POST'
 // );
 
+// POST
 workbox.routing.registerRoute(
   'https://graphqlzero.almansi.me/api',
-  new workbox.strategies.NetworkFirst(),
+  new workbox.strategies.NetworkFirst({
+    plugins: [bgSyncPlugin],
+  }),
   'POST'
 );
 
