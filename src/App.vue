@@ -74,20 +74,46 @@ export default {
     getGraphQL() {
       // NOTE: SOURCE: https://graphqlzero.almansi.me/
       const client = new ApolloClient({
-        uri: 'https://graphqlzero.almansi.me/api'
+        uri: 'https://fakeql.com/graphql/2c2b275c9590905d5a618ca7235f381a'
       });
       // 110 ms - 140 ms no sw
       client.query({ query: gql`
-        query (
-          $options: PageQueryOptions
-        ) {
-          posts(options: $options) {
-            data {
+        query {
+          {
+            teams {
               id
-              title
-            }
-            meta {
-              totalCount
+              logo
+              name
+              team_members {
+                id
+                role
+                status
+                team {
+                  id
+                  name
+                  logo
+                  projects {
+                    id
+                    name
+                    repo
+                    team {
+                      id
+                      logo
+                      name
+                      projects {
+                        id
+                        name
+                        repo
+                        team {
+                          id
+                          logo
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -163,24 +189,65 @@ export default {
 
     // NOTE: SOURCE: https://graphqlzero.almansi.me/
     const client = new ApolloClient({
-      uri: 'https://graphqlzero.almansi.me/api'
+      uri: 'https://fakeql.com/graphql/2c2b275c9590905d5a618ca7235f381a'
     });
-    // 110 ms - 140 ms no sw
     client.query({ query: gql`
-      query (
-        $options: PageQueryOptions
-      ) {
-        posts(options: $options) {
-          data {
+      query {
+        {
+          teams {
             id
-            title
-          }
-          meta {
-            totalCount
+            logo
+            name
+            team_members {
+              id
+              role
+              status
+              team {
+                id
+                name
+                logo
+                projects {
+                  id
+                  name
+                  repo
+                  team {
+                    id
+                    logo
+                    name
+                    projects {
+                      id
+                      name
+                      repo
+                      team {
+                        id
+                        logo
+                        name
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
     `}).then(console.log);
+    // 110 ms - 140 ms no sw
+    // client.query({ query: gql`
+    //   query (
+    //     $options: PageQueryOptions
+    //   ) {
+    //     posts(options: $options) {
+    //       data {
+    //         id
+    //         title
+    //       }
+    //       meta {
+    //         totalCount
+    //       }
+    //     }
+    //   }
+    // `}).then(console.log);
     // { "data": { "user": { ... } } }
   }
 };

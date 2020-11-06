@@ -86,7 +86,7 @@ if (workbox) {
 
 // Workbox with custom handler to use IndexedDB for cache.
 workbox.routing.registerRoute(
-  'https://graphqlzero.almansi.me/api',
+  'https://fakeql.com/graphql/2c2b275c9590905d5a618ca7235f381a',
   async ({
     event
   }) => {
