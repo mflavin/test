@@ -35,7 +35,7 @@ workbox.routing.registerRoute(
   async ({
     event
   }) => {
-    return new workbox.strategies.StaleWhileRevalidate(event);
+    return new workbox.strategies.StaleWhileRevalidate();
   },
   'POST'
 );
