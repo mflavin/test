@@ -44,6 +44,14 @@ workbox.routing.registerRoute(
   'POST'
 );
 
+workbox.routing.registerRoute(
+  'https://jsonplaceholder.typicode.com/posts',
+  new workbox.strategies.NetworkFirst({
+    plugins: [bgSyncPlugin],
+  }),
+  'POST'
+);
+
 // default page handler for offline usage,
 // where the browser does not how to handle deep links
 // it's a SPA, so each path that is a navigation should default to index.html
