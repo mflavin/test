@@ -32,8 +32,9 @@ workbox.routing.registerRoute(
 // https://medium.com/@jono/cache-graphql-post-requests-with-service-worker-100a822a388a
 workbox.routing.registerRoute(
   'https://graphqlzero.almansi.me/api',
-  new workbox.strategies.StaleWhileRevalidate(),
-  'POST'
+  new workbox.strategies.StaleWhileRevalidate()
+  // new workbox.strategies.StaleWhileRevalidate(),
+  // 'POST'
 );
 
 // default page handler for offline usage,
