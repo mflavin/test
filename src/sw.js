@@ -86,9 +86,7 @@ if (workbox) {
 
 // Workbox with custom handler to use IndexedDB for cache.
 workbox.routing.registerRoute(
-  new RegExp('/api(/)?'),
-  // Uncomment below to see the error thrown from Cache Storage API.
-  //workbox.strategies.staleWhileRevalidate(),
+  'https://graphqlzero.almansi.me/api',
   async ({
     event
   }) => {
