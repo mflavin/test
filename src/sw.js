@@ -40,7 +40,8 @@ workbox.routing.registerRoute(
   'https://api.graphql.jobs/',
   new workbox.strategies.StaleWhileRevalidate({
     cacheName: 'api-cache'
-  })
+  }),
+  'POST'
 );
 
 // default page handler for offline usage,
