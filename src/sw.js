@@ -88,8 +88,6 @@ self.addEventListener('fetch', async (event) => {
 });
 
 async function staleWhileRevalidate(event) {
-  console.log('event.request.clone()');
-  console.log(event.request.clone());
   let promise = null;
   let cachedResponse = await getCache(event.request.clone());
   let fetchPromise = fetch(event.request.clone())
@@ -122,6 +120,8 @@ async function setCache(request, response) {
   let body = await request.json();
   let id = CryptoJS.MD5(body.query).toString();
   console.log('body, ', body);
+  console.log('body.query, ', body.query);
+  console.log('body.timestamp, ', body.timestamp);
   console.log('setCache id ,', id);
 
   var entry = {
@@ -138,6 +138,8 @@ async function getCache(request) {
     let body = await request.json();
     let id = CryptoJS.MD5(body.query).toString();
     console.log('body, ', body);
+    console.log('body.query, ', body.query);
+    console.log('body.timestamp, ', body.timestamp);
     console.log('getCache id ,', id);
     data = await idbKeyval.get(id, store);
     if (!data) return null;
