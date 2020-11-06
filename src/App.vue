@@ -249,15 +249,31 @@ export default {
         uri: 'https://api.graphql.jobs/'
       });
       client.query({ query: que}).then(resp => {
-        const g = document.querySelector('.push');
+        const g = document.querySelector('.getGraphQL');
         const l = resp.data.cities.length - 2;
         const idx = Math.floor(Math.random() * l) + 1;
+        console.log(resp);
         g.innerHTML = `
-          ${JSON.stringify(resp.data.cities[idx].createdAt), '\n'}
-          ${JSON.stringify(resp.data.cities[idx].id), '\n'}
-          ${JSON.stringify(resp.data.cities[idx].name), '\n'}
-          ${JSON.stringify(resp.data.cities[idx].type), '\n'}
-          ${JSON.stringify(resp.data.cities[idx].updatedAt), '\n'}
+          <div class="blockDiv">
+            <div class="leftDiv"> createdAt: </div>
+            <div class="rightDiv">${JSON.stringify(resp.data.cities[idx].createdAt)} </div>
+          </div>
+          <div class="blockDiv">
+            <div class="leftDiv"> updatedAt: </div>
+            <div class="rightDiv">${JSON.stringify(resp.data.cities[idx].updatedAt)} </div>
+          </div>
+          <div class="blockDiv">
+            <div class="leftDiv"> name: </div>
+            <div class="rightDiv">${JSON.stringify(resp.data.cities[idx].name)} </div>
+          </div>
+          <div class="blockDiv">
+            <div class="leftDiv"> type: </div>
+            <div class="rightDiv">${JSON.stringify(resp.data.cities[idx].type)} </div>
+          </div>
+          <div class="blockDiv">
+            <div class="leftDiv"> id: </div>
+            <div class="rightDiv">${JSON.stringify(resp.data.cities[idx].id)} </div>
+          </div>
         `;
         self.loading = false;
       });
@@ -327,11 +343,16 @@ export default {
   color: #42b983;
 }
 
-
-
-
-
-
+.blockDiv {
+  display: flex;
+}
+.leftDiv {
+  text-align: left;
+  flex: 1;
+}
+.rightDiv {
+  text-align: right;
+}
 
 /*
 Copyright 2018 Google Inc.
