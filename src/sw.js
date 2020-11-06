@@ -93,7 +93,7 @@ workbox.routing.registerRoute(
   }) => {
     return staleWhileRevalidate(event);
   },
-  // 'POST'
+  'POST'
 );
 
 // Return cached response when possible, and fetch new results from server in
