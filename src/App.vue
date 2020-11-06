@@ -189,9 +189,10 @@ export default {
         uri: 'https://api.graphql.jobs/'
       });
       client.query({ query: que}).then(resp => {
-        console.log(resp, ' resp')
         const g = document.querySelector('.push');
-        g.innerHTML = resp.cities[2];
+        const l = resp.data.cities.length - 2;
+        const idx = Math.floor(Math.random() * l) + 1;
+        g.innerHTML = resp.data.cities[idx];
       });
     },
     push() {
