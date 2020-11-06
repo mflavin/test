@@ -41,21 +41,19 @@ workbox.routing.registerRoute(
   'https://graphqlzero.almansi.me/api',
   new workbox.strategies.StaleWhileRevalidate({
     cacheName: workbox.core.cacheNames.precache,
-    plugins: [
-      cacheableResponse,
-    ],
-  }),
-);
-workbox.routing.registerRoute(
-  'https://graphqlzero.almansi.me/api',
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: workbox.core.cacheNames.precache,
-    plugins: [
-      cacheableResponse,
-    ],
   }),
   'POST'
 );
+// workbox.routing.registerRoute(
+//   'https://graphqlzero.almansi.me/api',
+//   new workbox.strategies.StaleWhileRevalidate({
+//     cacheName: workbox.core.cacheNames.precache,
+//     plugins: [
+//       cacheableResponse,
+//     ],
+//   }),
+//   'POST'
+// );
 // workbox.routing.registerRoute(
 //   'https://graphqlzero.almansi.me/api',
 //   new workbox.strategies.StaleWhileRevalidate(),
