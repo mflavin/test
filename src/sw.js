@@ -34,16 +34,15 @@ workbox.routing.registerRoute(
   new workbox.strategies.StaleWhileRevalidate(),
 );
 
-// Workbox with custom handler to use IndexedDB for cache.
+// https://medium.com/@jono/cache-graphql-post-requests-with-service-worker-100a822a388a
 workbox.routing.registerRoute(
-  new RegExp('/api(/)?'),
-  // Uncomment below to see the error thrown from Cache Storage API.
-  //workbox.strategies.staleWhileRevalidate(),
-  async ({
-    event
-  }) => {
-    return new workbox.strategies.StaleWhileRevalidate(event);
-  },
+  '/api',
+  async ({event}) => staleWhileRevalidate(event),
+  'POST'
+);
+workbox.routing.registerRoute(
+  'https://graphqlzero.almansi.me/api',
+  async ({event}) => staleWhileRevalidate(event),
   'POST'
 );
 
