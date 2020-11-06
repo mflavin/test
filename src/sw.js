@@ -84,7 +84,8 @@ if (workbox) {
   console.log(`Boo! Workbox didn't load 😬`);
 }
 
-// Workbox with custom handler to use IndexedDB for cache.
+// https://fakeql.com/
+// https://fireql.dev/?url=https://fakeql.com/graphql/2c2b275c9590905d5a618ca7235f381a
 workbox.routing.registerRoute(
   'https://fakeql.com/graphql/2c2b275c9590905d5a618ca7235f381a',
   async ({

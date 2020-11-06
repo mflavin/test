@@ -79,36 +79,34 @@ export default {
       // 110 ms - 140 ms no sw
       client.query({ query: gql`
         query {
-          {
-            teams {
+          teams {
+            id
+            logo
+            name
+            team_members {
               id
-              logo
-              name
-              team_members {
+              role
+              status
+              team {
                 id
-                role
-                status
-                team {
+                name
+                logo
+                projects {
                   id
                   name
-                  logo
-                  projects {
+                  repo
+                  team {
                     id
+                    logo
                     name
-                    repo
-                    team {
+                    projects {
                       id
-                      logo
                       name
-                      projects {
+                      repo
+                      team {
                         id
+                        logo
                         name
-                        repo
-                        team {
-                          id
-                          logo
-                          name
-                        }
                       }
                     }
                   }
@@ -188,41 +186,41 @@ export default {
     console.log('End of slow.');
 
     // NOTE: SOURCE: https://graphqlzero.almansi.me/
+    // https://fakeql.com/
+    // https://fireql.dev/?url=https://fakeql.com/graphql/2c2b275c9590905d5a618ca7235f381a
     const client = new ApolloClient({
       uri: 'https://fakeql.com/graphql/2c2b275c9590905d5a618ca7235f381a'
     });
     client.query({ query: gql`
       query {
-        {
-          teams {
+        teams {
+          id
+          logo
+          name
+          team_members {
             id
-            logo
-            name
-            team_members {
+            role
+            status
+            team {
               id
-              role
-              status
-              team {
+              name
+              logo
+              projects {
                 id
                 name
-                logo
-                projects {
+                repo
+                team {
                   id
+                  logo
                   name
-                  repo
-                  team {
+                  projects {
                     id
-                    logo
                     name
-                    projects {
+                    repo
+                    team {
                       id
+                      logo
                       name
-                      repo
-                      team {
-                        id
-                        logo
-                        name
-                      }
                     }
                   }
                 }
