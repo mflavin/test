@@ -4,7 +4,7 @@ importScripts('https://cdn.jsdelivr.net/npm/idb-keyval@3/dist/idb-keyval-iife.mi
 let globalRoute;
 
 function getID(str) {
-  return btoa(str);
+  return btoa(str).slice(0, 25);
 }
 
 // Init indexedDB using idb-keyval, https://github.com/jakearchibald/idb-keyval
@@ -71,6 +71,8 @@ workbox.routing.registerRoute(
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
 
+
+// https:\/\/api.forms.myqsrsoft.com\/templates\/metrics\/(.*)
 workbox.routing.registerRoute(
   'https://api.graphql.jobs/',
   async ({
