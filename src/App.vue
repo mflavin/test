@@ -114,6 +114,12 @@ export default {
     },
     slowCards() {
       // 740 ms
+      // fetch('https://run.mocky.io/v3/5ce711b0-6659-4b4c-88d4-1078cd62148f')
+      // NOTE: Changing paths will update this, might be useful for insights
+      /*
+        NOTE: Ex. This json sends back a time stamp, it won't update unless you change pages/refresh
+        Probably would be fine for insights
+      */
       fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
       .then((response) => {
         console.log('response, ',response);

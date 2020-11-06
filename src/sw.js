@@ -29,6 +29,11 @@ workbox.routing.registerRoute(
   new workbox.strategies.StaleWhileRevalidate(),
 );
 
+// workbox.routing.registerRoute(
+//   'https://graphqlzero.almansi.me/api',
+//   new workbox.strategies.StaleWhileRevalidate(),
+// );
+
 // default page handler for offline usage,
 // where the browser does not how to handle deep links
 // it's a SPA, so each path that is a navigation should default to index.html
