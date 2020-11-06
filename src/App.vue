@@ -55,7 +55,7 @@ import { shortQuery, longQuery } from './gqlQuery'
 import ApolloClient, { gql } from 'apollo-boost';
 
 const que = gql`
-  query ${longQuery}
+  query ${shortQuery}
 `;
 
 export default {
