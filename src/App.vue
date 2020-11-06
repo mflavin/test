@@ -53,7 +53,7 @@
 import axios from 'axios';
 import ApolloClient, { gql } from 'apollo-boost';
 
-const que = gpl `
+const que = gql`
   query {
   cities {
     createdAt
