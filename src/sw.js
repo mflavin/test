@@ -29,21 +29,28 @@ workbox.routing.registerRoute(
   new workbox.strategies.StaleWhileRevalidate(),
 );
 
+const cacheableResponse = new workbox.cacheableResponse.Plugin({
+    statuses: [0, 200],
+    headers: {
+        'x-is-cacheable': true,
+    },
+});
+
 // https://medium.com/@jono/cache-graphql-post-requests-with-service-worker-100a822a388a
+workbox.routing.registerRoute(
+  'https://graphqlzero.almansi.me/api',
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: workbox.core.cacheNames.precache,
+    plugins: [
+      cacheableResponse,
+    ],
+  }),
+);
 // workbox.routing.registerRoute(
 //   'https://graphqlzero.almansi.me/api',
 //   new workbox.strategies.StaleWhileRevalidate(),
 //   'POST'
 // );
-
-// POST
-workbox.routing.registerRoute(
-  'https://graphqlzero.almansi.me/api',
-  new workbox.strategies.NetworkFirst({
-    plugins: [bgSyncPlugin],
-  }),
-  'POST'
-);
 
 // default page handler for offline usage,
 // where the browser does not how to handle deep links
