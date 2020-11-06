@@ -88,6 +88,8 @@ self.addEventListener('fetch', async (event) => {
 });
 
 async function staleWhileRevalidate(event) {
+  console.log('event.request.clone()');
+  console.log(event.request.clone());
   let promise = null;
   let cachedResponse = await getCache(event.request.clone());
   let fetchPromise = fetch(event.request.clone())
