@@ -2,6 +2,20 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.4/workbox
 
 let globalRoute;
 
+async function staleWhileRevalidate(event) {
+  let promise = null;
+  // let cachedResponse = await getCache(event.request.clone());
+  let cachedResponse = event.request.clone();
+  let fetchPromise = fetch(event.request.clone())
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  return cachedResponse ? Promise.resolve(cachedResponse) : fetchPromise;
+}
+
 self.addEventListener('message', (event) => {
   globalRoute = event.data.VUE_APP_API_PATH;
 });
@@ -38,9 +52,11 @@ workbox.routing.registerRoute(
 
 workbox.routing.registerRoute(
   'https://api.graphql.jobs/',
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: 'api-cache'
-  }),
+  async ({
+    event
+  }) => {
+    return staleWhileRevalidate(event);
+  },
   'POST'
 );
 
