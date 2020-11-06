@@ -31,21 +31,34 @@
         <div class="push"></div>
       </small>
     </div>
-    <button id="app-update" class="app-update">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="white"
-      >
-        <path fill="none" d="M0 0h24v24H0V0z" />
-        <path
-          d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
-        />
-      </svg>
-    </button>
-    <router-view/>
+    <div>
+      <div
+        v-if="loading"
+        style="`
+          background-color: #63ab97;
+          color: white;
+          font-size: 32px;
+          padding-top: 10vh;
+          height: 100vh;
+          text-align: center;
+        `"
+      >Loading...</div>
+      <button id="app-update" class="app-update">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="white"
+        >
+          <path fill="none" d="M0 0h24v24H0V0z" />
+          <path
+            d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
+          />
+        </svg>
+      </button>
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -168,6 +181,7 @@ const que = gql`
 export default {
   data: () => ({
     onLine: null,
+    loading: false,
   }),
   methods: {
     get() {
@@ -184,16 +198,7 @@ export default {
       });
     },
     getGraphQL() {
-      // NOTE: SOURCE: https://graphqlzero.almansi.me/
-      const client = new ApolloClient({
-        uri: 'https://api.graphql.jobs/'
-      });
-      client.query({ query: que}).then(resp => {
-        const g = document.querySelector('.push');
-        const l = resp.data.cities.length - 2;
-        const idx = Math.floor(Math.random() * l) + 1;
-        g.innerHTML = JSON.stringify(resp.data.cities[idx]);
-      });
+      this.getGraphQLApiCall();
     },
     push() {
       axios.post(`https://jsonplaceholder.typicode.com/posts`, {
@@ -242,6 +247,23 @@ export default {
         });
       });
     },
+    getGraphQLApiCall() {
+      // NOTE: SOURCE: https://graphqlzero.almansi.me/
+      // https://fakeql.com/
+      // https://fireql.dev/?url=https://fakeql.com/graphql/2c2b275c9590905d5a618ca7235f381a
+      const self = this;
+      self.loading = true;
+      const client = new ApolloClient({
+        uri: 'https://api.graphql.jobs/'
+      });
+      client.query({ query: que}).then(resp => {
+        const g = document.querySelector('.push');
+        const l = resp.data.cities.length - 2;
+        const idx = Math.floor(Math.random() * l) + 1;
+        g.innerHTML = JSON.stringify(resp.data.cities[idx]);
+        self.loading = false;
+      });
+    }
   },
   // NOTE: https://designer.mocky.io/manage -- in cognito
   mounted () {
@@ -262,13 +284,8 @@ export default {
     axios.get('https://run.mocky.io/v3/5ce711b0-6659-4b4c-88d4-1078cd62148f');
     console.log('End of slow.');
 
-    // NOTE: SOURCE: https://graphqlzero.almansi.me/
-    // https://fakeql.com/
-    // https://fireql.dev/?url=https://fakeql.com/graphql/2c2b275c9590905d5a618ca7235f381a
-    const client = new ApolloClient({
-      uri: 'https://api.graphql.jobs/'
-    });
-    client.query({ query: que}).then(console.log);
+    this.getGraphQLApiCall();
+
     // 110 ms - 140 ms no sw
     // client.query({ query: gql`
     //   query (
