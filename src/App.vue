@@ -43,7 +43,7 @@
           text-align: center;
         `"
       >Loading...</div>
-      <button id="app-update" class="app-update">
+      <button v-if="!loading" id="app-update" class="app-update">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -57,7 +57,7 @@
           />
         </svg>
       </button>
-      <router-view/>
+      <router-view v-if="!loading" />
     </div>
   </div>
 </template>
