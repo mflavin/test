@@ -78,10 +78,17 @@ export default {
       });
       // 110 ms - 140 ms no sw
       client.query({ query: gql`
-        {
-          user(id: 1) {
-            id
-            name
+        query (
+          $options: PageQueryOptions
+        ) {
+          posts(options: $options) {
+            data {
+              id
+              title
+            }
+            meta {
+              totalCount
+            }
           }
         }
       `}).then(console.log);
@@ -160,10 +167,17 @@ export default {
     });
     // 110 ms - 140 ms no sw
     client.query({ query: gql`
-      {
-        user(id: 1) {
-          id
-          name
+      query (
+        $options: PageQueryOptions
+      ) {
+        posts(options: $options) {
+          data {
+            id
+            title
+          }
+          meta {
+            totalCount
+          }
         }
       }
     `}).then(console.log);
