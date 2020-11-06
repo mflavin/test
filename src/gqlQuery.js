@@ -110,6 +110,11 @@ export const shortQuery = `{
 
 export const longQuery = `{
   cities {
+    createdAt
+    id
+    name
+    type
+    updatedAt
     country {
       updatedAt
       createdAt
