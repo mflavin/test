@@ -87,7 +87,7 @@ if (workbox) {
 // https://fakeql.com/
 // https://fireql.dev/?url=https://fakeql.com/graphql/2c2b275c9590905d5a618ca7235f381a
 workbox.routing.registerRoute(
-  'https://fakeql.com/graphql/2c2b275c9590905d5a618ca7235f381a',
+  'https://countries.trevorblades.com/',
   async ({
     event
   }) => {

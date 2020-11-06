@@ -74,39 +74,40 @@ export default {
     getGraphQL() {
       // NOTE: SOURCE: https://graphqlzero.almansi.me/
       const client = new ApolloClient({
-        uri: 'https://fakeql.com/graphql/2c2b275c9590905d5a618ca7235f381a'
+        uri: 'https://countries.trevorblades.com/'
       });
-      // 110 ms - 140 ms no sw
       client.query({ query: gql`
         query {
-          teams {
-            id
-            logo
+          countries {
             name
-            team_members {
-              id
-              role
-              status
-              team {
-                id
+            native
+            capital
+            states {
+              name
+              code
+              country {
                 name
-                logo
-                projects {
-                  id
+                states {
                   name
-                  repo
-                  team {
-                    id
-                    logo
+                  code
+                  country {
                     name
-                    projects {
-                      id
+                    states {
                       name
-                      repo
-                      team {
-                        id
-                        logo
+                      code
+                      country {
                         name
+                        states {
+                          name
+                          code
+                          country {
+                            name
+                            states {
+                              name
+                              code
+                            }
+                          }
+                        }
                       }
                     }
                   }
@@ -189,45 +190,47 @@ export default {
     // https://fakeql.com/
     // https://fireql.dev/?url=https://fakeql.com/graphql/2c2b275c9590905d5a618ca7235f381a
     const client = new ApolloClient({
-      uri: 'https://fakeql.com/graphql/2c2b275c9590905d5a618ca7235f381a'
+      uri: 'https://countries.trevorblades.com/'
     });
     client.query({ query: gql`
       query {
-        teams {
-          id
-          logo
+        countries {
           name
-          team_members {
-            id
-            role
-            status
-            team {
-              id
+          native
+          capital
+          states {
+            name
+            code
+            country {
               name
-              logo
-              projects {
-                id
+              states {
                 name
-                repo
-                team {
-                  id
-                  logo
+                code
+                country {
                   name
-                  projects {
-                    id
+                  states {
                     name
-                    repo
-                    team {
-                      id
-                      logo
+                    code
+                    country {
                       name
+                      states {
+                        name
+                        code
+                        country {
+                          name
+                          states {
+                            name
+                            code
+                          }
+                        }
+                      }
                     }
                   }
                 }
               }
             }
           }
-        }
+      	}
       }
     `}).then(console.log);
     // 110 ms - 140 ms no sw
