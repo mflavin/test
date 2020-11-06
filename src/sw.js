@@ -121,7 +121,6 @@ async function setCache(request, response) {
   var key, data;
   let body = await request.json();
   let id = getID(body.query);
-  console.log('setCache id, ', id);
   var entry = {
     query: body.query,
     response: await serializeResponse(response),
@@ -135,18 +134,13 @@ async function getCache(request) {
   try {
     let body = await request.json();
     let id = getID(body.query);
-    console.log('getCache id, ', id);
     data = await idbKeyval.get(id, store);
     if (!data) return null;
 
-    // Check cache max age.
-    let cacheControl = request.headers.get('Cache-Control');
-    console.log('cacheControl, ', cacheControl);
-    let maxAge = cacheControl ? parseInt(cacheControl.split('=')[1]) : 3600;
-    console.log('maxAge, ', maxAge);
-    console.log('Date.now() - data.timestamp, ', Date.now() - data.timestamp);
-    console.log('maxAge * 1000, ', maxAge * 1000);
-    if (Date.now() - data.timestamp > maxAge * 1000) {
+    // Set cache max age to one hour
+    const maxAge = 3600000;
+    const cacheAge = Date.now() - data.timestamp;
+    if (cacheAge > maxAge) {
       console.log(`Cache expired. Load from API endpoint.`);
       return null;
     }
