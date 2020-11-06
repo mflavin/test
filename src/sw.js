@@ -1,6 +1,4 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.4/workbox-sw.js');
-importScripts('https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js');
-importScripts('https://cdn.jsdelivr.net/npm/idb-keyval@3/dist/idb-keyval-iife.min.js');
 
 let globalRoute;
 
@@ -32,14 +30,17 @@ workbox.routing.registerRoute(
 );
 
 // https://medium.com/@jono/cache-graphql-post-requests-with-service-worker-100a822a388a
+// workbox.routing.registerRoute(
+//   'https://graphqlzero.almansi.me/api',
+//   new workbox.strategies.StaleWhileRevalidate(),
+//   'POST'
+// );
+
 workbox.routing.registerRoute(
   'https://api.graphql.jobs/',
-  async ({
-    event
-  }) => {
-    return workbox.strategies.StaleWhileRevalidate();
-  },
-  'POST'
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: 'api-cache'
+  })
 );
 
 // default page handler for offline usage,
