@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-if="!loading">
     <div id="nav" style="display: flex; justify-content: space-between; flex-wrap: wrap; padding-left: 0;">
       <router-link :to="{ name: 'Home' }" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: lightblue; display: block;">
@@ -31,34 +31,24 @@
         <div class="push"></div>
       </small>
     </div>
-    <div>
-      <div
-        v-if="loading"
-        style="`
-          background-color: #63ab97;
-          color: white;
-          font-size: 32px;
-          padding-top: 10vh;
-          height: 100vh;
-          text-align: center;
-        `"
-      >Loading...</div>
-      <button v-if="!loading" id="app-update" class="app-update">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="white"
-        >
-          <path fill="none" d="M0 0h24v24H0V0z" />
-          <path
-            d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
-          />
-        </svg>
-      </button>
-      <router-view v-if="!loading" />
-    </div>
+    <button id="app-update" class="app-update">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="white"
+      >
+        <path fill="none" d="M0 0h24v24H0V0z" />
+        <path
+          d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
+        />
+      </svg>
+    </button>
+    <router-view/>
+  </div>
+  <div else>
+    Loading...
   </div>
 </template>
 
