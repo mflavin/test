@@ -53,6 +53,165 @@
 import axios from 'axios';
 import ApolloClient, { gql } from 'apollo-boost';
 
+const que = gpl `
+  query {
+  cities {
+    createdAt
+    id
+    name
+    type
+    updatedAt
+    country {
+      cities {
+        createdAt
+        id
+        name
+        type
+        updatedAt
+        country {
+          createdAt
+          id
+          isoCode
+          name
+          slug
+          type
+          updatedAt
+          jobs {
+            userEmail
+            updatedAt
+            title
+            slug
+            postedAt
+            locationNames
+            id
+            isFeatured
+            isPublished
+            createdAt
+            description
+            commitment {
+              updatedAt
+              title
+              slug
+              id
+              createdAt
+            }
+            applyUrl
+          }
+          cities {
+            updatedAt
+            type
+            slug
+            name
+            id
+            createdAt
+            country {
+              isoCode
+              id
+              createdAt
+              name
+              slug
+              type
+              updatedAt
+            }
+          }
+        }
+      }
+      createdAt
+      id
+      isoCode
+      name
+      type
+      updatedAt
+      jobs {
+        applyUrl
+        commitment {
+          id
+          createdAt
+          title
+          updatedAt
+        }
+        company {
+          createdAt
+          emailed
+          id
+          logoUrl
+          name
+          twitter
+          updatedAt
+          websiteUrl
+        }
+        description
+        id
+        isFeatured
+        isPublished
+        locationNames
+        postedAt
+        title
+        updatedAt
+        userEmail
+      }
+    }
+    jobs {
+      applyUrl
+      createdAt
+      description
+      id
+      isFeatured
+      isPublished
+      locationNames
+      postedAt
+      title
+      updatedAt
+      userEmail
+      tags {
+        updatedAt
+        name
+        id
+        createdAt
+      }
+      remotes {
+        type
+        updatedAt
+        name
+        id
+        createdAt
+      }
+      countries {
+        updatedAt
+        type
+        name
+        isoCode
+        createdAt
+        id
+        cities {
+          updatedAt
+          type
+          name
+          id
+          createdAt
+          country {
+            updatedAt
+            type
+            name
+            isoCode
+            id
+            createdAt
+            cities {
+              createdAt
+              id
+              name
+              slug
+              updatedAt
+              type
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
 export default {
   data: () => ({
     onLine: null,
@@ -74,50 +233,9 @@ export default {
     getGraphQL() {
       // NOTE: SOURCE: https://graphqlzero.almansi.me/
       const client = new ApolloClient({
-        uri: 'https://countries.trevorblades.com/api'
+        uri: 'https://api.graphql.jobs/'
       });
-      client.query({ query: gql`
-        query {
-          countries {
-            name
-            native
-            capital
-            states {
-              name
-              code
-              country {
-                name
-                states {
-                  name
-                  code
-                  country {
-                    name
-                    states {
-                      name
-                      code
-                      country {
-                        name
-                        states {
-                          name
-                          code
-                          country {
-                            name
-                            states {
-                              name
-                              code
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      `}).then(console.log);
-      // { "data": { "user": { ... } } }
+      client.query({ query: que}).then(console.log);
     },
     push() {
       axios.post(`https://jsonplaceholder.typicode.com/posts`, {
@@ -190,49 +308,9 @@ export default {
     // https://fakeql.com/
     // https://fireql.dev/?url=https://fakeql.com/graphql/2c2b275c9590905d5a618ca7235f381a
     const client = new ApolloClient({
-      uri: 'https://countries.trevorblades.com/api'
+      uri: 'https://api.graphql.jobs/'
     });
-    client.query({ query: gql`
-      query {
-        countries {
-          name
-          native
-          capital
-          states {
-            name
-            code
-            country {
-              name
-              states {
-                name
-                code
-                country {
-                  name
-                  states {
-                    name
-                    code
-                    country {
-                      name
-                      states {
-                        name
-                        code
-                        country {
-                          name
-                          states {
-                            name
-                            code
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-      	}
-      }
-    `}).then(console.log);
+    client.query({ query: que}).then(console.log);
     // 110 ms - 140 ms no sw
     // client.query({ query: gql`
     //   query (
