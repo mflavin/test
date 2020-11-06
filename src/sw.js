@@ -29,20 +29,20 @@ workbox.routing.registerRoute(
   new workbox.strategies.StaleWhileRevalidate(),
 );
 
-workbox.routing.registerRoute(
-  'https://graphqlzero.almansi.me/api',
-  new workbox.strategies.StaleWhileRevalidate(),
-);
+// workbox.routing.registerRoute(
+//   'https://graphqlzero.almansi.me/api',
+//   new workbox.strategies.StaleWhileRevalidate(),
+// );
 
 // https://medium.com/@jono/cache-graphql-post-requests-with-service-worker-100a822a388a
 workbox.routing.registerRoute(
   '/api',
-  async ({event}) => workbox.strategies.staleWhileRevalidate(event),
+  new workbox.strategies.staleWhileRevalidate(),
   'POST'
 );
 workbox.routing.registerRoute(
   'https://graphqlzero.almansi.me/api',
-  async ({event}) => workbox.strategies.staleWhileRevalidate(event),
+  new workbox.strategies.staleWhileRevalidate(),
   'POST'
 );
 
