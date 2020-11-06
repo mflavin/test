@@ -1,7 +1,12 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="When new content and url changes, should refresh with new changes!" />
+  <div>
+    <div class="home" v-if="!$parent.loading">
+      <img alt="Vue logo" src="../assets/logo.png">
+      <HelloWorld msg="When new content and url changes, should refresh with new changes!" />
+    </div>
+    <div else>
+      Loading...
+    </div>
   </div>
 </template>
 
