@@ -38,7 +38,16 @@ const cacheableResponse = new workbox.cacheableResponse.CacheableResponsePlugin(
 
 // https://medium.com/@jono/cache-graphql-post-requests-with-service-worker-100a822a388a
 workbox.routing.registerRoute(
-  'https://graphqlzero.almansi.me/api',
+  new RegExp('/api(/)?'),
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: workbox.core.cacheNames.precache,
+    plugins: [
+      cacheableResponse,
+    ],
+  }),
+);
+workbox.routing.registerRoute(
+  '/api',
   new workbox.strategies.StaleWhileRevalidate({
     cacheName: workbox.core.cacheNames.precache,
     plugins: [
