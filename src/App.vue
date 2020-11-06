@@ -192,7 +192,7 @@ export default {
         const g = document.querySelector('.push');
         const l = resp.data.cities.length - 2;
         const idx = Math.floor(Math.random() * l) + 1;
-        g.innerHTML = resp.data.cities[idx];
+        g.innerHTML = JSON.stringify(resp.data.cities[idx]);
       });
     },
     push() {
