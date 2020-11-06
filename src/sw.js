@@ -37,12 +37,12 @@ workbox.routing.registerRoute(
 // https://medium.com/@jono/cache-graphql-post-requests-with-service-worker-100a822a388a
 workbox.routing.registerRoute(
   '/api',
-  async ({event}) => workbox.strategies.StaleWhileRevalidate(event),
+  async ({event}) => new workbox.strategies.StaleWhileRevalidate(event),
   'POST'
 );
 workbox.routing.registerRoute(
   'https://graphqlzero.almansi.me/api',
-  async ({event}) => workbox.strategies.StaleWhileRevalidate(event),
+  async ({event}) => new workbox.strategies.StaleWhileRevalidate(event),
   'POST'
 );
 
