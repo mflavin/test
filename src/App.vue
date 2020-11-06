@@ -74,7 +74,7 @@ export default {
     getGraphQL() {
       // NOTE: SOURCE: https://graphqlzero.almansi.me/
       const client = new ApolloClient({
-        uri: 'https://countries.trevorblades.com/'
+        uri: 'https://countries.trevorblades.com/api'
       });
       client.query({ query: gql`
         query {
@@ -190,7 +190,7 @@ export default {
     // https://fakeql.com/
     // https://fireql.dev/?url=https://fakeql.com/graphql/2c2b275c9590905d5a618ca7235f381a
     const client = new ApolloClient({
-      uri: 'https://countries.trevorblades.com/'
+      uri: 'https://countries.trevorblades.com/api'
     });
     client.query({ query: gql`
       query {
