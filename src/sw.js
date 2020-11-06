@@ -141,7 +141,11 @@ async function getCache(request) {
 
     // Check cache max age.
     let cacheControl = request.headers.get('Cache-Control');
+    console.log('cacheControl, ', cacheControl);
     let maxAge = cacheControl ? parseInt(cacheControl.split('=')[1]) : 3600;
+    console.log('maxAge, ', maxAge);
+    console.log('Date.now() - data.timestamp, ', Date.now() - data.timestamp);
+    console.log('maxAge * 1000, ', maxAge * 1000);
     if (Date.now() - data.timestamp > maxAge * 1000) {
       console.log(`Cache expired. Load from API endpoint.`);
       return null;
