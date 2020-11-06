@@ -1,6 +1,8 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.4/workbox-sw.js');
 importScripts('https://cdn.jsdelivr.net/npm/idb-keyval@3/dist/idb-keyval-iife.min.js');
 
+importScripts('https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js');
+
 let globalRoute;
 
 // Init indexedDB using idb-keyval, https://github.com/jakearchibald/idb-keyval
@@ -117,6 +119,7 @@ async function setCache(request, response) {
   var key, data;
   let body = await request.json();
   let id = CryptoJS.MD5(body.query).toString();
+  console.log('setCache id ,', id);
 
   var entry = {
     query: body.query,
@@ -131,6 +134,7 @@ async function getCache(request) {
   try {
     let body = await request.json();
     let id = CryptoJS.MD5(body.query).toString();
+    console.log('getCache id ,', id);
     data = await idbKeyval.get(id, store);
     if (!data) return null;
 
