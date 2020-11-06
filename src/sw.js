@@ -4,9 +4,7 @@ importScripts('https://cdn.jsdelivr.net/npm/idb-keyval@3/dist/idb-keyval-iife.mi
 let globalRoute;
 
 function getID(str) {
-  console.log('btoa, ', btoa);
-  console.log('btoa(), ', btoa());
-  return window.btoa(str);
+  return btoa(str);
 }
 
 // Init indexedDB using idb-keyval, https://github.com/jakearchibald/idb-keyval
