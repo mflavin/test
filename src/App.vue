@@ -17,7 +17,7 @@
         </span>
       </router-link>
       <button type="button" name="button" @click="get" style="flex: 0 0 20%; margin-bottom: 35px;"><b>G</b>et!</button>
-      <button type="button" name="button" @click="getLat" style="flex: 0 0 20%; margin-bottom: 35px;"><b>G</b>et <b>L</b>at!</button>
+      <button type="button" name="button" @click="getGraphQL" style="flex: 0 0 20%; margin-bottom: 35px;"><b>G</b>et <b>L</b>at!</button>
       <button type="button" name="button" @click="push" style="flex: 0 0 20%; margin-bottom: 35px;"><b>P</b>ush!</button>
       <button type="button" name="button" @click="fastCards" style="flex: 0 0 20%; margin-bottom: 35px;"><b>F</b>astCards!</button>
       <button type="button" name="button" @click="slowCards" style="flex: 0 0 20%; margin-bottom: 35px;"><b>S</b>lowCards!</button>
@@ -25,7 +25,7 @@
         <div class="get"></div>
       </small>
       <small style="flex: 0 0 25%;">
-        <div class="getLat"></div>
+        <div class="getGraphQL"></div>
       </small>
       <small style="flex: 0 0 25%;">
         <div class="push"></div>
@@ -51,6 +51,8 @@
 
 <script>
 import axios from 'axios';
+import ApolloClient, { gql } from 'apollo-boost';
+
 export default {
   data: () => ({
     onLine: null,
@@ -69,18 +71,21 @@ export default {
         })
       });
     },
-    getLat() {
-      fetch('https://api.exchangeratesapi.io/latest')
-      .then((response) => {
-        console.log('network -- First, with backup');
-        const getLat = document.querySelector('.getLat');
-        response.text().then(d => {
-          var j = JSON.parse(d);
-          console.log('d: ', d);
-          console.log('j: ', j);
-          getLat.innerHTML = `${j.date}, ${j.base}, ${j.rates.CAD}, ${j.rates.USD}`;
-        })
+    getGraphQL() {
+      // NOTE: SOURCE: https://graphqlzero.almansi.me/
+      const client = new ApolloClient({
+        uri: 'https://graphqlzero.almansi.me/api'
       });
+      // 110 ms - 140 ms no sw
+      client.query({ query: gql`
+        {
+          user(id: 1) {
+            id
+            name
+          }
+        }
+      `}).then(console.log);
+      // { "data": { "user": { ... } } }
     },
     push() {
       axios.post(`https://jsonplaceholder.typicode.com/posts`, {
@@ -148,6 +153,21 @@ export default {
     axios.get('https://run.mocky.io/v3/98d8ddc2-36e3-4884-b019-9b00120b287e');
     axios.get('https://run.mocky.io/v3/5ce711b0-6659-4b4c-88d4-1078cd62148f');
     console.log('End of slow.');
+
+    // NOTE: SOURCE: https://graphqlzero.almansi.me/
+    const client = new ApolloClient({
+      uri: 'https://graphqlzero.almansi.me/api'
+    });
+    // 110 ms - 140 ms no sw
+    client.query({ query: gql`
+      {
+        user(id: 1) {
+          id
+          name
+        }
+      }
+    `}).then(console.log);
+    // { "data": { "user": { ... } } }
   }
 };
 </script>
