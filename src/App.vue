@@ -17,7 +17,7 @@
         </span>
       </router-link>
       <button type="button" name="button" @click="get" style="flex: 0 0 20%; margin-bottom: 35px;"><b>G</b>et!</button>
-      <button type="button" name="button" @click="getGraphQL" style="flex: 0 0 20%; margin-bottom: 35px;"><b>G</b>et <b>L</b>at!</button>
+      <button type="button" name="button" @click="getGraphQL" style="flex: 0 0 20%; margin-bottom: 35px;"><b>G</b>et <b>G</b>raphQL!</button>
       <button type="button" name="button" @click="push" style="flex: 0 0 20%; margin-bottom: 35px;"><b>P</b>ush!</button>
       <button type="button" name="button" @click="fastCards" style="flex: 0 0 20%; margin-bottom: 35px;"><b>F</b>astCards!</button>
       <button type="button" name="button" @click="slowCards" style="flex: 0 0 20%; margin-bottom: 35px;"><b>S</b>lowCards!</button>
