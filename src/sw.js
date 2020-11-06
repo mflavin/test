@@ -8,12 +8,14 @@ async function staleWhileRevalidate(event) {
   let cachedResponse = event.request.clone();
   let fetchPromise = fetch(event.request.clone())
     .then((response) => {
+      // setCache(event.request.clone(), response.clone());
       return response;
     })
     .catch((err) => {
       console.error(err);
     });
-  return cachedResponse ? Promise.resolve(cachedResponse) : fetchPromise;
+  // return cachedResponse ? Promise.resolve(cachedResponse) : fetchPromise;
+  return fetchPromise;
 }
 
 self.addEventListener('message', (event) => {
