@@ -29,7 +29,7 @@ workbox.routing.registerRoute(
   new workbox.strategies.StaleWhileRevalidate(),
 );
 
-const cacheableResponse = new workbox.expiration.CacheableResponsePlugin({
+const cacheableResponse = new workbox.cacheableResponse.CacheableResponsePlugin({
     statuses: [0, 200],
     headers: {
         'x-is-cacheable': true,
