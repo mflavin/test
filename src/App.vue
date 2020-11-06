@@ -253,11 +253,11 @@ export default {
         const l = resp.data.cities.length - 2;
         const idx = Math.floor(Math.random() * l) + 1;
         g.innerHTML = `
-          ${JSON.stringify(resp.data.cities[idx].createdAt)}
-          ${JSON.stringify(resp.data.cities[idx].id)}
-          ${JSON.stringify(resp.data.cities[idx].name)}
-          ${JSON.stringify(resp.data.cities[idx].type)}
-          ${JSON.stringify(resp.data.cities[idx].updatedAt)}
+          ${JSON.stringify(resp.data.cities[idx].createdAt), '\n'}
+          ${JSON.stringify(resp.data.cities[idx].id), '\n'}
+          ${JSON.stringify(resp.data.cities[idx].name), '\n'}
+          ${JSON.stringify(resp.data.cities[idx].type), '\n'}
+          ${JSON.stringify(resp.data.cities[idx].updatedAt), '\n'}
         `;
         self.loading = false;
       });
