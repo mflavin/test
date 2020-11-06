@@ -1,6 +1,10 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.4/workbox-sw.js');
+importScripts('https://cdn.jsdelivr.net/npm/idb-keyval@3/dist/idb-keyval-iife.min.js');
 
 let globalRoute;
+
+// Init indexedDB using idb-keyval, https://github.com/jakearchibald/idb-keyval
+const store = new idbKeyval.Store('GraphQL-Cache', 'PostResponses');
 
 self.addEventListener('message', (event) => {
   globalRoute = event.data.VUE_APP_API_PATH;
