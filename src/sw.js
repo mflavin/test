@@ -35,7 +35,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  new RegExp('/graphql(/)?'),
+  new RegExp('/api(/)?'),
   new workbox.strategies.StaleWhileRevalidate(),
 );
 
