@@ -102,7 +102,7 @@ workbox.routing.registerRoute(
   'POST'
 );
 workbox.routing.registerRoute(
-  new Regex('https://api.dev-forms.myqsrsoft.com/templates/metrics/(.*)'),
+  'https://api.dev-forms.myqsrsoft.com/templates/metrics/6fed8edb-4deb-44d4-95f2-2887edca84e9?startDate=2020-09-12&endDate=2020-11-11'
   async ({
     event
   }) => {
