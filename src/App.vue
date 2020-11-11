@@ -201,6 +201,28 @@ export default {
     //   }
     // `}).then(console.log);
     // { "data": { "user": { ... } } }
+
+
+
+    fetch("https://api.dev-forms.myqsrsoft.com/templates/metrics/6fed8edb-4deb-44d4-95f2-2887edca84e9?startDate=2020-11-01&endDate=2020-11-08", {
+      "headers": {
+        "accept": "*/*",
+        "accept-language": "en-US,en;q=0.9",
+        "content-type": "",
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "same-site",
+        "x-auth-token": "eyJraWQiOiJqYkJIbDRnTWpzS2NleHh3c0xtNTlrNTV3XC9KYVZcLzZra1JFMWVPNmZLVHc9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIwMzViNDM1MC1hZGMwLTQ1NGItYTJkNS0wMGJjNWY5NTc2MWMiLCJldmVudF9pZCI6ImNiYzdiNDI1LTQ5NGYtNGQzNS05ZWY5LTZhNTEzNTIzNzk4YSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2MDQ3MDc0NzQsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX0lGOHoyQ3doaSIsImV4cCI6MTYwNTEzMjExOCwiaWF0IjoxNjA1MTI4NTE5LCJqdGkiOiJjODBhYjMxMS0xMjI1LTQyNWQtYWJhZC00YjNlY2M5OTdmZjAiLCJjbGllbnRfaWQiOiIzdWZ0MG1vOTVxcmFrZXVnZ3U3N2ExZm82YSIsInVzZXJuYW1lIjoiMDM1YjQzNTAtYWRjMC00NTRiLWEyZDUtMDBiYzVmOTU3NjFjIn0.hOiMv_X22QiL0Ir2DpTfy1sWcQk66YI1g3K2QMFwk9ifPkQWVryE83H8YQZ2x73vtbWzUeBWnOUJ_zV--eKnV2BOcCDEcNr284BWxVjb9Q3v3aP1qf3jcq4X756bGIdls8MtbTdo3wzU88VHP50H8pb8bF6zFVCQsE4L2vYENgbRLbOziRykCOR382BQgyccNkpoYNcQujEUk-s1PEZj4O4gDeHp49V_5gjAj0FaKPgf1esRtrK_XS22qG6mVRQLwHwYPd43b_enr9GbFdtZpp4CxdpxpI7WglKvx4vrua-UEJBfFw-9RE4UCymkcq7oRLWPQ5i6out4qcVO9mnnnA"
+      },
+      "referrer": "https://dev-forms.myqsrsoft.com/",
+      "referrerPolicy": "strict-origin-when-cross-origin",
+      "body": "{\"useCompressedTable\":false}",
+      "method": "POST",
+      "mode": "cors",
+      "credentials": "omit"
+    }).then(data => {
+      console.log('forms data, ', data);
+    })
   }
 };
 </script>
