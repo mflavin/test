@@ -204,7 +204,7 @@ export default {
 
 
 
-    fetch("https://api.dev-forms.myqsrsoft.com/templates/metrics/6fed8edb-4deb-44d4-95f2-2887edca84e9?startDate=2020-11-01&endDate=2020-11-08", {
+    fetch("https://api.dev-forms.myqsrsoft.com/templates/metrics/6fed8edb-4deb-44d4-95f2-2887edca84e9?startDate=2020-09-12&endDate=2020-11-12", {
       "headers": {
         "accept": "*/*",
         "accept-language": "en-US,en;q=0.9",
@@ -216,18 +216,17 @@ export default {
       },
       "referrer": "https://dev-forms.myqsrsoft.com/",
       "referrerPolicy": "strict-origin-when-cross-origin",
-      "body": "{\"useCompressedTable\":false}",
+      "body": "{\"useCompressedTable\":false,\"lastEvaluatedKey\":{\"PK\":\"a65dd03d-217d-4f32-bd27-1a52648c29d9\",\"ORG_ID\":\"6fed8edb-4deb-44d4-95f2-2887edca84e9\",\"CXSK\":\"2020-09-12T21:03:18\"}}",
       "method": "POST",
       "mode": "cors",
       "credentials": "omit"
     })
     .then(function(response) {
-      // The response is a Response instance.
-      // You parse the data into a useable format using `.json()`
       return response.json();
     }).then(function(data) {
-      // `data` is the parsed version of the JSON returned from the above endpoint.
-      console.log(data);  // { "userId": 1, "id": 1, "title": "...", "body": "..." }
+      console.log(data);
+      console.log(data.metricsData);
+      console.log(data.metricsData[0].Results);
     });
   }
 };
