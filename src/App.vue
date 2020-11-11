@@ -204,7 +204,7 @@ export default {
 
 
 
-    fetch("https://api.dev-forms.myqsrsoft.com/templates/metrics/6fed8edb-4deb-44d4-95f2-2887edca84e9?startDate=2020-09-12&endDate=2020-11-12", {
+    fetch("https://api.dev-forms.myqsrsoft.com/templates/metrics/6fed8edb-4deb-44d4-95f2-2887edca84e9?startDate=2020-09-12&endDate=2020-11-11", {
       "headers": {
         "accept": "*/*",
         "accept-language": "en-US,en;q=0.9",
@@ -212,11 +212,11 @@ export default {
         "sec-fetch-dest": "empty",
         "sec-fetch-mode": "cors",
         "sec-fetch-site": "same-site",
-        "x-auth-token": "eyJraWQiOiJqYkJIbDRnTWpzS2NleHh3c0xtNTlrNTV3XC9KYVZcLzZra1JFMWVPNmZLVHc9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIwMzViNDM1MC1hZGMwLTQ1NGItYTJkNS0wMGJjNWY5NTc2MWMiLCJldmVudF9pZCI6ImNiYzdiNDI1LTQ5NGYtNGQzNS05ZWY5LTZhNTEzNTIzNzk4YSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2MDQ3MDc0NzQsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX0lGOHoyQ3doaSIsImV4cCI6MTYwNTEzMjExOCwiaWF0IjoxNjA1MTI4NTE5LCJqdGkiOiJjODBhYjMxMS0xMjI1LTQyNWQtYWJhZC00YjNlY2M5OTdmZjAiLCJjbGllbnRfaWQiOiIzdWZ0MG1vOTVxcmFrZXVnZ3U3N2ExZm82YSIsInVzZXJuYW1lIjoiMDM1YjQzNTAtYWRjMC00NTRiLWEyZDUtMDBiYzVmOTU3NjFjIn0.hOiMv_X22QiL0Ir2DpTfy1sWcQk66YI1g3K2QMFwk9ifPkQWVryE83H8YQZ2x73vtbWzUeBWnOUJ_zV--eKnV2BOcCDEcNr284BWxVjb9Q3v3aP1qf3jcq4X756bGIdls8MtbTdo3wzU88VHP50H8pb8bF6zFVCQsE4L2vYENgbRLbOziRykCOR382BQgyccNkpoYNcQujEUk-s1PEZj4O4gDeHp49V_5gjAj0FaKPgf1esRtrK_XS22qG6mVRQLwHwYPd43b_enr9GbFdtZpp4CxdpxpI7WglKvx4vrua-UEJBfFw-9RE4UCymkcq7oRLWPQ5i6out4qcVO9mnnnA"
+        "x-auth-token": "eyJraWQiOiJqYkJIbDRnTWpzS2NleHh3c0xtNTlrNTV3XC9KYVZcLzZra1JFMWVPNmZLVHc9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIwMzViNDM1MC1hZGMwLTQ1NGItYTJkNS0wMGJjNWY5NTc2MWMiLCJldmVudF9pZCI6ImNiYzdiNDI1LTQ5NGYtNGQzNS05ZWY5LTZhNTEzNTIzNzk4YSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2MDQ3MDc0NzQsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX0lGOHoyQ3doaSIsImV4cCI6MTYwNTEzNTgyMywiaWF0IjoxNjA1MTMyMjI1LCJqdGkiOiJlNDExZjZjZC0yZjk4LTQyNjUtODNhMS0wYjQ1ODFiZDcwNzciLCJjbGllbnRfaWQiOiIzdWZ0MG1vOTVxcmFrZXVnZ3U3N2ExZm82YSIsInVzZXJuYW1lIjoiMDM1YjQzNTAtYWRjMC00NTRiLWEyZDUtMDBiYzVmOTU3NjFjIn0.QjLeapXddZpeBAN06GaNvd3GJrBgasGym4OFd2NmzoJaU2rlm_NTepdRSQCSEh-IP9AMuvYrfPL7b7hSUEIyno0UyzdZpqpKkE2dzAYlx2XL1lfWHHPepYWUjAZ5gc1YjEFlYsKhucDmj4cydGO5PeiKDNIG2-OVamO1SONBaSLv4ukbPfzfBUT14oPyWW7Ug4ziIrMgZqDl2rQR029vQ7Zl8az18nMkp-HxrFLiEu3NnplRcMBkwfenvLcfsUv1DYRakl9Q-mbfG75yZUv1rrrUH5sfLLu2vIiW6gPCB0Klb3CFRq0bFVofedePVEJjsSwPOn1qPHae5MFSTFMMYw"
       },
       "referrer": "https://dev-forms.myqsrsoft.com/",
       "referrerPolicy": "strict-origin-when-cross-origin",
-      "body": "{\"useCompressedTable\":false,\"lastEvaluatedKey\":{\"PK\":\"a65dd03d-217d-4f32-bd27-1a52648c29d9\",\"ORG_ID\":\"6fed8edb-4deb-44d4-95f2-2887edca84e9\",\"CXSK\":\"2020-09-12T21:03:18\"}}",
+      "body": "{\"useCompressedTable\":false,\"lastEvaluatedKey\":{\"PK\":\"da138e39-e62b-490b-bf67-fc3f2c60563c\",\"ORG_ID\":\"6fed8edb-4deb-44d4-95f2-2887edca84e9\",\"CXSK\":\"2020-10-03T07:37:56\"}}",
       "method": "POST",
       "mode": "cors",
       "credentials": "omit"
