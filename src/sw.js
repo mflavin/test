@@ -129,7 +129,8 @@ async function serializeResponse(response) {
 async function setCache(request, response) {
   var key, data;
   let body = await request.json();
-  console.log(body.query);
+  console.log('body, ', body);
+  console.log('body.query, ', body.query);
   let id = CryptoJS.MD5(body.query).toString();
   var entry = {
     query: body.query,
