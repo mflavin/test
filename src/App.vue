@@ -183,7 +183,11 @@ export default {
           "method": "POST",
           "mode": "cors",
           "credentials": "omit"
-        }).then(function(data) {
+        })
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {
           console.log(data);
         });
       } else {
@@ -203,7 +207,11 @@ export default {
           "method": "POST",
           "mode": "cors",
           "credentials": "omit"
-        }).then(function(data) {
+        })
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {
           console.log(data);
         });
       }
