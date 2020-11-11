@@ -222,9 +222,10 @@ export default {
       "credentials": "omit"
     })
     .then((response) => {
-      console.log('dev-forms.myqsrsoft -- ');
+      console.log('dev-forms.myqsrsoft -- ', response);
       response.text().then(d => {
         console.log('d: ', d);
+        console.log('JSON.parse(d) ', JSON.parse(d));
       })
     });
   }
