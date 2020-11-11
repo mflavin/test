@@ -95,23 +95,6 @@ const formsAPICalls = [
     "mode": "cors",
     "credentials": "omit"
   }),
-  fetch("https://api.dev-forms.myqsrsoft.com/templates/metrics/6fed8edb-4deb-44d4-95f2-2887edca84e9?startDate=2020-11-01&endDate=2020-11-12", {
-    "headers": {
-      "accept": "*/*",
-      "accept-language": "en-US,en;q=0.9",
-      "content-type": "",
-      "sec-fetch-dest": "empty",
-      "sec-fetch-mode": "cors",
-      "sec-fetch-site": "same-site",
-      "x-auth-token": authToken
-    },
-    "referrer": "https://dev-forms.myqsrsoft.com/",
-    "referrerPolicy": "strict-origin-when-cross-origin",
-    "body": "{\"useCompressedTable\":false,\"lastEvaluatedKey\":{\"PK\":\"iasdk21343-217d-4f32-bd27-123u23445\",\"ORG_ID\":\"6fed8edb-4deb-44d4-95f2-2887edca84e9\",\"CXSK\":\"2020-09-18T21:07:32\"}}",
-    "method": "POST",
-    "mode": "cors",
-    "credentials": "omit"
-  }),
 ]
 
 export default {
@@ -220,10 +203,10 @@ export default {
       function randomIntFromInterval(min, max) { // min and max included
         return Math.floor(Math.random() * (max - min + 1) + min);
       }
-      formsAPICalls[randomIntFromInterval(0,2)]
-      // .then(function(response) {
-      //   return response.json();
-      // })
+      formsAPICalls[randomIntFromInterval(0,1)]
+      .then(function(response) {
+        return response.json();
+      })
       .then(function(data) {
         console.log(data);
       });
