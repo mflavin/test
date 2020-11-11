@@ -221,9 +221,9 @@ export default {
         return Math.floor(Math.random() * (max - min + 1) + min);
       }
       formsAPICalls[randomIntFromInterval(0,2)]
-      .then(function(response) {
-        return response.json();
-      })
+      // .then(function(response) {
+      //   return response.json();
+      // })
       .then(function(data) {
         console.log(data);
       });
