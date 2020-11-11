@@ -126,8 +126,6 @@ async function serializeResponse(response) {
     status: response.status,
     statusText: response.statusText
   };
-  console.log('response, ', response);
-  console.log('response.json(), ', response.json());
   serialized.body = await response.json();
   return serialized;
 }
