@@ -109,7 +109,7 @@ const formsAPICalls = [
     "method": "POST",
     "mode": "cors",
     "credentials": "omit"
-  })
+  }),
 ]
 
 export default {
