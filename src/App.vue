@@ -226,8 +226,6 @@ export default {
       // })
       .then(function(data) {
         console.log(data);
-        console.log(data.metricsData);
-        console.log(data.metricsData[0].Results);
       });
     }
   },
