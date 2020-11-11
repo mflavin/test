@@ -133,7 +133,7 @@ async function serializeResponse(response) {
 async function setCache(request, response) {
   console.log('request, ', request);
   var key, data;
-  let body = await request.json();
+  let body = await request;
   console.log('body, ', body);
   let id = CryptoJS.MD5(body.lastEvaluatedKey.PK).toString();
   var entry = {
@@ -148,7 +148,7 @@ async function getCache(request) {
   console.log('request, ', request);
   let data;
   try {
-    let body = await request.json();
+    let body = await request;
     console.log('body, ', body);
     let id = CryptoJS.MD5(body.lastEvaluatedKey.PK).toString();
     data = await idbKeyval.get(id, store);
