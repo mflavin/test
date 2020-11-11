@@ -1,11 +1,8 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.4/workbox-sw.js');
+importScripts('https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js');
 importScripts('https://cdn.jsdelivr.net/npm/idb-keyval@3/dist/idb-keyval-iife.min.js');
 
 let globalRoute;
-
-function getID(str) {
-  return btoa(str).slice(0, 25);
-}
 
 // Init indexedDB using idb-keyval, https://github.com/jakearchibald/idb-keyval
 const store = new idbKeyval.Store('GraphQL-Cache', 'PostResponses');
@@ -132,7 +129,7 @@ async function serializeResponse(response) {
 async function setCache(request, response) {
   var key, data;
   let body = await request.json();
-  let id = getID(body.query);
+  let id = CryptoJS.MD5(body.query).toString();
   var entry = {
     query: body.query,
     response: await serializeResponse(response),
@@ -145,7 +142,7 @@ async function getCache(request) {
   let data;
   try {
     let body = await request.json();
-    let id = getID(body.query);
+    let id = CryptoJS.MD5(body.query).toString();
     data = await idbKeyval.get(id, store);
     if (!data) return null;
 
