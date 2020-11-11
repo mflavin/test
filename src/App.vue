@@ -131,35 +131,62 @@ export default {
       // NOTE: SOURCE: https://graphqlzero.almansi.me/
       // https://fakeql.com/
       // https://fireql.dev/?url=https://fakeql.com/graphql/2c2b275c9590905d5a618ca7235f381a
-      const self = this;
-      self.loading = true;
-      const client = new ApolloClient({
-        uri: 'https://api.graphql.jobs/'
-      });
-      client.query({ query: que}).then(resp => {
-        const g = document.querySelector('.getGraphQL');
-        const l = resp.data.cities.length - 2;
-        const idx = Math.floor(Math.random() * l) + 1;
-        console.log(resp);
-        g.innerHTML = `
-          <div class="blockDiv">
-            <div class="leftDiv"> createdAt: </div>
-            <div class="rightDiv">${JSON.stringify(resp.data.cities[idx].createdAt)} </div>
-          </div>
-          <div class="blockDiv">
-            <div class="leftDiv"> updatedAt: </div>
-            <div class="rightDiv">${JSON.stringify(resp.data.cities[idx].updatedAt)} </div>
-          </div>
-          <div class="blockDiv">
-            <div class="leftDiv"> name: </div>
-            <div class="rightDiv">${JSON.stringify(resp.data.cities[idx].name)} </div>
-          </div>
-          <div class="blockDiv">
-            <div class="leftDiv"> type: </div>
-            <div class="rightDiv">${JSON.stringify(resp.data.cities[idx].type)} </div>
-          </div>
-        `;
-        self.loading = false;
+      // const self = this;
+      // self.loading = true;
+      // const client = new ApolloClient({
+      //   uri: 'https://api.graphql.jobs/'
+      // });
+      // client.query({ query: que}).then(resp => {
+      //   const g = document.querySelector('.getGraphQL');
+      //   const l = resp.data.cities.length - 2;
+      //   const idx = Math.floor(Math.random() * l) + 1;
+      //   console.log(resp);
+      //   g.innerHTML = `
+      //     <div class="blockDiv">
+      //       <div class="leftDiv"> createdAt: </div>
+      //       <div class="rightDiv">${JSON.stringify(resp.data.cities[idx].createdAt)} </div>
+      //     </div>
+      //     <div class="blockDiv">
+      //       <div class="leftDiv"> updatedAt: </div>
+      //       <div class="rightDiv">${JSON.stringify(resp.data.cities[idx].updatedAt)} </div>
+      //     </div>
+      //     <div class="blockDiv">
+      //       <div class="leftDiv"> name: </div>
+      //       <div class="rightDiv">${JSON.stringify(resp.data.cities[idx].name)} </div>
+      //     </div>
+      //     <div class="blockDiv">
+      //       <div class="leftDiv"> type: </div>
+      //       <div class="rightDiv">${JSON.stringify(resp.data.cities[idx].type)} </div>
+      //     </div>
+      //   `;
+      //   self.loading = false;
+      // });
+
+
+
+      fetch("https://api.dev-forms.myqsrsoft.com/templates/metrics/6fed8edb-4deb-44d4-95f2-2887edca84e9?startDate=2020-09-12&endDate=2020-11-11", {
+        "headers": {
+          "accept": "*/*",
+          "accept-language": "en-US,en;q=0.9",
+          "content-type": "",
+          "sec-fetch-dest": "empty",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "same-site",
+          "x-auth-token": "eyJraWQiOiJqYkJIbDRnTWpzS2NleHh3c0xtNTlrNTV3XC9KYVZcLzZra1JFMWVPNmZLVHc9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIwMzViNDM1MC1hZGMwLTQ1NGItYTJkNS0wMGJjNWY5NTc2MWMiLCJldmVudF9pZCI6ImNiYzdiNDI1LTQ5NGYtNGQzNS05ZWY5LTZhNTEzNTIzNzk4YSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2MDQ3MDc0NzQsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX0lGOHoyQ3doaSIsImV4cCI6MTYwNTEzNTgyMywiaWF0IjoxNjA1MTMyMjI1LCJqdGkiOiJlNDExZjZjZC0yZjk4LTQyNjUtODNhMS0wYjQ1ODFiZDcwNzciLCJjbGllbnRfaWQiOiIzdWZ0MG1vOTVxcmFrZXVnZ3U3N2ExZm82YSIsInVzZXJuYW1lIjoiMDM1YjQzNTAtYWRjMC00NTRiLWEyZDUtMDBiYzVmOTU3NjFjIn0.QjLeapXddZpeBAN06GaNvd3GJrBgasGym4OFd2NmzoJaU2rlm_NTepdRSQCSEh-IP9AMuvYrfPL7b7hSUEIyno0UyzdZpqpKkE2dzAYlx2XL1lfWHHPepYWUjAZ5gc1YjEFlYsKhucDmj4cydGO5PeiKDNIG2-OVamO1SONBaSLv4ukbPfzfBUT14oPyWW7Ug4ziIrMgZqDl2rQR029vQ7Zl8az18nMkp-HxrFLiEu3NnplRcMBkwfenvLcfsUv1DYRakl9Q-mbfG75yZUv1rrrUH5sfLLu2vIiW6gPCB0Klb3CFRq0bFVofedePVEJjsSwPOn1qPHae5MFSTFMMYw"
+        },
+        "referrer": "https://dev-forms.myqsrsoft.com/",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": "{\"useCompressedTable\":false,\"lastEvaluatedKey\":{\"PK\":\"da138e39-e62b-490b-bf67-fc3f2c60563c\",\"ORG_ID\":\"6fed8edb-4deb-44d4-95f2-2887edca84e9\",\"CXSK\":\"2020-10-03T07:37:56\"}}",
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "omit"
+      })
+      .then(function(response) {
+        return response.json();
+      }).then(function(data) {
+        console.log(data);
+        console.log(data.metricsData);
+        console.log(data.metricsData[0].Results);
       });
     }
   },
@@ -201,33 +228,6 @@ export default {
     //   }
     // `}).then(console.log);
     // { "data": { "user": { ... } } }
-
-
-
-    fetch("https://api.dev-forms.myqsrsoft.com/templates/metrics/6fed8edb-4deb-44d4-95f2-2887edca84e9?startDate=2020-09-12&endDate=2020-11-11", {
-      "headers": {
-        "accept": "*/*",
-        "accept-language": "en-US,en;q=0.9",
-        "content-type": "",
-        "sec-fetch-dest": "empty",
-        "sec-fetch-mode": "cors",
-        "sec-fetch-site": "same-site",
-        "x-auth-token": "eyJraWQiOiJqYkJIbDRnTWpzS2NleHh3c0xtNTlrNTV3XC9KYVZcLzZra1JFMWVPNmZLVHc9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIwMzViNDM1MC1hZGMwLTQ1NGItYTJkNS0wMGJjNWY5NTc2MWMiLCJldmVudF9pZCI6ImNiYzdiNDI1LTQ5NGYtNGQzNS05ZWY5LTZhNTEzNTIzNzk4YSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2MDQ3MDc0NzQsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX0lGOHoyQ3doaSIsImV4cCI6MTYwNTEzNTgyMywiaWF0IjoxNjA1MTMyMjI1LCJqdGkiOiJlNDExZjZjZC0yZjk4LTQyNjUtODNhMS0wYjQ1ODFiZDcwNzciLCJjbGllbnRfaWQiOiIzdWZ0MG1vOTVxcmFrZXVnZ3U3N2ExZm82YSIsInVzZXJuYW1lIjoiMDM1YjQzNTAtYWRjMC00NTRiLWEyZDUtMDBiYzVmOTU3NjFjIn0.QjLeapXddZpeBAN06GaNvd3GJrBgasGym4OFd2NmzoJaU2rlm_NTepdRSQCSEh-IP9AMuvYrfPL7b7hSUEIyno0UyzdZpqpKkE2dzAYlx2XL1lfWHHPepYWUjAZ5gc1YjEFlYsKhucDmj4cydGO5PeiKDNIG2-OVamO1SONBaSLv4ukbPfzfBUT14oPyWW7Ug4ziIrMgZqDl2rQR029vQ7Zl8az18nMkp-HxrFLiEu3NnplRcMBkwfenvLcfsUv1DYRakl9Q-mbfG75yZUv1rrrUH5sfLLu2vIiW6gPCB0Klb3CFRq0bFVofedePVEJjsSwPOn1qPHae5MFSTFMMYw"
-      },
-      "referrer": "https://dev-forms.myqsrsoft.com/",
-      "referrerPolicy": "strict-origin-when-cross-origin",
-      "body": "{\"useCompressedTable\":false,\"lastEvaluatedKey\":{\"PK\":\"da138e39-e62b-490b-bf67-fc3f2c60563c\",\"ORG_ID\":\"6fed8edb-4deb-44d4-95f2-2887edca84e9\",\"CXSK\":\"2020-10-03T07:37:56\"}}",
-      "method": "POST",
-      "mode": "cors",
-      "credentials": "omit"
-    })
-    .then(function(response) {
-      return response.json();
-    }).then(function(data) {
-      console.log(data);
-      console.log(data.metricsData);
-      console.log(data.metricsData[0].Results);
-    });
   }
 };
 </script>
