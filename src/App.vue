@@ -60,43 +60,6 @@ const que = gql`
 
 const authToken = "eyJraWQiOiJqYkJIbDRnTWpzS2NleHh3c0xtNTlrNTV3XC9KYVZcLzZra1JFMWVPNmZLVHc9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIwMzViNDM1MC1hZGMwLTQ1NGItYTJkNS0wMGJjNWY5NTc2MWMiLCJldmVudF9pZCI6ImNiYzdiNDI1LTQ5NGYtNGQzNS05ZWY5LTZhNTEzNTIzNzk4YSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2MDQ3MDc0NzQsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX0lGOHoyQ3doaSIsImV4cCI6MTYwNTEzOTQzNCwiaWF0IjoxNjA1MTM1ODM3LCJqdGkiOiIzMDA1Y2U5Ny02ODE1LTQ2YjgtODgyMS01NWVhMjA4ODFmMDkiLCJjbGllbnRfaWQiOiIzdWZ0MG1vOTVxcmFrZXVnZ3U3N2ExZm82YSIsInVzZXJuYW1lIjoiMDM1YjQzNTAtYWRjMC00NTRiLWEyZDUtMDBiYzVmOTU3NjFjIn0.ijFUf0bDOw7b_OurrK_rBsT86I2zAzvYHNQ3mcJUXPViAKlmAXDSeCOmTWcVe8tYO-N7QHY74K9_PzHa-dgaKiENvEkQjqG-MdtVdd-HH4spNL_buDy31aRTAjQSqJXVeXzp7Io_TIvOGy0rNxa8Vylx0r9pEs2l1dHuMcyUhiMFVGLzZk_qAPatoFycEPOgSghZ2-9yXIqs_xorEqkQ4OzPghcHe4_Z1KTO_8J-z87QTCLWQFh7XtdL4V3VHlqF0u6fb7A5_vWYQOxmsFmRR_2SgBLVYGQhoacFujKudA6OejRXprRlT7Y0U0EdKSDna2KZJXOmpyiVth4yC6OATw";
 
-const formsAPICalls = [
-  fetch("https://api.dev-forms.myqsrsoft.com/templates/metrics/6fed8edb-4deb-44d4-95f2-2887edca84e9?startDate=2020-09-12&endDate=2020-11-12", {
-    "headers": {
-      "accept": "*/*",
-      "accept-language": "en-US,en;q=0.9",
-      "content-type": "",
-      "sec-fetch-dest": "empty",
-      "sec-fetch-mode": "cors",
-      "sec-fetch-site": "same-site",
-      "x-auth-token": authToken
-    },
-    "referrer": "https://dev-forms.myqsrsoft.com/",
-    "referrerPolicy": "strict-origin-when-cross-origin",
-    "body": "{\"useCompressedTable\":false,\"lastEvaluatedKey\":{\"PK\":\"a65dd03d-217d-4f32-bd27-1a52648c29d9\",\"ORG_ID\":\"6fed8edb-4deb-44d4-95f2-2887edca84e9\",\"CXSK\":\"2020-09-12T21:03:18\"}}",
-    "method": "POST",
-    "mode": "cors",
-    "credentials": "omit"
-  }),
-  fetch("https://api.dev-forms.myqsrsoft.com/templates/metrics/6fed8edb-4deb-44d4-95f2-2887edca84e9?startDate=2020-08-13&endDate=2020-11-12", {
-    "headers": {
-      "accept": "*/*",
-      "accept-language": "en-US,en;q=0.9",
-      "content-type": "",
-      "sec-fetch-dest": "empty",
-      "sec-fetch-mode": "cors",
-      "sec-fetch-site": "same-site",
-      "x-auth-token": authToken
-    },
-    "referrer": "https://dev-forms.myqsrsoft.com/",
-    "referrerPolicy": "strict-origin-when-cross-origin",
-    "body": "{\"useCompressedTable\":false,\"lastEvaluatedKey\":{\"PK\":\"a65dd03d-217d-4f32-bd27-1a52648c29d9\",\"ORG_ID\":\"6fed8edb-4deb-44d4-95f2-2887edca84e9\",\"CXSK\":\"2020-09-12T21:02:55\"}}",
-    "method": "POST",
-    "mode": "cors",
-    "credentials": "omit"
-  }),
-]
-
 export default {
   data: () => ({
     onLine: null,
@@ -203,13 +166,47 @@ export default {
       function randomIntFromInterval(min, max) { // min and max included
         return Math.floor(Math.random() * (max - min + 1) + min);
       }
-      formsAPICalls[randomIntFromInterval(0,1)]
-      // .then(function(response) {
-      //   return response.json();
-      // })
-      .then(function(data) {
-        console.log(data);
-      });
+      if (randomIntFromInterval(0,1) === 0) {
+        fetch("https://api.dev-forms.myqsrsoft.com/templates/metrics/6fed8edb-4deb-44d4-95f2-2887edca84e9?startDate=2020-09-12&endDate=2020-11-12", {
+          "headers": {
+            "accept": "*/*",
+            "accept-language": "en-US,en;q=0.9",
+            "content-type": "",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-site",
+            "x-auth-token": authToken
+          },
+          "referrer": "https://dev-forms.myqsrsoft.com/",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "body": "{\"useCompressedTable\":false,\"lastEvaluatedKey\":{\"PK\":\"a65dd03d-217d-4f32-bd27-1a52648c29d9\",\"ORG_ID\":\"6fed8edb-4deb-44d4-95f2-2887edca84e9\",\"CXSK\":\"2020-09-12T21:03:18\"}}",
+          "method": "POST",
+          "mode": "cors",
+          "credentials": "omit"
+        }).then(function(data) {
+          console.log(data);
+        });
+      } else {
+        fetch("https://api.dev-forms.myqsrsoft.com/templates/metrics/6fed8edb-4deb-44d4-95f2-2887edca84e9?startDate=2020-08-13&endDate=2020-11-12", {
+          "headers": {
+            "accept": "*/*",
+            "accept-language": "en-US,en;q=0.9",
+            "content-type": "",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-site",
+            "x-auth-token": authToken
+          },
+          "referrer": "https://dev-forms.myqsrsoft.com/",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "body": "{\"useCompressedTable\":false,\"lastEvaluatedKey\":{\"PK\":\"a65dd03d-217d-4f32-bd27-1a52648c29d9\",\"ORG_ID\":\"6fed8edb-4deb-44d4-95f2-2887edca84e9\",\"CXSK\":\"2020-09-12T21:02:55\"}}",
+          "method": "POST",
+          "mode": "cors",
+          "credentials": "omit"
+        }).then(function(data) {
+          console.log(data);
+        });
+      }
     }
   },
   // NOTE: https://designer.mocky.io/manage -- in cognito
