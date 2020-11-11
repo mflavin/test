@@ -220,9 +220,13 @@ export default {
       "method": "POST",
       "mode": "cors",
       "credentials": "omit"
-    }).then(data => {
-      console.log('forms data, ', data);
     })
+    .then((response) => {
+      console.log('dev-forms.myqsrsoft -- ');
+      response.text().then(d => {
+        console.log('d: ', d);
+      })
+    });
   }
 };
 </script>
