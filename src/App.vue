@@ -167,7 +167,7 @@ export default {
         return Math.floor(Math.random() * (max - min + 1) + min);
       }
       if (randomIntFromInterval(0,1) === 0) {
-        fetch("https://api.dev-forms.myqsrsoft.com/templates/metrics/6fed8edb-4deb-44d4-95f2-2887edca84e9?startDate=2020-09-12&endDate=2020-11-12", {
+        fetch("https://api.dev-forms.myqsrsoft.com/templates/metrics/6fed8edb-4deb-44d4-95f2-2887edca84e9?startDate=2020-10-01&endDate=2020-11-12", {
           "headers": {
             "accept": "*/*",
             "accept-language": "en-US,en;q=0.9",
