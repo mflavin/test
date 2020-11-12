@@ -126,7 +126,7 @@ async function serializeResponse(response) {
     status: response.status,
     statusText: response.statusText
   };
-  serialized.body = await JSON.parse(JSON.stringify(serialized));
+  serialized.body = await !response.bodyUsed ? response.json() : response;
   return serialized;
 }
 
