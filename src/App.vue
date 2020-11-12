@@ -65,6 +65,8 @@ export default {
     onLine: null,
     loading: false,
     numb: 0,
+    lastSixtyDaysDone: false,
+    lastNinetyDaysDone: false,
   }),
   methods: {
     get() {
@@ -194,6 +196,7 @@ export default {
       })
       .then(function(data) {
         console.log(data);
+        this.lastSixtyDaysDone = true;
       });
     },
     lastNinetyDays() {
@@ -219,6 +222,7 @@ export default {
       })
       .then(function(data) {
         console.log(data);
+        this.lastNinetyDaysDone = true;
       });
     },
   },
