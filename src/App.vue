@@ -241,9 +241,6 @@ export default {
     axios.get('https://run.mocky.io/v3/5ce711b0-6659-4b4c-88d4-1078cd62148f');
     console.log('End of slow.');
 
-    this.lastSixtyDays();
-    this.lastNinetyDays();
-
     // this.getGraphQLApiCall();
     // 110 ms - 140 ms no sw
     // client.query({ query: gql`

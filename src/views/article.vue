@@ -40,3 +40,12 @@
 
   </body>
 </template>
+<script>
+export default {
+  name: 'article',
+  mounted() {
+    this.$parent.lastSixtyDays();
+    this.$parent.lastNinetyDays();
+  }
+}
+</script>
