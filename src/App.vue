@@ -185,6 +185,7 @@ export default {
           "credentials": "omit"
         })
         .then(function(response) {
+          console.log('response.json', response.json);
           return response.json ? response.json() : response;
         })
         .then(function(data) {
@@ -209,6 +210,7 @@ export default {
           "credentials": "omit"
         })
         .then(function(response) {
+          console.log('response.json', response.json);
           return response.json ? response.json() : response;
         })
         .then(function(data) {
