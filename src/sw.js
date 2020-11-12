@@ -143,8 +143,9 @@ async function setCache(request, response) {
   var key, data;
   let body = await request.json();
   let id = CryptoJS.MD5(body.lastEvaluatedKey.PK).toString();
+  console.log('body , ', body);
   var entry = {
-    query: body.query,
+    query: body.lastEvaluatedKey.PK,
     response: await serializeResponse(response),
     timestamp: Date.now()
   };
@@ -158,7 +159,6 @@ async function getCache(request) {
     let id = CryptoJS.MD5(body.lastEvaluatedKey.PK).toString();
     data = await idbKeyval.get(id, store);
     if (!data) return null;
-
     // Set cache max age to one hour
     const maxAge = 3600000;
     const cacheAge = Date.now() - data.timestamp;
@@ -166,7 +166,6 @@ async function getCache(request) {
       console.log(`Cache expired. Load from API endpoint.`);
       return null;
     }
-
     console.log(`Load response from cache.`);
     return new Response(JSON.stringify(data.response.body), data.response);
   } catch (err) {
