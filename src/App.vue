@@ -190,7 +190,7 @@ export default {
           console.log(data);
         });
       } else {
-        fetch("https://api.dev-forms.myqsrsoft.com/templates/metrics/6fed8edb-4deb-44d4-95f2-2887edca84e9?startDate=2020-08-13&endDate=2020-11-12", {
+        fetch("https://api.dev-forms.myqsrsoft.com/templates/metrics/6fed8edb-4deb-44d4-95f2-2887edca84e9?startDate=2020-08-14&endDate=2020-11-13", {
           "headers": {
             "accept": "*/*",
             "accept-language": "en-US,en;q=0.9",
@@ -202,7 +202,7 @@ export default {
           },
           "referrer": "https://dev-forms.myqsrsoft.com/",
           "referrerPolicy": "strict-origin-when-cross-origin",
-          "body": "{\"useCompressedTable\":false,\"lastEvaluatedKey\":{\"PK\":\"a65dd03d-217d-4f32-bd27-1a52648c29d9\",\"ORG_ID\":\"6fed8edb-4deb-44d4-95f2-2887edca84e9\",\"CXSK\":\"2020-09-12T21:02:55\"}}",
+          "body": "{\"useCompressedTable\":false,\"lastEvaluatedKey\":{\"PK\":\"a65dd03d-217d-4f32-bd27-1a52648c29d9\",\"ORG_ID\":\"6fed8edb-4deb-44d4-95f2-2887edca84e9\",\"CXSK\":\"2020-09-11T19:45:27\"}}",
           "method": "POST",
           "mode": "cors",
           "credentials": "omit"
