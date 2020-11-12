@@ -93,6 +93,15 @@ workbox.routing.registerRoute(
   },
   'POST'
 );
+workbox.routing.registerRoute(
+  'https://api.forms.myqsrsoft.com/templates/metrics/',
+  async ({
+    event
+  }) => {
+    return staleWhileRevalidate(event);
+  },
+  'POST'
+);
 
 // Return cached response when possible, and fetch new results from server in
 // the background and update the cache.

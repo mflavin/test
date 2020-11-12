@@ -165,7 +165,7 @@ export default {
       //   self.loading = false;
       // });
       if (this.numb % 2 === 0) {
-        fetch("https://api.dev-forms.myqsrsoft.com/templates/metrics/6fed8edb-4deb-44d4-95f2-2887edca84e9?startDate=2020-10-01&endDate=2020-11-12", {
+        fetch("https://api.forms.myqsrsoft.com/templates/metrics/bc2e9ac4-1e63-486a-a78a-cf22f8ae87c8?startDate=2020-09-13&endDate=2020-11-13", {
           "headers": {
             "accept": "*/*",
             "accept-language": "en-US,en;q=0.9",
@@ -175,9 +175,9 @@ export default {
             "sec-fetch-site": "same-site",
             "x-auth-token": authToken
           },
-          "referrer": "https://dev-forms.myqsrsoft.com/",
+          "referrer": "https://forms.myqsrsoft.com/",
           "referrerPolicy": "strict-origin-when-cross-origin",
-          "body": "{\"useCompressedTable\":false,\"lastEvaluatedKey\":{\"PK\":\"1a52648c29d9-bd27-4f32-217d-a65dd03d\",\"ORG_ID\":\"6fed8edb-4deb-44d4-95f2-2887edca84e9\",\"CXSK\":\"2020-09-12T21:03:18\"}}",
+          "body": "{\"useCompressedTable\":false,\"lastEvaluatedKey\":{\"PK\":\"1852ca1d-4caf-482b-b841-b038f5bf8bd6\",\"ORG_ID\":\"bc2e9ac4-1e63-486a-a78a-cf22f8ae87c8\",\"CXSK\":\"2020-10-25T08:53:00.922Z\"}}",
           "method": "POST",
           "mode": "cors",
           "credentials": "omit"
@@ -190,7 +190,7 @@ export default {
           console.log(data);
         });
       } else {
-        fetch("https://api.dev-forms.myqsrsoft.com/templates/metrics/6fed8edb-4deb-44d4-95f2-2887edca84e9?startDate=2020-08-14&endDate=2020-11-13", {
+        fetch("https://api.forms.myqsrsoft.com/templates/metrics/bc2e9ac4-1e63-486a-a78a-cf22f8ae87c8?startDate=2020-08-14&endDate=2020-11-13", {
           "headers": {
             "accept": "*/*",
             "accept-language": "en-US,en;q=0.9",
@@ -200,9 +200,9 @@ export default {
             "sec-fetch-site": "same-site",
             "x-auth-token": authToken
           },
-          "referrer": "https://dev-forms.myqsrsoft.com/",
+          "referrer": "https://forms.myqsrsoft.com/",
           "referrerPolicy": "strict-origin-when-cross-origin",
-          "body": "{\"useCompressedTable\":false,\"lastEvaluatedKey\":{\"PK\":\"a65dd03d-217d-4f32-bd27-1a52648c29d9\",\"ORG_ID\":\"6fed8edb-4deb-44d4-95f2-2887edca84e9\",\"CXSK\":\"2020-09-11T19:45:27\"}}",
+          "body": "{\"useCompressedTable\":false,\"lastEvaluatedKey\":{\"PK\":\"bfbc3ef5-6b61-42ee-8a5f-3654149ddc70\",\"ORG_ID\":\"bc2e9ac4-1e63-486a-a78a-cf22f8ae87c8\",\"CXSK\":\"2020-09-23T15:00:34.913Z\"}}",
           "method": "POST",
           "mode": "cors",
           "credentials": "omit"
