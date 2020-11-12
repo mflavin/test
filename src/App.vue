@@ -64,6 +64,7 @@ export default {
   data: () => ({
     onLine: null,
     loading: false,
+    numb: 0,
   }),
   methods: {
     get() {
@@ -163,10 +164,7 @@ export default {
       //   `;
       //   self.loading = false;
       // });
-      function randomIntFromInterval(min, max) { // min and max included
-        return Math.floor(Math.random() * (max - min + 1) + min);
-      }
-      if (randomIntFromInterval(0,1) === 0) {
+      if (this.numb % 2 === 0) {
         fetch("https://api.dev-forms.myqsrsoft.com/templates/metrics/6fed8edb-4deb-44d4-95f2-2887edca84e9?startDate=2020-10-01&endDate=2020-11-12", {
           "headers": {
             "accept": "*/*",
@@ -217,6 +215,7 @@ export default {
           console.log(data);
         });
       }
+      this.numb++;
     }
   },
   // NOTE: https://designer.mocky.io/manage -- in cognito
