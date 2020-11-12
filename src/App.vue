@@ -185,11 +185,7 @@ export default {
           "credentials": "omit"
         })
         .then(function(response) {
-          try {
-            return response.json()
-          } catch (e) {
-            return;
-          }
+          return response.json ? response.json() : response;
         })
         .then(function(data) {
           console.log(data);
@@ -213,11 +209,7 @@ export default {
           "credentials": "omit"
         })
         .then(function(response) {
-          try {
-            return response.json()
-          } catch (e) {
-            return;
-          }
+          return response.json ? response.json() : response;
         })
         .then(function(data) {
           console.log(data);
