@@ -165,58 +165,64 @@ export default {
       //   self.loading = false;
       // });
       if (this.numb % 2 === 0) {
-        fetch("https://api.forms.myqsrsoft.com/templates/metrics/bc2e9ac4-1e63-486a-a78a-cf22f8ae87c8?startDate=2020-09-13&endDate=2020-11-13", {
-          "headers": {
-            "accept": "*/*",
-            "accept-language": "en-US,en;q=0.9",
-            "content-type": "",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "same-site",
-            "x-auth-token": authToken
-          },
-          "referrer": "https://forms.myqsrsoft.com/",
-          "referrerPolicy": "strict-origin-when-cross-origin",
-          "body": "{\"useCompressedTable\":false,\"lastEvaluatedKey\":{\"PK\":\"1852ca1d-4caf-482b-b841-b038f5bf8bd6\",\"ORG_ID\":\"bc2e9ac4-1e63-486a-a78a-cf22f8ae87c8\",\"CXSK\":\"2020-10-25T08:53:00.922Z\"}}",
-          "method": "POST",
-          "mode": "cors",
-          "credentials": "omit"
-        })
-        .then(function(response) {
-          console.log('response, ', response);
-          return response.json();
-        })
-        .then(function(data) {
-          console.log(data);
-        });
+        this.lastSixtyDays();
       } else {
-        fetch("https://api.forms.myqsrsoft.com/templates/metrics/bc2e9ac4-1e63-486a-a78a-cf22f8ae87c8?startDate=2020-08-14&endDate=2020-11-13", {
-          "headers": {
-            "accept": "*/*",
-            "accept-language": "en-US,en;q=0.9",
-            "content-type": "",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "same-site",
-            "x-auth-token": authToken
-          },
-          "referrer": "https://forms.myqsrsoft.com/",
-          "referrerPolicy": "strict-origin-when-cross-origin",
-          "body": "{\"useCompressedTable\":false,\"lastEvaluatedKey\":{\"PK\":\"bfbc3ef5-6b61-42ee-8a5f-3654149ddc70\",\"ORG_ID\":\"bc2e9ac4-1e63-486a-a78a-cf22f8ae87c8\",\"CXSK\":\"2020-09-23T15:00:34.913Z\"}}",
-          "method": "POST",
-          "mode": "cors",
-          "credentials": "omit"
-        })
-        .then(function(response) {
-          console.log('response, ', response);
-          return response.json();
-        })
-        .then(function(data) {
-          console.log(data);
-        });
+        this.lastNinetyDays();
       }
       this.numb++;
-    }
+    },
+    lastSixtyDays() {
+      fetch("https://api.forms.myqsrsoft.com/templates/metrics/bc2e9ac4-1e63-486a-a78a-cf22f8ae87c8?startDate=2020-09-13&endDate=2020-11-13", {
+        "headers": {
+          "accept": "*/*",
+          "accept-language": "en-US,en;q=0.9",
+          "content-type": "",
+          "sec-fetch-dest": "empty",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "same-site",
+          "x-auth-token": authToken
+        },
+        "referrer": "https://forms.myqsrsoft.com/",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": "{\"useCompressedTable\":false,\"lastEvaluatedKey\":{\"PK\":\"1852ca1d-4caf-482b-b841-b038f5bf8bd6\",\"ORG_ID\":\"bc2e9ac4-1e63-486a-a78a-cf22f8ae87c8\",\"CXSK\":\"2020-10-25T08:53:00.922Z\"}}",
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "omit"
+      })
+      .then(function(response) {
+        console.log('response, ', response);
+        return response.json();
+      })
+      .then(function(data) {
+        console.log(data);
+      });
+    },
+    lastNinetyDays() {
+      fetch("https://api.forms.myqsrsoft.com/templates/metrics/bc2e9ac4-1e63-486a-a78a-cf22f8ae87c8?startDate=2020-08-14&endDate=2020-11-13", {
+        "headers": {
+          "accept": "*/*",
+          "accept-language": "en-US,en;q=0.9",
+          "content-type": "",
+          "sec-fetch-dest": "empty",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "same-site",
+          "x-auth-token": authToken
+        },
+        "referrer": "https://forms.myqsrsoft.com/",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": "{\"useCompressedTable\":false,\"lastEvaluatedKey\":{\"PK\":\"bfbc3ef5-6b61-42ee-8a5f-3654149ddc70\",\"ORG_ID\":\"bc2e9ac4-1e63-486a-a78a-cf22f8ae87c8\",\"CXSK\":\"2020-09-23T15:00:34.913Z\"}}",
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "omit"
+      })
+      .then(function(response) {
+        console.log('response, ', response);
+        return response.json();
+      })
+      .then(function(data) {
+        console.log(data);
+      });
+    },
   },
   // NOTE: https://designer.mocky.io/manage -- in cognito
   mounted () {
@@ -237,8 +243,10 @@ export default {
     axios.get('https://run.mocky.io/v3/5ce711b0-6659-4b4c-88d4-1078cd62148f');
     console.log('End of slow.');
 
-    this.getGraphQLApiCall();
+    this.lastSixtyDays();
+    this.lastNinetyDays();
 
+    // this.getGraphQLApiCall();
     // 110 ms - 140 ms no sw
     // client.query({ query: gql`
     //   query (
