@@ -42,8 +42,8 @@
 </template>
 <script>
 export default {
-  name: 'article',
   mounted() {
+    console.log('this, ', this);
     this.$parent.lastSixtyDays();
     this.$parent.lastNinetyDays();
   }
