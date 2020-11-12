@@ -184,7 +184,7 @@ export default {
         })
         .then(function(response) {
           console.log('response, ', response);
-          return !response.bodyUsed ? response.json() : response;
+          return response.json();
         })
         .then(function(data) {
           console.log(data);
@@ -209,7 +209,7 @@ export default {
         })
         .then(function(response) {
           console.log('response, ', response);
-          return !response.bodyUsed ? response.json() : response;
+          return response.json();
         })
         .then(function(data) {
           console.log(data);
