@@ -174,6 +174,7 @@ export default {
       this.numb++;
     },
     lastSixtyDays() {
+      const self = this;
       fetch("https://api.forms.myqsrsoft.com/templates/metrics/bc2e9ac4-1e63-486a-a78a-cf22f8ae87c8?startDate=2020-09-13&endDate=2020-11-13", {
         "headers": {
           "accept": "*/*",
@@ -196,10 +197,11 @@ export default {
       })
       .then(function(data) {
         console.log(data);
-        this.lastSixtyDaysDone = true;
+        self.lastSixtyDaysDone = true;
       });
     },
     lastNinetyDays() {
+      const self = this;
       fetch("https://api.forms.myqsrsoft.com/templates/metrics/bc2e9ac4-1e63-486a-a78a-cf22f8ae87c8?startDate=2020-08-14&endDate=2020-11-13", {
         "headers": {
           "accept": "*/*",
@@ -222,7 +224,7 @@ export default {
       })
       .then(function(data) {
         console.log(data);
-        this.lastNinetyDaysDone = true;
+        self.lastNinetyDaysDone = true;
       });
     },
   },
