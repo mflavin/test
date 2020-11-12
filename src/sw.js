@@ -117,6 +117,7 @@ async function staleWhileRevalidate(event) {
 }
 
 async function serializeResponse(response) {
+  console.log('response, ', response);
   let serializedHeaders = {};
   for (var entry of response.headers.entries()) {
     serializedHeaders[entry[0]] = entry[1];
