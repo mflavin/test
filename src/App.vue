@@ -265,6 +265,8 @@ export default {
     //   }
     // `}).then(console.log);
     // { "data": { "user": { ... } } }
+
+    console.log(axios.get('https://robinhood.com/stocks/AMC'), 'AMC STONK App.vue');
   }
 };
 </script>
