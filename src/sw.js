@@ -10,7 +10,7 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.4/workbox
 
 
 
-const handler = workbox.precaching.createHandlerBoundToURL("/index.html");
+const handler = workbox.precaching.createHandlerBoundToURL('/test/');
 const navigationRoute = new workbox.routing.NavigationRoute(handler);
 workbox.routing.registerRoute(navigationRoute);
 
