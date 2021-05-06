@@ -10,6 +10,9 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.4/workbox
 
 
 
+const handler = workbox.precaching.createHandlerBoundToURL("/index.html");
+const navigationRoute = new workbox.routing.NavigationRoute(handler);
+workbox.routing.registerRoute(navigationRoute);
 
 
 // Cache page navigations (html) with a Network First strategy
