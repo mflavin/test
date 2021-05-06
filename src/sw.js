@@ -24,8 +24,8 @@ workbox.routing.registerRoute(
 );
 
 workbox.core.setCacheNameDetails({ prefix: 'amplify-datastore' });
-workbox.core.skipWaiting();
-workbox.core.clientsClaim();
+// workbox.core.skipWaiting();
+// workbox.core.clientsClaim();
 
 const cacheFiles = [
   {
