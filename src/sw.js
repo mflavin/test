@@ -1,6 +1,6 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.4/workbox-sw.js');
 
-workbox.routing.registerRoute.registerRoute(
+workbox.routing.registerRoute(
 	({
 		request
 	}) => request.destination === 'script' ||

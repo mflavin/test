@@ -28,7 +28,7 @@ if ('serviceWorker' in navigator) {
     // *Don't* register service worker file in, e.g., a scripts/ sub-directory!
     // See https://github.com/slightlyoff/ServiceWorker/issues/468
     // navigator.serviceWorker.register(`${process.env.BASE_URL}sw.js`).then((reg) => {
-    navigator.serviceWorker.register(`sw.js`).then((reg) => {
+    navigator.serviceWorker.register('sw.js').then((reg) => {
       const app = document.getElementById('app').__vue__;
       // Watches to see if route changed then checks for new code
       // TODO: Test this a bit more, make sure it doesn't mess up with form submits or similar page actions

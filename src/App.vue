@@ -8,12 +8,12 @@
       </router-link> |
       <router-link :to="{ name: 'About' }" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: salmon; display: block;">
-         About
+         About.
         </span>
       </router-link>
       <router-link :to="{ name: 'Article' }" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: steelblue; display: block;">
-         Article
+         Article.
         </span>
       </router-link>
       <button type="button" name="button" @click="get" style="flex: 0 0 20%; margin-bottom: 35px;"><b>G</b>et!</button>
