@@ -3,7 +3,7 @@
     <div id="nav" style="display: flex; justify-content: space-between; flex-wrap: wrap; padding-left: 0;">
       <router-link :to="{ name: 'Home' }" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: lightblue; display: block;">
-         Home
+         Home.
         </span>
       </router-link> |
       <router-link :to="{ name: 'About' }" style="flex: 0 0 33%; padding-bottom: 35px;">
