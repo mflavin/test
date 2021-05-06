@@ -9,6 +9,20 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.4/workbox
 // );
 
 
+const cacheFiles = [
+  {
+    revision: '032520210139',
+    url: 'sw.js',
+  },
+	{
+		revision: '032520210139',
+    url: '/test/',
+	}
+];
+
+self.__precacheManifest = cacheFiles.concat(self.__precacheManifest || []);
+workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+
 
 const handler = workbox.precaching.createHandlerBoundToURL('/test/');
 const navigationRoute = new workbox.routing.NavigationRoute(handler);
