@@ -22,7 +22,7 @@ workbox.routing.registerRoute(
         cacheName: 'pages',
         plugins: [
             // Ensure that only requests that result in a 200 status are cached
-            new workbox.cacheableResponse.Plugin({
+            new workbox.cacheableResponse.CacheableResponsePlugin({
                 statuses: [200],
             }),
         ],
@@ -42,7 +42,7 @@ workbox.routing.registerRoute(
         cacheName: 'assets',
         plugins: [
             // Ensure that only requests that result in a 200 status are cached
-            new CacheableResponsePlugin({
+            new workbox.cacheableResponse.CacheableResponsePlugin({
                 statuses: [200],
             }),
         ],
@@ -59,14 +59,28 @@ workbox.routing.registerRoute(
         cacheName: 'images',
         plugins: [
             // Ensure that only requests that result in a 200 status are cached
-            new CacheableResponsePlugin({
+            new workbox.cacheableResponse.CacheableResponsePlugin({
                 statuses: [200],
             }),
             // Don't cache more than 50 items, and expire them after 30 days
-            new workbox.expiration.Plugin({
+            new workbox.expiration.ExpirationPlugin({
                 maxEntries: 50,
                 maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
             }),
         ],
     }),
 );
+
+
+
+// import { registerRoute } from 'workbox-routing';
+// import {
+//     NetworkFirst,
+//     StaleWhileRevalidate,
+//     CacheFirst,
+// } from 'workbox-strategies';
+//
+// // Used for filtering matches based on status code, header, or both
+// import { CacheableResponsePlugin } from 'workbox-cacheable-response';
+// // Used to limit entries in cache, remove entries after a certain period of time
+// import { ExpirationPlugin } from 'workbox-expiration';
