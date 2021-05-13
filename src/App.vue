@@ -8,7 +8,7 @@
       </router-link> |
       <router-link :to="{ name: 'About' }" style="flex: 0 0 33%; padding-bottom: 35px;">
         <span style="color: salmon; display: block;">
-         .About
+         .About --> {{ isOnline }}
         </span>
       </router-link>
       <router-link :to="{ name: 'Article' }" style="flex: 0 0 33%; padding-bottom: 35px;">
@@ -68,6 +68,12 @@ export default {
     lastSixtyDaysDone: false,
     lastNinetyDaysDone: false,
   }),
+  computed: {
+    isOnline() {
+      // Make dataStore HUB
+      return navigator.onLine;
+    },
+  },
   methods: {
     get() {
       fetch('https://api.coindesk.com/v1/bpi/currentprice/CNY.json')
